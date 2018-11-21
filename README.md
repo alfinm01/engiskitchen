@@ -37,6 +37,7 @@ git clone https://github.com/alfinm01/engiskitchen.git
 git pull
 ```
 -> Buat ngambil perubahan terbaru yang belum kita ambil dari repo
+
 5. Kalo udah ada perubahan:
 ```
 git add .
@@ -50,6 +51,7 @@ git commit -m "pesan"
 git push origin master
 ```
 -> Upload commit-commit yang udah kita buat (bisa berkali-kali commit baru sekali push) ke repo online
+
 6. Fitur-fitur lain:
 ```
 git status
