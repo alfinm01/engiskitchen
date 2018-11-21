@@ -1,12 +1,12 @@
 # engiskitchen
 Tugas Besar Algoritma dan Struktur Data
 
-# TIPS
+## TIPS
 Download Github (bisa versi Github Desktop (ada UI-nya) atau versi CLI (dioperasiin di cmd))
 
-# Cara pake Github (versi CLI (Command Line Interface)):
+## Cara pake Github (versi CLI (Command Line Interface)):
 
-# Konfigurasi Github
+### Konfigurasi Github
 1. Download & install Github
     Untuk versi Windows, bisa dari sini https://gitforwindows.org/
     Untuk versi Linux / Mac, bisa dilihat di sini https://gist.github.com/derhuerst/1b15ff4652a867391f03
@@ -18,7 +18,7 @@ Download Github (bisa versi Github Desktop (ada UI-nya) atau versi CLI (dioperas
 4. Cek konfigurasi:
     git config --list
 
-# Operasiin Github
+### Operasiin Github
 1. Masuk ke directory (folder) di mana kalian mau nyimpen file-file nya di PC masing-masing
     Contoh: D:\Coding\C\Alstrukdat
 2. Cloning dari repo ini
