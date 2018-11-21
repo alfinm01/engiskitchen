@@ -35,4 +35,4 @@ Download Github (bisa versi Github Desktop (ada UI-nya) atau versi CLI (dioperas
     git diff                        -> Ngelihat perbedaan dari yang di PC kita dengan yang di repo
     git checkout                    -> Nge-undo perubahan (?)
     
-# Note: Cara-cara ini masih banyak khilafnya dan belum sempurna, buat lengkapnya bisa browsing sendiri atau tanya-tanya aja
+## Note: Cara-cara ini masih banyak khilafnya dan belum sempurna, buat lengkapnya bisa browsing sendiri atau tanya-tanya aja
