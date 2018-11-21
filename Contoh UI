@@ -1,0 +1,19 @@
+   ***** ENGI'S KITCHEN EXPANSION *****
+
+Alfian M | Money: 600 | Life: 2 | Time: 8
+            -----------------
+           |   C             |
+           | C 1 C P   C 2 C |
+           |   C             |
+           |                 |
+           |                 |
+           |   X             |
+           | C 3 C     X 4 X |
+           |   X     D       |
+            -----------------
+Waiting Cust | Order          | Food Stack
+2            | Burger, 2      | Burger
+4            | Fish Fillet, 3 |
+             | Shark Soup, 1  |
+
+Command: GU

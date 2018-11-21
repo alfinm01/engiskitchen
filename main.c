@@ -1,30 +1,24 @@
 /* File : engiskitchenexpansion.c */
 /* Deskripsi : Engi's Kitchen versi Dinner Dash */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "boolean.h"
+#include "kamus.h"
 
-void uiHeader() {
-	/* Kamus Lokal */
+// void NewGame(char *userName) {
+// 	/* Kamus Lokal */
 
-	/* Algoritma */
-	printf("***** ENGI'S KITCHEN EXPANSION *****\n");
-	printf("\n");
-}
-/* Menampilkan header UI di main menu */
-
-void uiMenu() {
-	/* Kamus Lokal */
-
-	/* Algoritma */
-	uiHeader();
-	printf("           1. New Game\n");
-	printf("           2. Start Game\n");
-	printf("           3. Load Game\n");
-	printf("           4. Exit\n");
-}
-/* Menampilkan opsi menu */
+// 	/* Algoritma */
+// 	system("cls");
+// 	uiHeader();
+//     printf("Nama Anda (max 20 karakter): ");
+//     userName = (char *) malloc (20 * sizeof (char));
+//     scanf("%s", &userName);
+//     system("cls");
+//     uiMenu();
+//     printf("\n");
+//     printf("Nama Anda: %s\n", &userName);
+//     printf("Masukkan opsi antara 1-4 sesuai pada main menu\n");
+// }
+// /* Prosedur New Game */
 
 int main() {
 	/* KAMUS */
