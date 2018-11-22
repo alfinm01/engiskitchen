@@ -19,4 +19,5 @@
 #include "./ADT/stack.h"
 // #include "./ADT/stacklist.h"
 
+void move(char *command, POINT *P, JAM *J);
 #endif

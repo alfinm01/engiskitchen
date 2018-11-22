@@ -66,6 +66,9 @@ boolean IsOnSbY (POINT P){
 /* Menghasilkan true jika P terletak pada sumbu Y */
 	return (Absis(P)==0);
 }
+boolean IsPointPintu (POINT P) {
+	//return (P == Maps.D);
+}
 int Kuadran (POINT P){
 /* Menghasilkan kuadran dari P: 1, 2, 3, atau 4 */
 /* Prekondisi : P bukan titik origin, */
@@ -87,9 +90,15 @@ POINT NextX (POINT P){
 /* Mengirim salinan P dengan absis ditambah satu */              
 	return MakePOINT(Absis(P)+1,Ordinat(P));
 }
+POINT PrevX (POINT P) {
+	return MakePOINT(Absis(P)-1,Ordinat(P));
+}
 POINT NextY (POINT P){
 /* Mengirim salinan P dengan ordinat ditambah satu */
 	return MakePOINT(Absis(P),Ordinat(P)+1);	
+}
+POINT PrevY (POINT P) {
+	return MakePOINT(Absis(P),Ordinat(P)-1);
 }
 POINT PlusDelta (POINT P, float deltaX, float deltaY){
 /* Mengirim salinan P yang absisnya adalah Absis(P) + deltaX dan ordinatnya adalah Ordinat(P) + deltaY */

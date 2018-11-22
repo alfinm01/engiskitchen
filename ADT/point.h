@@ -49,6 +49,8 @@ boolean IsOnSbX (POINT P);
 /* Menghasilkan true jika P terletak Pada sumbu X */
 boolean IsOnSbY (POINT P);
 /* Menghasilkan true jika P terletak pada sumbu Y */
+boolean IsPointPintu (POINT P);
+
 int Kuadran (POINT P);
 /* Menghasilkan kuadran dari P: 1, 2, 3, atau 4 */
 /* Prekondisi : P bukan titik origin, */
@@ -56,9 +58,13 @@ int Kuadran (POINT P);
 
 /* *** KELOMPOK OPERASI LAIN TERHADAP TYPE *** */                           
 POINT NextX (POINT P);
-/* Mengirim salinan P dengan absis ditambah satu */              
+/* Mengirim salinan P dengan absis ditambah satu */ 
+POINT PrevX (POINT P);
+// (X - 1)
 POINT NextY (POINT P);
 /* Mengirim salinan P dengan ordinat ditambah satu */
+POINT PrevY (POINT P);
+// (Y - 1)
 POINT PlusDelta (POINT P, float deltaX, float deltaY);
 /* Mengirim salinan P yang absisnya adalah Absis(P) + deltaX dan ordinatnya adalah Ordinat(P) + deltaY */
 POINT MirrorOf (POINT P, boolean SbX);
