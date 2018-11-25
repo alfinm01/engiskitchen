@@ -69,6 +69,18 @@ boolean IsOnSbY (POINT P){
 boolean IsPointPintu (POINT P) {
 	//return (P == Maps.D);
 }
+boolean BatasAtas(POINT P) {
+	return(P.Y == 8);
+}
+boolean BatasBawah(POINT P) {
+	return(P.Y == 1);
+}
+boolean BatasKanan(POINT P) {
+	return(P.X == 8);
+}
+boolean BatasKiri(POINT P) {
+	return(P.X == 1);
+}
 int Kuadran (POINT P){
 /* Menghasilkan kuadran dari P: 1, 2, 3, atau 4 */
 /* Prekondisi : P bukan titik origin, */

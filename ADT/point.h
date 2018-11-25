@@ -51,6 +51,14 @@ boolean IsOnSbY (POINT P);
 /* Menghasilkan true jika P terletak pada sumbu Y */
 boolean IsPointPintu (POINT P);
 
+boolean BatasAtas(POINT P);
+
+boolean BatasBawah(POINT P);
+
+boolean BatasKanan(POINT P);
+
+boolean BatasKiri(POINT P);
+
 int Kuadran (POINT P);
 /* Menghasilkan kuadran dari P: 1, 2, 3, atau 4 */
 /* Prekondisi : P bukan titik origin, */
