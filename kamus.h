@@ -41,7 +41,7 @@ typedef struct {
 } Customers;					/* Customer di-generate secara random */
 
 extern States State;
-extern Maps MapRestaurant, MapMain;
+extern Maps MapKitchen, MapMain;
 extern Tables Table1, Table2, Table3, Table4;
 
 #endif

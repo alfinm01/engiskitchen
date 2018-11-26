@@ -66,8 +66,8 @@ boolean IsOnSbY (POINT P){
 /* Menghasilkan true jika P terletak pada sumbu Y */
 	return (Absis(P)==0);
 }
-boolean IsPointPintu (POINT P) {
-	//return (P == Maps.D);
+boolean IsPointPintu (POINT *P) {
+	return (P == MapKitchen.D || P == MapMain.D);
 }
 boolean BatasAtas(POINT P) {
 	return(P.Y == 8);

@@ -5,6 +5,7 @@
 #define POINT_H
 
 #include "boolean.h"
+#include "../kamus.h"
 
 typedef struct { 
 	float X; /* absis   */
