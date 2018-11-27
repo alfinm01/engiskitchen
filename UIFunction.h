@@ -6,7 +6,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "boolean.h"
 
 void uiHeader();
 /* I.S. Sembarang */

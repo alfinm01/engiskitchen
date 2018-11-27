@@ -5,13 +5,25 @@
 #define _KAMUS_H_
 
 /* Modul lain yang digunakan : */
-#include "UIFunction.h"
+/*#include "UIFunction.h"
 #include "movementFunction.h"
 #include "stackFunction.h"
-#include "queueFunction.h"
+#include "queueFunction.h"*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "./ADT/jam.h"
+#include "./ADT/point.h"
+#include "./ADT/stack.h"
+#include "./ADT/boolean.h"
+#include "./ADT/mesin_kata.h"
+
+
+//#include "UIFunction.h"
 
 typedef struct {
-	char *Name;				/* Nama pemain */
+	char Name[20];			/* Nama pemain */
 	POINT Position;			/* Posisi pemain P */
 	int Life;				/* Nyawa tersisa */
 	int Money;				/* Jumlah uang yang didapat */
@@ -28,6 +40,7 @@ typedef struct {
 } Maps;
 
 typedef struct {
+	int Number;				/* Nomor meja ke-berapa */
 	int Chair;				/* Jumlah kursi tersedia (2 atau 4) */
 	boolean IsFull;			/* Meja sudah terisi atau belum */
 	POINT Position;
@@ -35,14 +48,14 @@ typedef struct {
 
 typedef struct {
 	int Amount;				/* Jumlah orang (2 atau 4) */
-	char *Order;			/* Makanan yang ingin dipesan */
+	char Order[20];			/* Makanan yang ingin dipesan */
 	int QueueingTime;		/* Waktu kesabaran ketika mengantre (30 tick) */
 	int Patience;			/* Waktu kesabaran ketika menunggu di meja */
 } Customers;					/* Customer di-generate secara random */
 
-extern States State;
+/*extern States State;
 extern Maps MapRestaurant, MapMain;
-extern Tables Table1, Table2, Table3, Table4;
+extern Tables Table1, Table2, Table3, Table4;*/
 
 #endif
 
