@@ -2,22 +2,49 @@
 
 #include "UI.h"
 
-int alfian = 10;
-
-void UIMR(){
+void UIGameHeader() {
+/*----------------------------------------------------------------------------- .
+|                                  MAIN ROOM                                  |.
+ ----------------------------------------------------------------------------- .*/
 	/* Kamus */
-	FILE filename;
+
 	/* Algoritma */
-	*filename = fopen('UIMainRoom.txt', r);
-	STARTKATA(filename);
-	fclose(filename);
+	printf(" ----------------------------------------------------------------------------- \n");
+	// dst
 }
 
-void UIKit(){
+void UIMainRoom() {
 	/* Kamus */
-	FILE filename;
+
 	/* Algoritma */
-	*filename = fopen('UIKitchen.txt', r);
-	
-	fclose(filename);		
+
+}
+
+void UIKitchen() {
+	/* Kamus */
+
+	/* Algoritma */
+}
+
+void ReadState(States *State) {
+	/* Kamus */
+	char filename[16] = "GameState.txt";
+	int i;
+
+	/* Algoritma */
+	printf("debug1\n");
+	STARTKATA(filename);
+
+	printf("debug2\n");
+	while (!EndKata) {
+		if ((CKata.TabKata[1] = 'N') && (CKata.TabKata[2] = 'a') &&
+			(CKata.TabKata[3] = 'm') && (CKata.TabKata[1] = 'e')) {
+			ADVKATA();
+			for (i = 1; i <= CKata.Length; i++) {
+				(*State).Name[i] = CKata.TabKata[i];
+			}
+			printf("%s\n", (*State).Name);
+		}
+		ADVKATA();
+	}
 }

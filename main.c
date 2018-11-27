@@ -2,6 +2,8 @@
 /* Deskripsi : Engi's Kitchen versi Dinner Dash */
 
 #include "kamus.h"
+#include "./UI/UI.h"
+#include "UIFunction.h"
 
 // void NewGame(char *userName) {
 // 	/* Kamus Lokal */
@@ -24,6 +26,9 @@ int main() {
 	/* KAMUS */
 	char command, *userName;
 	boolean exit;
+	States State;
+	Maps MapRestaurant, MapMain;
+	Tables Table1, Table2, Table3, Table4;
 
 	/* ALGORITMA */
 
@@ -52,6 +57,8 @@ int main() {
 		    }
 		    case '3': {
 		        printf("Load Game\n");
+		        ReadState(&State);
+		        printf("%s\n", State.Name);
 		        break;
 		    }
 		    case '4': {

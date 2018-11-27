@@ -1,14 +1,22 @@
 /* ADT print UI */
 
-#include "mesin_kata.h"
- 
-void UIMR();
+#ifndef _UI_H_
+#define _UI_H_
+
+#include "../kamus.h"
+//#include "../ADT/mesin_kata.h"
+
+void UIGameHeader();
+
+void UIMainRoom();
 /*	I.S Sembarang
 	F.S Menampilkan UI Main Room */
 	
 
-void UIKit();
+void UIKitchen();
 /*	I.S Sembarang	
 	F.S Menampilkan UI Kitchen */
+
+void ReadState(States *State);
 
 #endif

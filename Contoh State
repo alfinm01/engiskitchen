@@ -1,10 +1,10 @@
-N 10;
-M 10;
-Life 8;
+Life 8
 Meja2Orang (2, 3), (), ...;
 Meja4Orang (), (), ...;
 Masak (,, burger), (), ...;
 D (), ();
+
+Name
 
 // Save & Load State (ditambah yang ada di bawah)
 Posisi C
