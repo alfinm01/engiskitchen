@@ -11,12 +11,9 @@ void UIGameHeader();
 void UIMainRoom();
 /*	I.S Sembarang
 	F.S Menampilkan UI Main Room */
-	
 
 void UIKitchen();
 /*	I.S Sembarang	
 	F.S Menampilkan UI Kitchen */
-
-void ReadState(States *State);
 
 #endif
