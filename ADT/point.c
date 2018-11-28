@@ -13,11 +13,11 @@ state dari mesin tsb
 #define PI (3.141592653589793)
 
 /* *** Konstruktor membentuk POINT *** */
-POINT MakePOINT (float X, float Y){
+POINT MakePOINT (int X, int Y){
 /* Membentuk sebuah POINT dari komponen-komponennya */
 	POINT P;
-	Absis(P)=X;
-	Ordinat(P)=Y;
+	Absis(P) = X;
+	Ordinat(P) = Y;
 	return P;
 }
 
@@ -31,7 +31,7 @@ void BacaPOINT (POINT * P){
 /* I.S. Sembarang */
 /* F.S. P terdefinisi */
 	float X,Y;
-	scanf("%f %f", &X, &Y);
+	scanf("%d, %d", &X, &Y);
 	*P = MakePOINT(X,Y);
 }
 void TulisPOINT (POINT P){
@@ -40,7 +40,7 @@ void TulisPOINT (POINT P){
    atau di antaranya */
 /* I.S. P terdefinisi */
 /* F.S. P tertulis di layar dengan format "(X,Y)" */                
-	printf("(%.2f,%.2f)", Absis(P), Ordinat(P));
+	printf("(%d, %d)", Absis(P), Ordinat(P));
 }
 
 /* *** Kelompok operasi relasional terhadap POINT *** */
@@ -66,8 +66,8 @@ boolean IsOnSbY (POINT P){
 /* Menghasilkan true jika P terletak pada sumbu Y */
 	return (Absis(P)==0);
 }
-boolean IsPointPintu (POINT P) {
-	//return (P == Maps.D);
+boolean IsPointPintu (POINT *P) {
+	return (P == MapKitchen.D || P == MapMain.D);
 }
 boolean BatasAtas(POINT P) {
 	return(P.Y == 8);
@@ -98,14 +98,14 @@ int Kuadran (POINT P){
 	}
 }
 /* *** KELOMPOK OPERASI LAIN TERHADAP TYPE *** */                           
-POINT NextX (POINT P){
+POINT NextX (POINT P) {
 /* Mengirim salinan P dengan absis ditambah satu */              
 	return MakePOINT(Absis(P)+1,Ordinat(P));
 }
 POINT PrevX (POINT P) {
 	return MakePOINT(Absis(P)-1,Ordinat(P));
 }
-POINT NextY (POINT P){
+POINT NextY (POINT P) {
 /* Mengirim salinan P dengan ordinat ditambah satu */
 	return MakePOINT(Absis(P),Ordinat(P)+1);	
 }
@@ -177,4 +177,29 @@ void Putar (POINT *P, float Sudut){
 	float Y = Ordinat(*P);
 	Absis(*P)=X*cos((-1)*Sudut*PI/180)-Y*sin((-1)*Sudut*PI/180);
 	Ordinat(*P)=X*sin((-1)*Sudut*PI/180)+Y*cos((-1)*Sudut*PI/180);
+}
+void DekatMeja (POINT P, Tables *NoMeja, int *Kursi, boolean *full, boolean *dekat){
+	if(P == || P == || P ==|| P == ) {
+		*dekat = true;
+		*NoMeja = Tables1;
+		*Kursi =  Chair(T);
+		*full = IsFull(T);
+	} else if(P ==|| P ==|| P ==|| P ==) {
+		*dekat = true;
+		*NoMeja = Number(T);
+		*Kursi =  Chair(T);
+		*full = IsFull(T);
+	} else if(P ==|| P ==|| P ==|| P ==) {
+		*dekat = true;
+		*NoMeja = Number(T);
+		*Kursi =  Chair(T);
+		*full = IsFull(T);
+	} else if(P ==|| P ==|| P ==|| P ==) {
+		*dekat = true;
+		*NoMeja = Number(T);
+		*Kursi =  Chair(T);
+		*full = IsFull(T);
+	} else {
+		dekat = false;
+	}	
 }

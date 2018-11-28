@@ -5,17 +5,19 @@
 
 void Place(States State, Customers Customer, Tables Table) {
 	/* Kamus Lokal */
-	int JumlahOrang;
-
+	int JumlahOrang, Kursi, NoMeja;
+	boolean full, dekat;
 	/* Algoritma */
-	Around(State.Position, /* Returning Nomor Meja */, /* boolean Adakah objek? */);	// Bikin fungsi Around, di mana kalo ada objek di sekitar P bisa diidentifikasi
-	if (!Table.IsFull) {
-		Del(&(State.WaitingCustomer), &JumlahOrang);
-		Table.IsFull = true;
-		// if (JumlahOrang < Table.Chair) {
-			IsiMeja(Table, JumlahOrang);						// Bikin fungsi buat ngisi mejanya, ntar
-		// }
-	}
+	DekatMeja(Posisi(State), NoMeja, Kursi, full, dekat);
+	if(dekat) {
+		if (!full) {
+			if (Amount(Customer) < Kursi) {
+				//IsiMeja(Table, JumlahOrang);						// Bikin fungsi buat ngisi mejanya, ntar
+				//Del(&(State.WaitingCustomer), &JumlahOrang);
+				Table.IsFull = true;
+
+			}
+		}
 	else {
 
 	}

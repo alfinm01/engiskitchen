@@ -7,10 +7,12 @@
 #define __QUEUE_H__
 
 #include "boolean.h"
+#include "kamus.h"
 #include <stdlib.h>
 
 /* *** konstanta *** */
 #define Nil 0
+#define MaxEl 5
 
 /* *** Definisi elemen dan address *** */
 typedef int infotype;
@@ -45,7 +47,7 @@ int NBElmt(Queue Q);
 
 /* *** Konstruktor *** */
 void CreateEmpty(Queue *Q,int Max);
-/* I.S. Max terdefinisi }
+/* I.S. Max terdefinisi
    F.S. Sebuah Q kosong terbentuk dan salah satu kondisi sbb :
    Jika alokasi berhasil, tabel memori dialokasi berukuran Max
    atau : jika alokasi gagal, Q kosong dg Maksimum elemen=0
