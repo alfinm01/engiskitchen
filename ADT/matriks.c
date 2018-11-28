@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "ADT Header/matriks.h"
+#include "matriks.h"
 #include "boolean.h"
 
 void MakeMATRIKS (int NB, int NK, MATRIKS * M)
