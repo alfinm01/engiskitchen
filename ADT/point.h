@@ -8,8 +8,8 @@
 #include "../kamus.h"
 
 typedef struct { 
-	float X; /* absis   */
-	float Y; /* ordinat */
+	int X; /* absis   */
+	int Y; /* ordinat */
 } POINT;
 
 /* *** Notasi Akses: Selektor POINT *** */
@@ -18,7 +18,7 @@ typedef struct {
         
 /* *** DEFINISI PROTOTIPE PRIMITIF *** */
 /* *** Konstruktor membentuk POINT *** */
-POINT MakePOINT (float X, float Y);
+POINT MakePOINT (int X, int Y);
 /* Membentuk sebuah POINT dari komponen-komponennya */
 
 /* *** KELOMPOK Interaksi dengan I/O device, BACA/TULIS  *** */                                                 
@@ -107,5 +107,6 @@ void Mirror (POINT *P, boolean SbX);
 void Putar (POINT *P, float Sudut);
 /* I.S. P terdefinisi */
 /* F.S. P digeser sebesar Sudut derajat dengan sumbu titik (0,0) */
+void DekatMeja (POINT P, int *NoMeja, int *Kursi, boolean *full, boolean *dekat);
 
 #endif
