@@ -39,14 +39,6 @@ typedef struct {
 #define Object(S) (S).Object
 
 typedef struct {
-	char Name[20];			/* Nama makanan */
-	int Price;				/* Harga */
-} Foods;
-
-#define NameF(F) (F).Name
-#define Price(F) (F).Price
-
-typedef struct {
 	int N, M;				/* Ukuran N x M (8 x 8) */
 	POINT D;				/* Posisi pintu dapur-restoran */
 } Maps;

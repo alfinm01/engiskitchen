@@ -2,8 +2,12 @@
 
 void Give() {
 
+
 }
 
-void Take() {
+void Take(Stack *S) {
+    if (SekitarMejaDapur()) {
+        Pop(&S, Food(K))
+    }
 
 }

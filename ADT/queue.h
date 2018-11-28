@@ -7,12 +7,10 @@
 #define __QUEUE_H__
 
 #include "boolean.h"
-#include "kamus.h"
 #include <stdlib.h>
 
 /* *** konstanta *** */
 #define Nil 0
-#define MaxEl 5
 
 /* *** Definisi elemen dan address *** */
 typedef int infotype;
@@ -42,7 +40,7 @@ boolean IsEmpty(Queue Q);
 boolean IsFull(Queue Q);
 /* Mengirim true jika tabel penampung elemen Q sudah penuh yaitu mengandung
 MaxEl elemen */
-int NBElmt(Queue Q);
+int NBElmtQ(Queue Q);
 /* Mengirimkan banyaknya elemen queue. Mengirimkan 0 jika Q kosong. */
 
 /* *** Konstruktor *** */
