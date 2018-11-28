@@ -53,11 +53,14 @@ int main() {
 		    }
 		    case '2': {
 		        printf("Start Game\n");
+		        
+		        //system("cls");
+
 		        break;
 		    }
 		    case '3': {
 		        printf("Load Game\n");
-		        ReadState(&State);
+		        //ReadState(&State);
 		        printf("%s\n", State.Name);
 		        break;
 		    }

@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "ADT Header/matriks.h"
+#include "matriks.h"
 #include "boolean.h"
 
 void MakeMATRIKS (int NB, int NK, MATRIKS * M)
@@ -228,7 +228,7 @@ void PKaliKons (MATRIKS * M, ElType K)
 
 
 /* ********** KELOMPOK OPERASI RELASIONAL TERHADAP MATRIKS ********** */
-boolean EQ (MATRIKS M1, MATRIKS M2)
+boolean EQMatriks (MATRIKS M1, MATRIKS M2)
 /* Mengirimkan true jika M1 = M2, yaitu NBElmt(M1) = NBElmt(M2) dan */
 /* untuk setiap i,j yang merupakan indeks baris dan kolom M1(i,j) = M2(i,j) */
 /* Juga merupakan strong EQ karena GetFirstIdxBrs(M1) = GetFirstIdxBrs(M2)
@@ -259,7 +259,7 @@ if ((GetFirstIdxBrs(M1) != GetFirstIdxBrs(M2)) || (GetLastIdxBrs(M1) != GetLastI
 
 
 
-boolean NEQ (MATRIKS M1, MATRIKS M2)
+boolean NEQMatriks (MATRIKS M1, MATRIKS M2)
 /* Mengirimkan true jika M1 tidak sama dengan M2 */
 {
   boolean found;
