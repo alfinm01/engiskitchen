@@ -9,8 +9,10 @@
 #include "boolean.h"
 /* Modul lain yang digunakan : */
 #include "./ADT/queue.h"
+#include "kamus.h"
 
-void Place(States S);
+
+void Place(POINT P, Queue *QC, Tables *T, JAM *J);
 /* I.S. --- */
 /* F.S. --- */
 /* Command ini digunakan untuk menaruh pelanggan di meja dan kosong.
