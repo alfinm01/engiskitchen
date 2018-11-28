@@ -9,12 +9,12 @@
 
 #include "./ADT/jam.h"
 //#include "./ADT/array.h"
-#include "./ADT/garis.h"
+//#include "./ADT/garis.h"
 #include "./ADT/point.h"
 #include "./ADT/stack.h"
 //#include "./ADT/queue.h"
 #include "./ADT/boolean.h"
-//#include "./ADT/matriks.h"
+#include "./ADT/matriks.h"
 #include "./ADT/mesin_kata.h"
 
 typedef struct {

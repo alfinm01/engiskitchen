@@ -1,6 +1,4 @@
 /* ADT print UI */
-#include "matriks.h"
-#include "stdio.h"
 
 #ifndef _UI_H_
 #define _UI_H_
