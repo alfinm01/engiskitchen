@@ -8,4 +8,8 @@
 #include <stdlib.h>
 #include "boolean.h"
 
+void Give();
+
+void Take();
+
 #endif
