@@ -2,13 +2,13 @@
 
 boolean BisaJalan(char arah[5], MATRIKS M, POINT P) {
     if (arah == "UP") {
-        return((IsIdxValid(P.X, (P.Y + 1))) && ((Elmt(M, P.X, (P.Y + 1)) = ' ')) || (Elmt(M, P.X, (P.Y + 1)) = 'D'));
+        return((IsIdxValid((P.X - 1), P.Y)) && ((Elmt(M, (P.X - 1), P.Y) = ' ') || (Elmt(M, (P.X - 1), P.Y)) = 'D'));
     } else if (arah == "DOWN") {
-        return((IsIdxValid(P.X, (P.Y - 1))) && ((Elmt(M, P.X, (P.Y - 1)) = ' ')) || (Elmt(M, P.X, (P.Y - 1)) = 'D'));
+        return((IsIdxValid((P.X + 1), P.Y)) && ((Elmt(M, (P.X + 1), P.Y) = ' ') || (Elmt(M, (P.X + 1), P.Y)) = 'D'));
     } else if (arah == "RIGHT") {
-        return((IsIdxValid((P.X + 1), P.Y)) && ((Elmt(M, (P.X + 1), P.Y) = ' ')) || (Elmt(M, (P.X + 1), P.Y) = 'D'));
+        return((IsIdxValid(P.X, (P.Y + 1)) && ((Elmt(M, P.X, (P.Y + 1)) = ' ') || (Elmt(M, P.X, (P.Y + 1)) = 'D'));
     } else if (arah == "LEFT") { 
-        return((IsIdxValid((P.X - 1), P.Y)) && ((Elmt(M, (P.X - 1), P.Y) = ' ')) || (Elmt(M, (P.X - 1), P.Y) = 'D'));
+        return((IsIdxValid(P.X, (P.Y - 1)) && ((Elmt(M, P.X, (P.Y - 1)) = ' ') || (Elmt(M, P.X, (P.Y - 1)) = 'D'));
     }
 }
 
