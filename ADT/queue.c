@@ -6,14 +6,14 @@
 /******** IMPLEMENTASI ********/
 
 /* *** Predikat Pemeriksaan Kondisi Queue *** */
-boolean IsEmpty(Queue Q) {
+boolean IsEmptyQueue(Queue Q) {
   /* Kamus Lokal */
 
   /* Algoritma */
   return ((Head(Q) == Nil) && (Tail(Q) == Nil));
 }
 /* Mengirim true jika Q kosong */
-boolean IsFull(Queue Q) {
+boolean IsFullQueue(Queue Q) {
   /* Kamus Lokal */
 
   /* Algoritma */
@@ -21,7 +21,7 @@ boolean IsFull(Queue Q) {
 }
 /* Mengirim true jika tabel penampung elemen Q sudah penuh yaitu mengandung
 MaxEl elemen */
-int NBElmtQ(Queue Q) {
+int NBElmtQueue(Queue Q) {
   /* Kamus Lokal */
 
   /* Algoritma */
@@ -30,7 +30,7 @@ int NBElmtQ(Queue Q) {
 /* Mengirimkan banyaknya elemen queue. Mengirimkan 0 jika Q kosong. */
 
 /* *** Konstruktor *** */
-void CreateEmpty(Queue *Q, int Max) {
+void CreateEmptyQueue(Queue *Q, int Max) {
   /* Kamus Lokal */
 
   /* Algoritma */
@@ -51,7 +51,7 @@ void CreateEmpty(Queue *Q, int Max) {
    Proses : Melakukan alokasi memori dan membuat sebuah Q kosong */
 
 /* *** Destruktor *** */
-void DeAlokasi(Queue *Q) {
+void DeAlokasiQueue(Queue *Q) {
   /* Kamus Lokal */
 
   /* Algoritma */
@@ -63,7 +63,7 @@ void DeAlokasi(Queue *Q) {
    F.S. Q menjadi tidak terdefinisi lagi, MaxEl(Q) diset 0 */
 
 /* *** Operator-Operator Dasar Queue *** */
-void Add(Queue *Q, infotype X) {
+void AddQueue(Queue *Q, infotype X) {
   /* Kamus Lokal */
 
   /* Algoritma */
@@ -79,7 +79,7 @@ void Add(Queue *Q, infotype X) {
 /* Proses : Menambahkan X pada Q dengan aturan FIFO
    I.S. Q mungkin kosong, tabel penampung elemen Q TIDAK penuh
    F.S. X menjadi Tail yang baru, Tail "maju" */
-void Del(Queue *Q, infotype *X) {
+void DelQueue(Queue *Q, infotype *X) {
   /* Kamus Lokal */
   address i;
 

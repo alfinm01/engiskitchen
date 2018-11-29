@@ -12,8 +12,8 @@
 //#include "./ADT/array.h"
 //#include "./ADT/garis.h"
 #include "./ADT/point.h"
-#include "./ADT/stack.h"
-//#include "./ADT/queue.h"
+#include "./ADT/stacklist.h"
+#include "./ADT/queuelist.h"
 #include "./ADT/boolean.h"
 #include "./ADT/matriks.h"
 #include "./ADT/mesin_kata.h"
@@ -63,23 +63,6 @@ typedef struct {
 #define Length(M) (M).N;
 #define Width(M) (M).M;
 #define Door(M) (M).D;
-
-typedef struct {
-	int Number;				/* Customer keberapa */
-	int Amount;				/* Jumlah orang (2 atau 4) */
-	char Order[20];			/* Makanan yang ingin dipesan */
-	int QueueingTime;		/* Waktu kesabaran ketika mengantre (30 tick) */
-	int Patience;			/* Waktu kesabaran ketika menunggu di meja */
-} Customers;					/* Customer di-generate secara random */
-
-typedef struct {
-	Customers Customer[5];
-} CustomerArray;
-
-#define Amount(C) (C).Amount
-#define Order(C) (C).Order
-#define QueueingTime(C) (C).QueueingTime
-#define Patience(C) (C).Patience
 
 typedef struct {
 	int Number;				/* Meja nomor keberapa */

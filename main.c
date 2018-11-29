@@ -33,8 +33,6 @@ int main() {
 		printf("\n");
 		switch (command) {
 		    case '1': {
-		    	system("cls");
-		    	uiHeader();
 		        New(&State, &MapMain, &MapKitchen, &T, &F, &K);
 		       /* printf("%s\n", State.Name);
 		        for (i = 1; i <= 4; i++) {

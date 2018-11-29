@@ -6,6 +6,7 @@ void Place(POINT P, Queue *QC, Tables *T, JAM *J) {
 	/* Kamus Lokal */
 	int JumlahOrang, Kursi, NoMeja;
 	boolean full, dekat;
+	
 	/* Algoritma */
 	DekatMeja(P, &NoMeja, &Kursi, &full, &dekat);
 	if(dekat) {

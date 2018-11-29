@@ -229,12 +229,12 @@ void PKaliKons (MATRIKS * M, ElType K)
 
 /* ********** KELOMPOK OPERASI RELASIONAL TERHADAP MATRIKS ********** */
 boolean EQMatriks (MATRIKS M1, MATRIKS M2)
-/* Mengirimkan true jika M1 = M2, yaitu NBElmt(M1) = NBElmt(M2) dan */
+/* Mengirimkan true jika M1 = M2, yaitu NBElmtMatriks(M1) = NBElmtMatriks(M2) dan */
 /* untuk setiap i,j yang merupakan indeks baris dan kolom M1(i,j) = M2(i,j) */
 /* Juga merupakan strong EQ karena GetFirstIdxBrs(M1) = GetFirstIdxBrs(M2)
 dan GetLastIdxKol(M1) = GetLastIdxKol(M2) */
 {
-if ((GetFirstIdxBrs(M1) != GetFirstIdxBrs(M2)) || (GetLastIdxBrs(M1) != GetLastIdxBrs(M2)) || (NBElmt(M1) != NBElmt(M1))) {
+if ((GetFirstIdxBrs(M1) != GetFirstIdxBrs(M2)) || (GetLastIdxBrs(M1) != GetLastIdxBrs(M2)) || (NBElmtMatriks(M1) != NBElmtMatriks(M1))) {
   return false;
 }else{
   indeks i,j;
@@ -267,7 +267,7 @@ boolean NEQMatriks (MATRIKS M1, MATRIKS M2)
   i = 1;
   j=1;
   found = false;
-  if (NBElmt(M1)!=NBElmt(M2)) {
+  if (NBElmtMatriks(M1)!=NBElmtMatriks(M2)) {
     return true;
   }
   else {
@@ -302,7 +302,7 @@ boolean EQSize (MATRIKS M1, MATRIKS M2)
   }
 }
 /* ********** Operasi lain ********** */
-int NBElmt (MATRIKS M)
+int NBElmtMatriks (MATRIKS M)
 /* Mengirimkan banyaknya elemen M */
 {
   return NKolEff(M) * NBrsEff(M);
@@ -314,7 +314,7 @@ int NBElmt (MATRIKS M)
 boolean IsBujurSangkar (MATRIKS M)
 /* Mengirimkan true jika M adalah matriks dg ukuran baris dan kolom sama */
 {
-  if ((NBrsEff(M) == NKolEff(M)) && (NBElmt(M)>0)) {
+  if ((NBrsEff(M) == NKolEff(M)) && (NBElmtMatriks(M)>0)) {
     return true;
   }
   else {
@@ -386,7 +386,7 @@ boolean IsSparse (MATRIKS M)
 {
   int thresh, count, i, j;
   count = 0;
-  thresh = NBElmt(M) / 20;
+  thresh = NBElmtMatriks(M) / 20;
   for (i=1;i<=NBrsEff(M);i++) {
     for (j=1;j<=NKolEff(M);j++) {
       if(Elmt(M,i,j)==0) {
