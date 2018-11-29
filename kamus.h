@@ -128,7 +128,8 @@ void uiCommand ();
 
 /***** INITIALIZATION FUNCTION *****/
 
-void New(States *State, Maps *MapMain, Maps *MapKitchen, TableArray *T, FoodArray *F, KitchenArray *K, TabOrder *TOrder);
+void New(States *State, Maps *MapMain, Maps *MapKitchen, MATRIKS *MatriksMain, MATRIKS *MatriksKitchen,
+		TableArray *T, FoodArray *F, KitchenArray *K, TabOrder *TOrder, Stack *FoodStack, Queue *QCust);
 void InitMap(Maps *Map, char MapType);
 void InitTable(Tables *Table, int TableCounter);
 void InitFood(Foods *Food, int FoodCounter);
@@ -139,6 +140,6 @@ void ReadState(States *State);
 /***** OTHER FUNCTION *****/
 void TickCounter(States *State);
 void GenerateCustomer(States State, Queue *QCust, FoodArray F);
-void Game(States State, MATRIKS MainRoom, MATRIKS KitchenRoom, TableArray T, FoodArray F, KitchenArray K, TabOrder TOrder);
+void Game(States *State, MATRIKS *MainRoom, MATRIKS *KitchenRoom, TableArray *T, FoodArray *F, KitchenArray *K, TabOrder *TOrder, Queue *QCust, Stack *FoodStack);
 
 #endif

@@ -113,6 +113,12 @@ void AssignMatriks(MATRIKS *M, boolean Main, POINT Player){
 	/* Kamus */
 	int i,j;
 	/* Algoritma */
+	for (i=1; i<= 8; i++){
+		for (j=1; j<=8;j++) {
+			Elmt(*M,i,j) = ' ';
+		}	
+	}
+	
 	if(Main) {
 		Elmt(*M,1,2) = 'X';
 		Elmt(*M,2,1) = 'X';

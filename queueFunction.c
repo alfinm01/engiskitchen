@@ -7,7 +7,7 @@ void Place(POINT P, Queue *QC, TableArray *T, JAM *J) {
 	/* Kamus Lokal */
 	int JumlahOrang, Kursi, NoMeja;
 	boolean full, dekat;
-	address Q;
+	addressQueueList Q;
 	Customers C;
 
 	/* Algoritma */
@@ -33,11 +33,11 @@ void Place(POINT P, Queue *QC, TableArray *T, JAM *J) {
 	/*Timer();													// Bikin fungsi timer (kurangi tick, tambah time)
 	ReprintUI();*/
 	Q = Head(*QC);
-	NoMeja = DetectAroundMain(P);
+	NoMeja = DetectAround(P, true);
 	if (NoMeja != 0) {
 		if (!((*T).Table[NoMeja].IsTableFull)) {
-			while (Info(Q) != Nil) {
-				if ((*T).Table[NoMeja].IsTableFull >= InfoHead(*QC)->Amount) {
+			while (Info(Q).Amount != Nil) {
+				if ((*T).Table[NoMeja].IsTableFull >= InfoHead(*QC).Amount) {
 					DelQueueList(&Q, &C);
 					(*T).Table[NoMeja].IsTableFull = true;
 					(*T).Table[NoMeja].Customer = C;
@@ -64,8 +64,8 @@ void Order(POINT Position, TableArray T, TabOrder *TO) {
 	TabOrder OrderTemp;
 
 	/* Algoritma */
-	OrderTemp.Order[1].Name = T.Table[DetectAroundMain(Position)].Customer.Order;
-	OrderTemp.Order[1].TableNo = T.Table[DetectAroundMain(Position)].Customer.Amount;
+	OrderTemp.Order[1].Name = T.Table[DetectAround(Position, true)].Customer.Order;
+	OrderTemp.Order[1].TableNo = T.Table[DetectAround(Position, true)].Customer.Amount;
 
 	// Memasukkan order ke ArrayOrder
 	SetEl(TO, (GetLastIdx(*TO) + 1), OrderTemp);

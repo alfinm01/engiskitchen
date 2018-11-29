@@ -11,7 +11,7 @@ void New(States *State, Maps *MapMain, Maps *MapKitchen, MATRIKS *MatriksMain, M
 	uiHeader();
 
 	printf("Nama Anda (max 20 karakter): ");							/* State */
-	scanf("%s", &userName);
+	gets(userName);
 	(*State).Name = (char *) malloc (strlen(userName) * sizeof(char));
 	strcpy((*State).Name, userName);
 	(*State).Life = 3;
@@ -22,23 +22,23 @@ void New(States *State, Maps *MapMain, Maps *MapKitchen, MATRIKS *MatriksMain, M
 
 	InitMap(MapMain, 'M');												/* Map */
 	InitMap(MapKitchen, 'K');
-
-	MakeMATRIKS(MapMain.N, MapMain.M, MatriksMain);						/* Matriks */
-	MakeMATRIKS(MapKitchen.N, MapKitchen.M, MatriksKitchen);
-
+	printf("MakeMatriks\n");
+	MakeMATRIKS(8, 8, MatriksMain);						/* Matriks */
+	MakeMATRIKS(8, 8, MatriksKitchen);
+	printf("selesai bikin matriks\n");
 	for (i = 1; i <= 4; i++) {											/* Table */
 		InitTable(&((*T).Table[i]), i);
 	}
-
+	printf("forinit\n");
 	for (i = 1; i <= 15; i++) {											/* Food & Kitchen */
 		InitFood(&((*F).Food[i]), i);
 		InitKitchen(&((*K).Kitchen[i]), i, (F)->Food[i]);
 	}
-
+	printf("MakeEmpty\n");
 	MakeEmpty(TOrder);													/* TOrder */
-
+	printf("Createstacklist\n");
 	CreateEmptyStackList(FoodStack);									/* Stack */
-
+	printf("Createquueueulist\n");
 	CreateEmptyQueueList(QCust);										/* Queue */
 
 	system("cls");
@@ -140,13 +140,17 @@ void InitFood(Foods *Food, int FoodCounter) {
 	printf("%c\n", CKata.TabKata[1]);
 
 	while ((!EndKata) && (CKata.TabKata[1] != '|')) {
+		printf("masuk\n");
 		if (((CKata.TabKata[1] - '0') >= 10)) {
+			printf("masuk pembacaan kata\n");
+			(*Food).Name = (char *) malloc (CKata.Length * sizeof(char));
 			for (i = 1; i <= CKata.Length; i++) {
 				(*Food).Name[i - 1] = CKata.TabKata[i];
 				printf("%c\n", (*Food).Name[i - 1]);
 			}
 		}
 		else if ((CKata.TabKata[1] - '0') < 10) {
+			printf("masuk pembacaan harga\n");
 			(*Food).Price = 0;
 			for (i = 1; i <= CKata.Length; i++) {
 				(*Food).Price = ((*Food).Price * 10) + (CKata.TabKata[i] - '0');
