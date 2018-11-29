@@ -253,9 +253,9 @@ void Map(MATRIKS *M, boolean Main, POINT Player) {
 
 }
 
-void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time, POINT Player, Queue Q, Stack S) {
+void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time, POINT Player, Queue Q, Stack S, TabOrder A) {
 	/* Kamus */
-	int i,j, infoQ, infoS, lengthFoodS, SpaceS, SpaceA;
+	int i,j, infoQ, infoS, lengthFoodS, SpaceS, SpaceA, lengthArrayA;
 	char FoodS[25];
 	/* Algoritma */
 	printBatas();
@@ -321,17 +321,21 @@ void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time
 			printf(" ");
 		}
 		printf(" | ");					// array
-		for (i=1 ; i<=26; i++) {
+		lengthArrayA = strlen(A.order[i].name);
+		SpaceA = 23 - lengthArrayA;
+		printf("%s, " , A.order[i].name);
+		printf("%d", A.order[i], TableNo);
+		for (i=1 ; i<=SpaceA; i++) {
 			printf(" ");
 		}
 		printf(" | ");					// stack
 		PopStack(&S, &FoodS);
 		lengthFoodS = strlen(FoodS);
 		SpaceS = 25-lengthFoodS;
+		printf("%s", FoodS);
 		for (i=1; i<=SpaceS ; i++) {
 			printf(" ");
 		}
-		printf("%s", FoodS);
 		printf(" |\n");
 	}
 	printBatas();
