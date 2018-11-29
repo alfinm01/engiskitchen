@@ -94,10 +94,10 @@ typedef struct {
 boolean BisaJalan(char arah[5], MATRIKS M, POINT P);
 /*void move(char *command, POINT *P, JAM *J, MATRIKS M, boolean B);
 */
-void GoUp(POINT *P, JAM *J, MATRIKS M, boolean Main);
-void GoDown(POINT *P, JAM *J, MATRIKS M, boolean Main);
-void GoRight(POINT *P, JAM *J, MATRIKS M);
-void GoLeft(POINT *P, JAM *J, MATRIKS M);
+void GoUp(POINT *P, int *J, MATRIKS M, MATRIKS K, boolean Main);
+void GoDown(POINT *P, int *J, MATRIKS M, MATRIKS K, boolean Main);
+void GoRight(POINT *P, int *J, MATRIKS M, MATRIKS K, boolean Main);
+void GoLeft(POINT *P, int *J, MATRIKS M, MATRIKS K, boolean Main);
 /***** QUEUE FUNCTION *****/
 
 void Place(POINT P, Queue *QC, TableArray *T, JAM *J);
@@ -105,8 +105,12 @@ void Order(POINT Position, TableArray T, TabOrder *TO);
 
 /***** STACK FUNCTION *****/
 
-void Give();
-void Take();
+
+void Give(POINT Position, TableArray *T, TabOrder *TO, Stack *S, boolean *RightCommand);
+void DeleteOrder(TabOrder *TO, int IdxOrder);
+void Take(POINT Position, KitchenArray K, Stack *S, boolean *RightCommand);
+
+void CT(Stack *S);
 
 /***** UI FUNCTION *****/
 
@@ -124,7 +128,7 @@ void uiCommand ();
 
 /***** INITIALIZATION FUNCTION *****/
 
-void New(States *State, Maps *MapMain, Maps *MapKitchen, TableArray *T, FoodArray *F, KitchenArray *K);
+void New(States *State, Maps *MapMain, Maps *MapKitchen, TableArray *T, FoodArray *F, KitchenArray *K, TabOrder *TOrder);
 void InitMap(Maps *Map, char MapType);
 void InitTable(Tables *Table, int TableCounter);
 void InitFood(Foods *Food, int FoodCounter);
@@ -135,5 +139,6 @@ void ReadState(States *State);
 /***** OTHER FUNCTION *****/
 void TickCounter(States *State);
 void GenerateCustomer(States State, Queue *QCust, FoodArray F);
+void Game(States State, MATRIKS MainRoom, MATRIKS KitchenRoom, TableArray T, FoodArray F, KitchenArray K, TabOrder TOrder);
 
 #endif

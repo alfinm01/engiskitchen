@@ -5,6 +5,67 @@
 
 #include "kamus.h"
 
+void Game(States State, MATRIKS MainRoom, MATRIKS KitchenRoom, TableArray T, FoodArray F, KitchenArray K, TabOrder TOrder) {
+	/* KAMUS */
+	char command;
+
+	/* ALGORITMA */
+	system("cls");
+	if (State.IsInMain) {
+		printUI(State.IsInMain, State.IsInMain, State.Name, State.Money, State.Life, State.Time, State.Position, Queue Q, Stack S);
+
+	}
+		uiCommand();
+	do {
+		printf("\n");
+		printf("Command : ");
+		scanf("%s", &command);
+		getchar();													// Untuk mengambil hanya nilai char dari variabel
+		printf("\n");
+		if (strcmp(command, "GU") == 0){
+			GoUp(&State.Position, &State.Time, MainRoom, KitchenRoom, &State.IsInMain);
+		}
+		else if (strcmp(command, "GD") == 0){
+			GoDown(&State.Position, &State.Time, MainRoom, KitchenRoom, &State.IsInMain);
+		}
+		else if (strcmp(command, "GR") == 0){
+			GoRight(&State.Position, &State.Time, MainRoom, KitchenRoom, &State.IsInMain);
+		}
+		else if (strcmp(command, "GL") == 0){
+			GoLeft(&State.Position, &State.Time, MainRoom, KitchenRoom, &State.IsInMain);
+		}
+		else if (strcmp(command, "ORDER") == 0){
+			Order(State.Position, T, &TOrder);
+		}
+		else if (strcmp(command, "TAKE") == 0){
+
+		}
+		else if (strcmp(command, "CT") == 0){
+			CT();
+		}
+		else if (strcmp(command, "PLACE") == 0){
+
+		}
+		else if (strcmp(command, "GIVE") == 0){
+
+		}
+		else if (strcmp(command, "SAVE") == 0){
+
+		}				
+		else if (strcmp(command, "QUIT") == 0){
+
+		}
+		else {
+		        system("cls");
+		        uiCommand();
+		        printf("\n");
+		        printf("Command salah!\n");
+		        printf("Command : ");
+		}
+	printUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time, POINT Player, Queue Q, Stack S);
+	} while (!exit);
+}
+
 int main() {
 	/* KAMUS */
 	int i;
@@ -60,7 +121,7 @@ int main() {
 		        printf("       ==========\n");
 		        printf("       GAME START\n");
 		        printf("       ==========\n");
-		        delay(3000);
+		        // delay(3000);
 		        system("cls");
 		        Game();
 		        break;
@@ -99,65 +160,4 @@ int main() {
 	} while (!exit);
 
 	return 0;
-}
-
-void Game() {
-	/* KAMUS */
-	char[10] command;
-
-	/* ALGORITMA */
-	system("cls");
-	printUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time, POINT Player, Queue Q, Stack S);
-	uiCommand();
-	do {
-		printf("\n");
-		printf("Command : ");
-		scanf("%s", &command);
-		getchar();													// Untuk mengambil hanya nilai char dari variabel
-		printf("\n");
-		if (command == 'GU') {
-			void GoUp(POINT *P, JAM *J, MATRIKS M, boolean Main);
-		}
-		else if (command == 'GD'){
-			void GoDown(POINT *P, JAM *J, MATRIKS M, boolean Main) ;
-		}
-		else if (command == 'GR'){
-			void GoRight(POINT *P, JAM *J, MATRIKS M);
-		}
-		else if (command == 'GL'){
-			void GoLeft(POINT *P, JAM *J, MATRIKS M);
-		}
-		else if (command == 'ORDER'){
-
-		}
-		else if (command == 'TAKE'){
-
-		}
-		else if (command == 'CT'){
-
-		}
-		else if (command == 'PLACE'){
-
-		}
-		else if (command == 'GIVE'){
-
-		}
-		else if (command == 'SAVE'){
-
-		}
-		else if (command == 'LOAD'){
-
-		}				
-		else if (command == 'EXIT'){
-
-		}
-		else {
-		        system("cls");
-		        uiCommand();
-		        printf("\n");
-		        printf("Command salah!\n");
-		        printf("Command : ");
-		}
-	printUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time, POINT Player, Queue Q, Stack S);
-	} while (!exit);
 }
