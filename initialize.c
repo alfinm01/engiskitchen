@@ -1,6 +1,6 @@
 #include "kamus.h"
 
-void New(States *State, Maps *MapMain, Maps *MapKitchen, TableArray *T, FoodArray *F, KitchenArray *K) {
+void New(States *State, Maps *MapMain, Maps *MapKitchen, TableArray *T, FoodArray *F, KitchenArray *K, TabOrder *TOrder) {
 	/* Kamus */
 	char userName[20];
 	int i;
@@ -29,6 +29,8 @@ void New(States *State, Maps *MapMain, Maps *MapKitchen, TableArray *T, FoodArra
 		InitFood(&((*F).Food[i]), i);
 		InitKitchen(&((*K).Kitchen[i]), i, (F)->Food[i]);
 	}
+
+	MakeEmpty(TOrder);													/* TOrder */
 
 	system("cls");
 	uiHeader();

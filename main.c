@@ -13,6 +13,7 @@ int main() {
 	TableArray T;
 	FoodArray F;
 	KitchenArray K;
+	TabOrder TOrder;
 
 	/* ALGORITMA */
 
@@ -30,7 +31,7 @@ int main() {
 		printf("\n");
 		switch (command) {
 		    case '1': {
-		        New(&State, &MapMain, &MapKitchen, &T, &F, &K);
+		        New(&State, &MapMain, &MapKitchen, &T, &F, &K, &TOrder);
 		       /* printf("%s\n", State.Name);
 		        for (i = 1; i <= 4; i++) {
 		        	printf("Number%d Chair%d \n", T.Table[i].Number, T.Table[i].Chair);
@@ -48,10 +49,15 @@ int main() {
 		        break;
 		    }
 		    case '2': {
-		        printf("Start Game\n");
-		        
-		        //system("cls");
-
+		        printf("Start Game\n");		        
+		        system("cls");
+		        printf("\n\n\n\n");
+		        printf("       ==========\n");
+		        printf("       GAME START\n");
+		        printf("       ==========\n");
+		        delay(3000);
+		        system("cls");
+		        Game();
 		        break;
 		    }
 		    case '3': {
@@ -64,7 +70,6 @@ int main() {
 		        printf("\n");
 		        TulisJAM(State.Time);
 		        printf("\n");
-		        //printf("%s\n", State.Object);
 		        printf("%d %d\n", MapMain.N, MapKitchen.M);
 		        TulisPOINT(MapMain.D);
 		        printf("\n");
@@ -89,4 +94,65 @@ int main() {
 	} while (!exit);
 
 	return 0;
+}
+
+void Game() {
+	/* KAMUS */
+	char[10] command;
+
+	/* ALGORITMA */
+	system("cls");
+	printUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time, POINT Player, Queue Q, Stack S);
+	uiCommand();
+	do {
+		printf("\n");
+		printf("Command : ");
+		scanf("%s", &command);
+		getchar();													// Untuk mengambil hanya nilai char dari variabel
+		printf("\n");
+		if (command == 'GU') {
+			void GoUp(POINT *P, JAM *J, MATRIKS M, boolean Main);
+		}
+		else if (command == 'GD'){
+			void GoDown(POINT *P, JAM *J, MATRIKS M, boolean Main) ;
+		}
+		else if (command == 'GR'){
+			void GoRight(POINT *P, JAM *J, MATRIKS M);
+		}
+		else if (command == 'GL'){
+			void GoLeft(POINT *P, JAM *J, MATRIKS M);
+		}
+		else if (command == 'ORDER'){
+
+		}
+		else if (command == 'TAKE'){
+
+		}
+		else if (command == 'CT'){
+
+		}
+		else if (command == 'PLACE'){
+
+		}
+		else if (command == 'GIVE'){
+
+		}
+		else if (command == 'SAVE'){
+
+		}
+		else if (command == 'LOAD'){
+
+		}				
+		else if (command == 'EXIT'){
+
+		}
+		else {
+		        system("cls");
+		        uiCommand();
+		        printf("\n");
+		        printf("Command salah!\n");
+		        printf("Command : ");
+		}
+	printUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time, POINT Player, Queue Q, Stack S);
+	} while (!exit);
 }
