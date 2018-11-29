@@ -1,6 +1,6 @@
 #include "kamus.h"
 
-void Give(POINT Position, TableArray *T, TabOrder *TO, Stack *S, boolean *RightCommand) {
+void Give(POINT Position, TableArray *T, TabOrder *TO, Stack *S) {
 	/* Kamus */
 	int NoMeja, i = 0;
 	boolean found = false;
@@ -27,9 +27,6 @@ void Give(POINT Position, TableArray *T, TabOrder *TO, Stack *S, boolean *RightC
 			}
 		}
 	}
-	if (!found) {
-		(*RightCommand) = false;
-	}
 }
 
 void DeleteOrder(TabOrder *TO, int IdxOrder) {
@@ -43,7 +40,7 @@ void DeleteOrder(TabOrder *TO, int IdxOrder) {
 }
 
 
-void Take(POINT Position, KitchenArray K, Stack *S, boolean *RightCommand) {
+void Take(POINT Position, KitchenArray K, Stack *S) {
 	/* Kamus */
 	int i;
 	int NoMejaKitchen;
@@ -51,9 +48,6 @@ void Take(POINT Position, KitchenArray K, Stack *S, boolean *RightCommand) {
 	NoMejaKitchen = DetectAround(Position, false);
 	if (NoMejaKitchen != 0) {
 		PushStackList(S, K.Kitchen[NoMejaKitchen].Food);
-	}
-	else {
-		(*RightCommand) = false;
 	}
 }
 
