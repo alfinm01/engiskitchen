@@ -108,9 +108,6 @@ void Putar (POINT *P, float Sudut);
 /* F.S. P digeser sebesar Sudut derajat dengan sumbu titik (0,0) */
 /*void DekatMeja (POINT P, int *NoMeja, int *Kursi, boolean *full, boolean *dekat);*/
 
-int DetectAroundMain(POINT PositionP);
-
-int DetectAroundKitchen(POINT PositionP);
-
+int DetectAround(POINT PositionP, boolean Main);
 
 #endif
