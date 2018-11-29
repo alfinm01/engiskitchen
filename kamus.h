@@ -140,5 +140,5 @@ void ReadState(States *State);
 void TickCounter(States *State);
 void GenerateCustomer(States State, Queue *QCust, FoodArray F);
 void Game(States State, MATRIKS MainRoom, MATRIKS KitchenRoom, TableArray T, FoodArray F, KitchenArray K, TabOrder TOrder);
-
+void minLife (States *State);
 #endif
