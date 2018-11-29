@@ -94,10 +94,10 @@ typedef struct {
 boolean BisaJalan(char arah[5], MATRIKS M, POINT P);
 /*void move(char *command, POINT *P, JAM *J, MATRIKS M, boolean B);
 */
-void GoUp(POINT *P, int *J, MATRIKS M, boolean Main);
-void GoDown(POINT *P, int *J, MATRIKS M, boolean Main);
-void GoRight(POINT *P, int *J, MATRIKS M);
-void GoLeft(POINT *P, int *J, MATRIKS M);
+void GoUp(POINT *P, int *J, MATRIKS M, MATRIKS K, boolean Main);
+void GoDown(POINT *P, int *J, MATRIKS M, MATRIKS K, boolean Main);
+void GoRight(POINT *P, int *J, MATRIKS M, MATRIKS K, boolean Main);
+void GoLeft(POINT *P, int *J, MATRIKS M, MATRIKS K, boolean Main);
 /***** QUEUE FUNCTION *****/
 
 void Place(POINT P, Queue *QC, TableArray *T, JAM *J);
@@ -107,7 +107,7 @@ void Order(POINT Position, TableArray T, TabOrder *TO);
 
 void Give();
 void Take();
-void CT(Stack S);
+void CT(Stack *S);
 
 /***** UI FUNCTION *****/
 

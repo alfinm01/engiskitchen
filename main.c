@@ -12,7 +12,7 @@ void Game(States State, MATRIKS MainRoom, MATRIKS KitchenRoom, TableArray T, Foo
 	/* ALGORITMA */
 	system("cls");
 	if (State.IsInMain) {
-		printUI(Main, State.IsInMain, State.*Name, State.Money, State.Life, State.Time, State.Position, Queue Q, Stack S);
+		printUI(State.IsInMain, State.IsInMain, State.Name, State.Money, State.Life, State.Time, State.Position, Queue Q, Stack S);
 
 	}
 		uiCommand();
@@ -23,25 +23,25 @@ void Game(States State, MATRIKS MainRoom, MATRIKS KitchenRoom, TableArray T, Foo
 		getchar();													// Untuk mengambil hanya nilai char dari variabel
 		printf("\n");
 		if (strcmp(command, "GU") == 0){
-			GoUp(&State.Position, &State.Time, MATRIKS M, &State.IsInMain);
+			GoUp(&State.Position, &State.Time, MainRoom, KitchenRoom, &State.IsInMain);
 		}
 		else if (strcmp(command, "GD") == 0){
-			GoDown(&State.Position, &State.Time, MATRIKS M, &State.IsInMain);
+			GoDown(&State.Position, &State.Time, MainRoom, KitchenRoom, &State.IsInMain);
 		}
 		else if (strcmp(command, "GR") == 0){
-			GoRight(&State.Position, &State.Time, MATRIKS M);
+			GoRight(&State.Position, &State.Time, MainRoom, KitchenRoom, &State.IsInMain);
 		}
 		else if (strcmp(command, "GL") == 0){
-			GoLeft(&State.Position, &State.Time, MATRIKS M);
+			GoLeft(&State.Position, &State.Time, MainRoom, KitchenRoom, &State.IsInMain);
 		}
 		else if (strcmp(command, "ORDER") == 0){
-			Order(State.Position, T, &TO);
+			Order(State.Position, T, &TOrder);
 		}
 		else if (strcmp(command, "TAKE") == 0){
 
 		}
 		else if (strcmp(command, "CT") == 0){
-
+			CT();
 		}
 		else if (strcmp(command, "PLACE") == 0){
 
@@ -77,6 +77,8 @@ int main() {
 	FoodArray F;
 	KitchenArray K;
 	TabOrder TOrder;
+	Stack FoodStack;
+	Queue QCust;
 
 	/* ALGORITMA */
 
