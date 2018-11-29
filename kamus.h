@@ -96,4 +96,8 @@ typedef struct {
 #define Food(K) (K).Food
 #define PositionK(K) (K).Position
 
+
+
+
+
 #endif
