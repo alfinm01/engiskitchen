@@ -227,7 +227,7 @@ int DetectAround (POINT PositionP, boolean Main) {
 		}
 	} else {
 		if (Panjang(PositionP, MakePOINT(1, 1)) <= 1) {
-		return 1;
+			return 1;
 		}
 		else if (Panjang(PositionP, MakePOINT(2, 1)) <= 1) {
 			return 2;

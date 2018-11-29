@@ -12,7 +12,7 @@
 #define Nil NULL
 
 typedef struct {
-	char Name[20];			/* Nama makanan */
+	char *Name;			/* Nama makanan */
 	int Price;				/* Harga */
 } Foods;
 
