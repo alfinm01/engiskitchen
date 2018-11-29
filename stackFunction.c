@@ -1,4 +1,4 @@
-#include "stackFunction.h"
+#include "kamus.h"
 
 void Give() {
 

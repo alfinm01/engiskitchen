@@ -1,6 +1,4 @@
-#include "movementFunction.h"
-#include "./ADT/point.h"
-#include "./ADT/matriks.h"
+#include "kamus.h"
 
 boolean BisaJalan(char *arah, MATRIKS M, POINT P) {
     switch (*arah) {

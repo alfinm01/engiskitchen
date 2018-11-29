@@ -1,6 +1,5 @@
 #include "kamus.h"
 
-
 void TickCounter(States *State) {
 	/* Kamus */
 
@@ -18,7 +17,7 @@ void GenerateCustomer(States State, Queue *QCust) {
     		((rand() % 20) > 10) ? C.Amount = 2 : C.Amount = 4;
    			C.Order = Food[(rand() % 14) + 1].Name;
     		C.QueueingTime = 30;
-    		C.Patience = (rand() % 30);
+    		C.Patience = (30 + rand() / (RAND_MAX / (20 - 60 + 1) + 1));
     		AddQueueList(QCust, C);
     	}
     }
