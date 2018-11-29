@@ -5,7 +5,6 @@
 #define POINT_H
 
 #include "boolean.h"
-#include "../kamus.h"
 
 typedef struct { 
 	int X; /* absis   */
@@ -50,7 +49,7 @@ boolean IsOnSbX (POINT P);
 /* Menghasilkan true jika P terletak Pada sumbu X */
 boolean IsOnSbY (POINT P);
 /* Menghasilkan true jika P terletak pada sumbu Y */
-boolean IsPointPintu (POINT P);
+/*boolean IsPointPintu (POINT P, Maps MapMain, Maps MapKitchen);*/
 
 boolean BatasAtas(POINT P);
 
@@ -107,6 +106,6 @@ void Mirror (POINT *P, boolean SbX);
 void Putar (POINT *P, float Sudut);
 /* I.S. P terdefinisi */
 /* F.S. P digeser sebesar Sudut derajat dengan sumbu titik (0,0) */
-void DekatMeja (POINT P, int *NoMeja, int *Kursi, boolean *full, boolean *dekat);
+/*void DekatMeja (POINT P, int *NoMeja, int *Kursi, boolean *full, boolean *dekat);*/
 
 #endif

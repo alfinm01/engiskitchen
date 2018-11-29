@@ -1,1 +1,1 @@
-gcc main.c ./UI/UI.c ./ADT/matriks.c ./ADT/mesin_kata.c ./ADT/mesin_kar.c UIFunction.c -o test
+gcc main.c ./UI/UI.c ./ADT/matriks.c ./ADT/jam.c ./ADT/point.c ./ADT/mesin_kata.c ./ADT/mesin_kar.c UIFunction.c initialize.c -o test

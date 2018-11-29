@@ -1,0 +1,1 @@
+Food | SateAyam 100 | SateDaging 150 | SatePadang 200 | NasiGoreng 250 | NasiPecel 300 | AyamRica-rica 350 | AyamPop 400 | PaketPadang 450 | AyamKola 500 | Gule 550 | Burger 600 | CheeseBurger 650 | Bakso 700 | PaketHemat 750 | Naskor 800 .

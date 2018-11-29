@@ -50,13 +50,13 @@ boolean EQPoint (POINT P1, POINT P2){
 }
 boolean NEQPoint (POINT P1, POINT P2){
 /* Mengirimkan true jika P1 tidak sama dengan P2 */
-	return (!EQ(P1,P2));
+	return (!EQPoint(P1,P2));
 }
 
 /* *** Kelompok menentukan di mana P berada *** */
 boolean IsOrigin (POINT P){
 /* Menghasilkan true jika P adalah titik origin */
-	return EQ(P,MakePOINT(0,0));
+	return EQPoint(P,MakePOINT(0,0));
 }
 boolean IsOnSbX (POINT P){
 /* Menghasilkan true jika P terletak Pada sumbu X */
@@ -66,9 +66,9 @@ boolean IsOnSbY (POINT P){
 /* Menghasilkan true jika P terletak pada sumbu Y */
 	return (Absis(P)==0);
 }
-boolean IsPointPintu (POINT *P) {
+/*boolean IsPointPintu (POINT P, Maps MapMain, Maps MapKitchen) {
 	return (P == MapKitchen.D || P == MapMain.D);
-}
+}*/
 boolean BatasAtas(POINT P) {
 	return(P.Y == 8);
 }
@@ -178,7 +178,7 @@ void Putar (POINT *P, float Sudut){
 	Absis(*P)=X*cos((-1)*Sudut*PI/180)-Y*sin((-1)*Sudut*PI/180);
 	Ordinat(*P)=X*sin((-1)*Sudut*PI/180)+Y*cos((-1)*Sudut*PI/180);
 }
-void DekatMeja (POINT P, Tables *NoMeja, int *Kursi, boolean *full, boolean *dekat){
+/*void DekatMeja (POINT P, Tables *NoMeja, int *Kursi, boolean *full, boolean *dekat){
 	if(P == || P == || P ==|| P == ) {
 		*dekat = true;
 		*NoMeja = Tables1;
@@ -202,4 +202,4 @@ void DekatMeja (POINT P, Tables *NoMeja, int *Kursi, boolean *full, boolean *dek
 	} else {
 		dekat = false;
 	}	
-}
+}*/

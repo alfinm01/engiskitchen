@@ -4,6 +4,7 @@
 #include "kamus.h"
 #include "./UI/UI.h"
 #include "UIFunction.h"
+#include "initialize.h"
 
 // void NewGame(char *userName) {
 // 	/* Kamus Lokal */
@@ -24,11 +25,14 @@
 
 int main() {
 	/* KAMUS */
-	char command, *userName;
+	int i;
+	char command;
 	boolean exit;
 	States State;
-	Maps MapRestaurant, MapMain;
-	Tables Table1, Table2, Table3, Table4;
+	Maps MapMain, MapKitchen;
+	TableArray T;
+	FoodArray F;
+	KitchenArray K;
 
 	/* ALGORITMA */
 
@@ -46,9 +50,21 @@ int main() {
 		printf("\n");
 		switch (command) {
 		    case '1': {
-		        printf("Nama Anda (max 20 karakter): ");
-		        userName = (char *) malloc (20 * sizeof (char));
-		        scanf("%s", &userName);
+		        New(&State, &MapMain, &MapKitchen, &T, &F, &K);
+		        printf("%s\n", State.Name);
+		        for (i = 1; i <= 4; i++) {
+		        	printf("Number%d Chair%d \n", T.Table[i].Number, T.Table[i].Chair);
+		        	TulisPOINT(T.Table[i].Position);
+		        	printf("\n");
+		        }
+		        for (i = 1; i <= 15; i++) {
+		        	printf("Name%s Price%d \n", F.Food[i].Name, F.Food[i].Price);
+		        }
+		        for (i = 1; i <= 15; i++) {
+		        	printf("Number%d Food%d Price%d\n", K.Kitchen[i].Number, K.Kitchen[i].Food.Name, K.Kitchen[i].Food.Price);
+		        	TulisPOINT(K.Kitchen[i].Position);
+		        	printf("\n");
+		        }
 		        break;
 		    }
 		    case '2': {
@@ -60,8 +76,18 @@ int main() {
 		    }
 		    case '3': {
 		        printf("Load Game\n");
-		        //ReadState(&State);
+		        Load(&State, &MapMain, &MapKitchen);
 		        printf("%s\n", State.Name);
+		        printf("%d\n", State.Life);
+		        printf("%d\n", State.Money);
+		        TulisPOINT(State.Position);
+		        printf("\n");
+		        TulisJAM(State.Time);
+		        printf("\n");
+		        printf("%s\n", State.Object);
+		        printf("%d %d\n", MapMain.N, MapKitchen.M);
+		        TulisPOINT(MapMain.D);
+		        printf("\n");
 		        break;
 		    }
 		    case '4': {

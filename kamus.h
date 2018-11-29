@@ -6,6 +6,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "./ADT/jam.h"
 //#include "./ADT/array.h"
@@ -18,16 +19,17 @@
 #include "./ADT/mesin_kata.h"
 
 typedef struct {
-	char Name[20];				/* Nama pemain */
+	char *Name;					/* Nama pemain */
 	POINT Position;				/* Posisi pemain P */
 	int Life;					/* Nyawa tersisa */
 	int Money;					/* Jumlah uang yang didapat */
 	JAM Time;					/* Waktu lama bermain */
+	JAM SaveTime;				/* Waktu saat melakukan Save */
 	// TabInt Order;			/* Order yang diterima dari pelanggan (berisi "nama makanan, nomor meja") */
 		/* Perlu ada perubahan di tipe data Array */
 	Stack FoodStack;			/* Makanan yang berada di nampan */	/* !Stack berisi infotype Foods! */
 	// Queue WaitingCustomer;	/* Antrean pelanggan (berisi "jumlah pelanggan", 2 atau 4) */
-	char Object[10];			/* Object yang berada di dekat player */
+	char *Object;				/* Object yang berada di dekat player */
 } States;
 
 #define NameP(S) (S).Name
@@ -42,6 +44,10 @@ typedef struct {
 	char Name[20];			/* Nama makanan */
 	int Price;				/* Harga */
 } Foods;
+
+typedef struct {
+	Foods Food[15];
+} FoodArray;
 
 #define NameF(F) (F).Name
 #define Price(F) (F).Price
@@ -63,6 +69,10 @@ typedef struct {
 	int Patience;			/* Waktu kesabaran ketika menunggu di meja */
 } Customers;					/* Customer di-generate secara random */
 
+typedef struct {
+	Customers Customer[5];
+} CustomerArray;
+
 #define Amount(C) (C).Amount
 #define Order(C) (C).Order
 #define QueueingTime(C) (C).QueueingTime
@@ -76,6 +86,10 @@ typedef struct {
 	POINT Position;
 } Tables;
 
+typedef struct {
+	Tables Table[4];
+} TableArray;
+
 #define Number(T) (T).Number
 #define Chair(T) (T).Chair
 #define IsFull(T) (T).IsFull
@@ -87,6 +101,10 @@ typedef struct {
 	Foods Food;				/* Makanan yang dihasilkan dari meja dapur tersebut */
 	POINT Position;
 } Kitchens;
+
+typedef struct {
+	Kitchens Kitchen[15];
+} KitchenArray;
 
 #define Food(K) (K).Food
 #define PositionK(K) (K).Position

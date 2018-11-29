@@ -2,23 +2,24 @@
 /*  */
 
 #ifndef _INITIALIZE_H_
-#define _INITIAZIZE_H_
+#define _INITIALIZE_H_
 
 #include "kamus.h"
 
-void New();
+void New(States *State, Maps *MapMain, Maps *MapKitchen, TableArray *T, FoodArray *F, KitchenArray *K);
 
+void InitMap(Maps *Map, char MapType);
 
-void Load();
+void InitTable(Tables *Table, int TableCounter);
 
+void InitFood(Foods *Food, int FoodCounter);
+
+void InitKitchen(Kitchens *Kitchen, int KitchenCounter, Foods Food);
+
+void Load(States *State, Maps *MapMain, Maps *MapKitchen);
 
 void ReadState(States *State);
 
-
-void ReadFood(Tables *Table1, Tables *Table2, Tables *Table3, Tables *Table4);
-
-
-void ReadTables(Tables *Table1, Tables *Table2, Tables *Table3, Tables *Table4);
 
 
 
