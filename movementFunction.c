@@ -1,31 +1,25 @@
 #include "kamus.h"
 
-boolean BisaJalan(char *arah, MATRIKS M, POINT P) {
-    switch (*arah) {
-        case 'GU' :
-            return((IsIdxValid(P.X, (P.Y + 1))) && (Elmt(M, P.X, (P.Y + 1)) = ' '));
-            break;
-        case 'GD' :
-            return((IsIdxValid(P.X, (P.Y - 1))) && (Elmt(M, P.X, (P.Y - 1)) = ' '));
-            break;
-        case 'GR' :
-            return((IsIdxValid((P.X + 1), P.Y)) && (Elmt(M, (P.X + 1), P.Y) = ' '));
-            break;
-        case 'GL' :
-            return((IsIdxValid((P.X - 1), P.Y)) && (Elmt(M, (P.X - 1), P.Y) = ' '));
-            break;
-        }
-    
+boolean BisaJalan(char arah[5], MATRIKS M, POINT P) {
+    if (arah == "UP") {
+        return((IsIdxValid(P.X, (P.Y + 1))) && (Elmt(M, P.X, (P.Y + 1)) = ' '));
+    } else if (arah == "DOWN") {
+        return((IsIdxValid(P.X, (P.Y - 1))) && (Elmt(M, P.X, (P.Y - 1)) = ' '));
+    } else if (arah == "RIGHT") {
+        return((IsIdxValid((P.X + 1), P.Y)) && (Elmt(M, (P.X + 1), P.Y) = ' '));
+    } else if (arah == "LEFT") { 
+        return((IsIdxValid((P.X - 1), P.Y)) && (Elmt(M, (P.X - 1), P.Y) = ' '));
+    }
 }
 
-void move(char *command, POINT *P, JAM *J, MATRIKS M, boolean B) {
+/*void move(char command[5], POINT *P, JAM *J, MATRIKS M, boolean Main) {
     switch (*command) {
         case 'GU' :
-            if (BisaJalan(&command, M, *P)) {
+            if (BisaJalan("UP", M, *P)) {
                 *P = NextY(*P);
                 *J = PrevDetik(*J);
             } else {
-                if(IsPointPintu(*P)) {
+                if(!Main && IsPointPintu(*P)) {
                     MasukMainRoom();
                     *J = PrevDetik(*J);
                 } else {
@@ -35,11 +29,11 @@ void move(char *command, POINT *P, JAM *J, MATRIKS M, boolean B) {
             break;
 
         case 'GD' :
-            if (BisaJalan(&command, M, *P)) {
+            if (BisaJalan("DOWN", M, *P)) {
                 *P = PrevY(*P);
                 *J = PrevDetik(*J);
             } else {
-                if (IsPointPintu(*P)) {
+                if (Main && IsPointPintu(*P)) {
                     MasukDapur();
                     *J = PrevDetik(*J);
                 } else {
@@ -49,7 +43,7 @@ void move(char *command, POINT *P, JAM *J, MATRIKS M, boolean B) {
             break;
 
         case 'GR' :
-            if (BisaJalan(&command, M, *P)) {
+            if (BisaJalan("RIGHT", M, *P)) {
                 *P = NextX(*P);
                 *J = PrevDetik(*J);
             } else {
@@ -68,5 +62,50 @@ void move(char *command, POINT *P, JAM *J, MATRIKS M, boolean B) {
 
         default:
             break;
+    }
+}*/
+void GoUp(POINT *P, JAM *J, MATRIKS M, boolean Main) {
+    if (BisaJalan("UP", M, *P)) {
+        *P = NextY(*P);
+        *J = PrevDetik(*J);
+    } else {
+        if(!Main && IsPointPintu(*P)) {
+            MasukMainRoom();
+            *J = PrevDetik(*J);
+        } else {
+            printf("Gabisa gerak");
+        }
+    }
+}
+
+void GoDown(POINT *P, JAM *J, MATRIKS M, boolean Main) {
+    if (BisaJalan("DOWN", M, *P)) {
+        *P = PrevY(*P);
+        *J = PrevDetik(*J);
+    } else {
+        if (Main && IsPointPintu(*P)) {
+            MasukDapur();
+            *J = PrevDetik(*J);
+        } else {
+            printf("Gabisa gerak");
+        }
+    }
+}
+
+void GoRight(POINT *P, JAM *J, MATRIKS M) {
+    if (BisaJalan("RIGHT", M, *P)) {
+        *P = NextX(*P);
+        *J = PrevDetik(*J);
+    } else {
+        printf("Gabisa gerak");
+    }
+}
+
+void GoLeft(POINT *P, JAM *J, MATRIKS M) {
+    if (BisaJalan("LEFT", M, *P)) {
+        *P = NextY(*P);
+        *J = PrevDetik(*J);
+    } else {
+        printf("Gabisa gerak");
     }
 }

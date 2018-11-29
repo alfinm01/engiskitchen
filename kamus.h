@@ -99,9 +99,13 @@ typedef struct {
 
 /***** MOVEMENT FUNCTION *****/
 
-boolean BisaJalan(char *arah, MATRIKS M, POINT P);
-void move(char *command, POINT *P, JAM *J, MATRIKS M, boolean B);
-
+boolean BisaJalan(char arah[5], MATRIKS M, POINT P);
+/*void move(char *command, POINT *P, JAM *J, MATRIKS M, boolean B);
+*/
+void GoUp(POINT *P, JAM *J, MATRIKS M, boolean Main);
+void GoDown(POINT *P, JAM *J, MATRIKS M, boolean Main);
+void GoRight(POINT *P, JAM *J, MATRIKS M);
+void GoLeft(POINT *P, JAM *J, MATRIKS M);
 /***** QUEUE FUNCTION *****/
 
 void Place(POINT P, Queue *QC, Tables *T, JAM *J);
@@ -124,6 +128,7 @@ void Map(MATRIKS *M, boolean Main, POINT Player);
 void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time, POINT Player, Queue Q, Stack S);
 void uiHeader();
 void uiMenu();
+void uiCommand ();
 
 /***** INITIALIZATION FUNCTION *****/
 
