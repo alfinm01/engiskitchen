@@ -15,13 +15,13 @@ boolean BisaJalan(char arah[5], MATRIKS M, POINT P) {
 void GoUp(POINT *P, MATRIKS M, MATRIKS K, boolean Main) {
     if (Main) {
         if (BisaJalan("UP", M, *P)) {
-        *P = NextY(*P);
+        *P = PrevX(*P);
         } else {
             printf("Gabisa gerak");
         }
     } else {
         if (BisaJalan("UP", K, *P)) {
-            *P = NextY(*P);
+            *P = PrevX(*P);
         } else if (IsPointPintu(*P)) {
             Main = false;
         } else {
@@ -33,13 +33,13 @@ void GoUp(POINT *P, MATRIKS M, MATRIKS K, boolean Main) {
 void GoDown(POINT *P, MATRIKS M, MATRIKS K, boolean Main) {
     if (Main) {
         if (BisaJalan("DOWN", M, *P)) {
-        *P = PrevY(*P);
+        *P = NextX(*P);
         } else {
             printf("Gabisa gerak");
         }
     } else {
         if (BisaJalan("DOWN", K, *P)) {
-            *P = PrevY(*P);
+            *P = NextX(*P);
         } else if (IsPointPintu(*P)) {
             Main = true;
         } else {
@@ -51,13 +51,13 @@ void GoDown(POINT *P, MATRIKS M, MATRIKS K, boolean Main) {
 void GoRight(POINT *P, MATRIKS M, MATRIKS K, boolean Main) {
     if (Main) {
         if (BisaJalan("RIGHT", M, *P)) {
-            *P = NextX(*P);
+            *P = NextY(*P);
         } else {
             printf("Gabisa gerak");
         }
     } else {
         if (BisaJalan("RIGHT", K, *P)) {
-            *P = NextX(*P);
+            *P = NextY(*P);
         } else {
             printf("Gabisa gerak");
         }
@@ -67,13 +67,13 @@ void GoRight(POINT *P, MATRIKS M, MATRIKS K, boolean Main) {
 void GoLeft(POINT *P, MATRIKS M, MATRIKS K, boolean Main) {
     if (Main) {
         if (BisaJalan("LEFT", M, *P)) {
-            *P = NextY(*P);
+            *P = PrevY(*P);
         } else {
             printf("Gabisa gerak");
         }
     } else {
         if (BisaJalan("LEFT", K, *P)) {
-            *P = NextY(*P);
+            *P = PrevY(*P);
         } else {
             printf("Gabisa gerak");
         }

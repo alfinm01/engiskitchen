@@ -40,7 +40,7 @@ void Game(States *State, MATRIKS *MainRoom, MATRIKS *KitchenRoom, TableArray *T,
 			Order((*State).Position, *T, TOrder);
 		}
 		else if (strcmp(command, "TAKE") == 0){
-
+			Take((*State).Position, *K, FoodStack);
 		}
 		else if (strcmp(command, "CT") == 0){
 			//CT();
@@ -64,6 +64,7 @@ void Game(States *State, MATRIKS *MainRoom, MATRIKS *KitchenRoom, TableArray *T,
 		        printf("Command salah!\n");
 		        printf("Command : ");
 		}
+		TulisPOINT((*State).Position);
 		TickCounter(&((*State).Time), QCust, *F);
 		PrintUI(MainRoom, (*State).IsInMain, (*State).Name, (*State).Money, (*State).Life, (*State).Time, (*State).Position, *QCust, *FoodStack, *TOrder, *T);
 	} while ((!finish) /*&& ((*State).Time < 999)*/);
