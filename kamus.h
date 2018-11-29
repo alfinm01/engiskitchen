@@ -118,7 +118,7 @@ void printMoney(int money);
 void printLife(int life);
 void printTime(int time);
 void printNama(char *name);
-void AssignMatriks(MATRIKS *M, boolean Main, POINT Player);
+void AssignMatriks(MATRIKS *M, boolean Main, POINT Player, TableArray T);
 void printBatas();
 void Map(MATRIKS *M, boolean Main, POINT Player);
 void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time, POINT Player, Queue Q, Stack S, TabOrder A);

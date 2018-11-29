@@ -109,23 +109,51 @@ void printNama(char *name){
 	printf("%s", name);
 		
 }
-void AssignMatriks(MATRIKS *M, boolean Main, POINT Player){
-	/* Kamus */
-	int i,j;
+void AssignMatriks(MATRIKS *M, boolean Main, POINT Player, TableArray T){
 	/* Algoritma */
 	if(Main) {
-		Elmt(*M,1,2) = 'X';
-		Elmt(*M,2,1) = 'X';
-		Elmt(*M,2,3) = 'X';
-		Elmt(*M,3,2) = 'X';
-		Elmt(*M,2,6) = 'X';
-		Elmt(*M,2,8) = 'X';
-		Elmt(*M,7,1) = 'X';
-		Elmt(*M,7,3) = 'X';
-		Elmt(*M,7,6) = 'X';
-		Elmt(*M,7,8) = 'X';
-		Elmt(*M,6,2) = 'X';
-		Elmt(*M,8,2) = 'X';
+		if (T.Table[1].IsTableFull) {
+			Elmt(*M,1,2) = 'C';
+			Elmt(*M,3,2) = 'C';
+			if (T.Table[1].Customer.Amount >= 4) {
+				Elmt(*M,2,1) = 'C';
+				Elmt(*M,2,3) = 'C';
+			} else {
+				Elmt(*M,2,1) = 'X';
+				Elmt(*M,2,3) = 'X';
+			}
+		} else {
+			Elmt(*M,2,1) = 'C';
+			Elmt(*M,2,3) = 'C';
+		}
+		if (T.Table[2].IsTableFull) {
+			Elmt(*M,6,2) = 'C';
+			Elmt(*M,8,2) = 'C';
+		} else {
+			Elmt(*M,6,2) = 'X';
+			Elmt(*M,8,2) = 'X';
+		}
+		if (T.Table[3].IsTableFull) {
+			Elmt(*M,1,7) = 'C';
+			Elmt(*M,3,7) = 'C';
+			if (T.Table[3].Customer.Amount >= 4) {
+				Elmt(*M,2,6) = 'C';
+				Elmt(*M,2,8) = 'C';
+			} else {
+				Elmt(*M,2,6) = 'X';
+				Elmt(*M,2,8) = 'X';
+			}
+		} else {
+			Elmt(*M,1,7) = 'C';
+			Elmt(*M,3,7) = 'C';
+		}
+		if (T.Table[4].IsTableFull) {
+			Elmt(*M,6,7) = 'C';
+			Elmt(*M,8,7) = 'C';
+		} else {
+			Elmt(*M,6,7) = 'X';
+			Elmt(*M,6,7) = 'X';
+		}
 		Elmt(*M,2,2) = '1';
 		Elmt(*M,2,7) = '2';
 		Elmt(*M,7,2) = '3';
