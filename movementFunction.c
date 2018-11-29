@@ -12,99 +12,47 @@ boolean BisaJalan(char arah[5], MATRIKS M, POINT P) {
     }
 }
 
-/*void move(char command[5], POINT *P, JAM *J, MATRIKS M, boolean Main) {
-    switch (*command) {
-        case 'GU' :
-            if (BisaJalan("UP", M, *P)) {
-                *P = NextY(*P);
-                *J = PrevDetik(*J);
-            } else {
-                if(!Main && IsPointPintu(*P)) {
-                    MasukMainRoom();
-                    *J = PrevDetik(*J);
-                } else {
-                    printf("Gabisa gerak");
-                }
-            }
-            break;
-
-        case 'GD' :
-            if (BisaJalan("DOWN", M, *P)) {
-                *P = PrevY(*P);
-                *J = PrevDetik(*J);
-            } else {
-                if (Main && IsPointPintu(*P)) {
-                    MasukDapur();
-                    *J = PrevDetik(*J);
-                } else {
-                    printf("Gabisa gerak");
-                }
-            }
-            break;
-
-        case 'GR' :
-            if (BisaJalan("RIGHT", M, *P)) {
-                *P = NextX(*P);
-                *J = PrevDetik(*J);
-            } else {
-                printf("Gabisa gerak");
-            }
-            break;
-
-        case 'GL' :
-            if (BisaJalan(&command, M, *P)) {
-                *P = NextY(*P);
-                *J = PrevDetik(*J);
-            } else {
-                printf("Gabisa gerak");
-            }
-            break;
-
-        default:
-            break;
-    }
-}*/
-void GoUp(POINT *P, JAM *J, MATRIKS M, boolean Main) {
+void GoUp(POINT *P, int *J, MATRIKS M, boolean Main) {
     if (BisaJalan("UP", M, *P)) {
         *P = NextY(*P);
-        *J = PrevDetik(*J);
+        *J--;
     } else {
         if(!Main && IsPointPintu(*P)) {
             MasukMainRoom();
-            *J = PrevDetik(*J);
+            *J--;
         } else {
             printf("Gabisa gerak");
         }
     }
 }
 
-void GoDown(POINT *P, JAM *J, MATRIKS M, boolean Main) {
+void GoDown(POINT *P, int *J, MATRIKS M, boolean Main) {
     if (BisaJalan("DOWN", M, *P)) {
         *P = PrevY(*P);
-        *J = PrevDetik(*J);
+        *J--;
     } else {
         if (Main && IsPointPintu(*P)) {
             MasukDapur();
-            *J = PrevDetik(*J);
+            *J--;
         } else {
             printf("Gabisa gerak");
         }
     }
 }
 
-void GoRight(POINT *P, JAM *J, MATRIKS M) {
+void GoRight(POINT *P, int *J, MATRIKS M) {
     if (BisaJalan("RIGHT", M, *P)) {
         *P = NextX(*P);
-        *J = PrevDetik(*J);
+        *J--;
     } else {
         printf("Gabisa gerak");
     }
 }
 
-void GoLeft(POINT *P, JAM *J, MATRIKS M) {
+void GoLeft(POINT *P, int *J, MATRIKS M) {
     if (BisaJalan("LEFT", M, *P)) {
         *P = NextY(*P);
-        *J = PrevDetik(*J);
+        *J--;
     } else {
         printf("Gabisa gerak");
     }
