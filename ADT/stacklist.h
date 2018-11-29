@@ -5,16 +5,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 /* MODUL STACK */
 /* Deklarasi stack yang diimplementasi dengan list linier dengan representasi fisik pointer */
 
 #define Nil NULL
 
+typedef struct {
+	char Name[20];			/* Nama makanan */
+	int Price;				/* Harga */
+} Foods;
+
+#define NameF(F) (F).Name
+#define Price(F) (F).Price
+
 /*  Definisi Type Stack  */
 typedef char infotype;
 typedef struct tElmtStack * address;
 typedef struct tElmtStack {
-	infotype Info;
+	Foods Food;
 	address Next;
 } ElmtStack;
 typedef struct {
@@ -31,7 +40,7 @@ Definisi stack dengan representasi berkait :
 ******************************************************/
 #define Top(S) (S).TOP
 #define Next(P) (P)->Next
-#define Info(P) (P)->Info
+#define Info(P) (P)->Food
 
 /***************/
 /*  Prototype  */
@@ -44,7 +53,7 @@ void CreateEmpty (Stack *S);
 // Ciri stack kosong : TOP bernilai Nil 
 
 // Prototype manajemen memori
-void Alokasi (address *P, infotype X);
+void Alokasi (address *P, Foods F);
 // I.S. P Sembarang, X terdefinisi 
 // F.S. Alamat P dialokasi, jika berhasil maka Info(P) = X dan Next(P) = Nil 
 // P = Nil jika alokasi gagal 
@@ -57,12 +66,12 @@ boolean IsEmpty (Stack S);
 // Mengirim true jika Stack kosong
 
 // Operator Dasar Stack
-void Push (Stack *S, infotype X);
+void Push (Stack *S, Foods F);
 // Menambahkan X sebagai elemen Stack S. 
 // I.S. S mungkin kosong
 // F.S. X menjadi TOP yang baru, jika alokasi elemen baru berhasil. 
 // Jika alokasi gagal, S tetap. 
-void Pop (Stack *S, infotype *X);
+void Pop (Stack *S, Foods *F);
 // Menghapus X dari Stack S. 
 // I.S. S tidak kosong 
 // F.S. X adalah nilai elemen TOP yang lama, elemen top yang lama didealokasi, 

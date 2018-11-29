@@ -21,7 +21,7 @@ boolean IsFull(Queue Q) {
 }
 /* Mengirim true jika tabel penampung elemen Q sudah penuh yaitu mengandung
 MaxEl elemen */
-int NBElmt(Queue Q) {
+int NBElmtQ(Queue Q) {
   /* Kamus Lokal */
 
   /* Algoritma */

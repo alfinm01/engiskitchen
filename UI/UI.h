@@ -4,7 +4,8 @@
 #define _UI_H_
 
 #include "../kamus.h"
-//#include "../ADT/mesin_kata.h"
+#include "string.h"
+#include "stdio.h"
 
 void AssignMatriks(MATRIKS *M, char JenisRuang);
 void printBatas();

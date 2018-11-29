@@ -19,5 +19,8 @@
 #include "./ADT/stack.h"
 // #include "./ADT/stacklist.h"
 
-void move(char *command, POINT *P, JAM *J);
+boolean BisaJalan(char *arah, MATRIKS M, POINT P);
+
+void move(char *command, POINT *P, JAM *J, MATRIKS M);
+
 #endif

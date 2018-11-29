@@ -2,6 +2,113 @@
 
 #include "UI.h"
 
+void printMoney(int money){
+	/* Kamus */
+	int i, idx, spaceLength, moneyLength, money, digit;
+	Stack s;
+	/* Algoritma */
+	if (money == 0) {
+		printf("    0");
+	}
+	else {
+		CreateEmptyStack(&s);
+		moneyLength = 0;
+		
+		do {
+			digit = money%10 ;
+			PushStack(&s,digit);
+			moneyLength++;
+			money = money / 10;
+		} while ((money != 0) && (moneyLength<=5)); 
+		
+		spaceLength = 5 - moneyLength;
+		for (i=1; i<=spaceLength; i++) {
+			printf(" ");
+		}
+		
+		for (i=1;i<=moneyLength;i++) {
+			PopStack(&s, &idx);
+			printf("%d", idx);
+		}
+	}
+}
+
+void printLife(int life){
+	/* Kamus */
+	int i, idx, spaceLength, lifeLength, life, digit;
+	Stack s;
+	/* Algoritma */
+	if (life == 0) {
+		printf(" 0");
+	}
+	else {
+		CreateEmptyStack(&s);
+		lifeLength = 0;
+		
+		do {
+			digit = life%10 ;
+			PushStack(&s,digit);
+			lifeLength++;
+			life = life / 10;
+		} while ((life != 0) && (lifeLength<=5)); 
+		
+		spaceLength = 2 - lifeLength;
+		for (i=1; i<=spaceLength; i++) {
+			printf(" ");
+		}
+		
+		for (i=1;i<=lifeLength;i++) {
+			PopStack(&s, &idx);
+			printf("%d", idx);
+		}
+	}
+}
+
+void printTime(int time){
+	/* Kamus */
+	int i, idx, spaceLength, timeLength, time, digit;
+	Stack s;
+	/* Algoritma */
+	if (time == 0) {
+		printf("  0");
+	}
+	else {
+		CreateEmptyStack(&s);
+		timeLength = 0;
+		
+		do {
+			digit = time%10 ;
+			PushStack(&s,digit);
+			timeLength++;
+			time = time / 10;
+		} while ((time != 0) && (timeLength<=5)); 
+		
+		spaceLength = 3 - timeLength;
+		for (i=1; i<=spaceLength; i++) {
+			printf(" ");
+		}
+		
+		for (i=1;i<=timeLength;i++) {
+			PopStack(&s, &idx);
+			printf("%d", idx);
+		}
+	}
+}
+
+void printNama(char name){
+	/* Kamus */
+	int lengthname;
+	int space;
+	/* Algoritma */
+	space = 29;
+	lengthnama = strlen(name);
+	space = space - lengthname;
+	for (i=1;i<=space;i++) {
+		printf(" ");
+	}
+	printf("%s", name);
+		
+}
 void AssignMatriks(MATRIKS *M, char JenisRuang){
 	/* Kamus */
 	int i,j;
@@ -145,7 +252,7 @@ void Map(MATRIKS *M, char JenisRuang) {
 
 }
 
-void PrintUI(MATRIKS *M, char JenisRuang) {
+void PrintUI(MATRIKS *M, char JenisRuang, char name, int money, int life, int time) {
 	/* Kamus */
 	int i,j;
 	/* Algoritma */
@@ -162,25 +269,21 @@ void PrintUI(MATRIKS *M, char JenisRuang) {
 	printBatas();
 
 	printBatas();
-	printf("| ");
-	for (i=1; i<= 29;i++) {
-		printf(" ");
-	}
+	printf("| ");						
+	printnama(name);
+	
 	printf(" | ");
 	printf(" MONEY : ");
-	for(i=1;i<=5;i++){
-		printf("0");
-	}
+	printMoney(money);
+	
 	printf("  | ");
 	printf(" LIFE : ");
-	for (i=1;i<=2;i++) {
-		printf("0");
-	}
+	printLife(life);
+	
 	printf("  | ");
 	printf(" TIME : ");
-	for(i=1;i<=3;i++) {
-		printf("0");
-	}
+	printTime(time);
+	
 	printf("  |\n");
 	printBatas();
 	

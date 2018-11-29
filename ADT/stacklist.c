@@ -1,9 +1,3 @@
-/* File : stacklist.c */
-/* Nama : Alfian Maulana Ibrahim */
-/* NIM : 18217038 */
-/* Tanggal : 31 Oktober 2018 */
-/* Deskripsi : Berisi implementasi dari file header stacklist.h, stack diimplementasi dengan list linier */
-
 #include "stacklist.h"
 
 /***************/
@@ -22,13 +16,13 @@ void CreateEmpty (Stack *S) {
 // Ciri stack kosong : TOP bernilai Nil 
 
 // Prototype manajemen memori
-void Alokasi (address *P, infotype X) {
+void Alokasi (address *P, Foods F) {
 	/* Kamus Lokal */
 
 	/* Algoritma */
 	*P = (address) malloc (sizeof (ElmtStack));
   	if (*P != Nil) {
-    	Info(*P) = X;
+    	Info(*P) = F;
     	Next(*P) = Nil;
   	}
   	else {
@@ -57,12 +51,12 @@ boolean IsEmpty (Stack S) {
 // Mengirim true jika Stack kosong
 
 // Operator Dasar Stack
-void Push (Stack *S, infotype X) {
+void Push (Stack *S, Foods F) {
 	/* Kamus Lokal */
 	address P;
 	
 	/* Algoritma */
-	Alokasi(&P, X);
+	Alokasi(&P, F);
 	if (P != Nil) {
 		if (!IsEmpty(*S)) {
 			Next(P) = Top(*S);
@@ -74,12 +68,12 @@ void Push (Stack *S, infotype X) {
 // I.S. S mungkin kosong
 // F.S. X menjadi TOP yang baru, jika alokasi elemen baru berhasil. 
 // Jika alokasi gagal, S tetap. 
-void Pop (Stack *S, infotype *X) {
+void Pop (Stack *S, Foods *F) {
 	/* Kamus Lokal */
 	address P;
 	
 	/* Algoritma */
-	*X = Info(Top(*S));
+	*F = Info(Top(*S));
 	P = Top(*S);
 	Top(*S) = Next(Top(*S));
 	Dealokasi(&P);
