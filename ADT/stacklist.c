@@ -5,7 +5,7 @@
 /***************/
 
 // Konstruktor/Kreator 
-void CreateEmpty (Stack *S) {
+void CreateEmptyStackList (Stack *S) {
 	/* Kamus Lokal */
 
 	/* Algoritma */
@@ -16,7 +16,7 @@ void CreateEmpty (Stack *S) {
 // Ciri stack kosong : TOP bernilai Nil 
 
 // Prototype manajemen memori
-void Alokasi (address *P, Foods F) {
+void AlokasiStackList (address *P, Foods F) {
 	/* Kamus Lokal */
 
 	/* Algoritma */
@@ -32,7 +32,7 @@ void Alokasi (address *P, Foods F) {
 // I.S. P Sembarang, X terdefinisi 
 // F.S. Alamat P dialokasi, jika berhasil maka Info(P) = X dan Next(P) = Nil 
 // P = Nil jika alokasi gagal 
-void Dealokasi (address *P) {
+void DealokasiStackList (address *P) {
 	/* Kamus Lokal */
 
 	/* Algoritma */
@@ -42,16 +42,32 @@ void Dealokasi (address *P) {
 // F.S. Alamat P didealokasi, dikembalikan ke sistem 
 
 // Predikat Untuk test keadaan KOLEKSI
-boolean IsEmpty (Stack S) {
+boolean IsEmptyStackList (Stack S) {
 	/* Kamus Lokal */
 
 	/* Algoritma */
 	return (Top(S) == Nil);
 }
 // Mengirim true jika Stack kosong
+int NBElmtStackList (Stack S) {
+	/* Kamus Lokal */
+	int count = 0;
+	address P;
+
+	/* Algoritma */
+	if (!IsEmptyStackList(S)) {
+		P = Top(S);
+		while (P != Nil) {
+			count++;
+			P = Next(P);
+		}
+	}
+	return count;
+}
+/* Mengirimkan banyaknya elemen Stack. Mengirimkan 0 jika Q kosong */
 
 // Operator Dasar Stack
-void Push (Stack *S, Foods F) {
+void PushStackList (Stack *S, Foods F) {
 	/* Kamus Lokal */
 	address P;
 	
@@ -68,7 +84,7 @@ void Push (Stack *S, Foods F) {
 // I.S. S mungkin kosong
 // F.S. X menjadi TOP yang baru, jika alokasi elemen baru berhasil. 
 // Jika alokasi gagal, S tetap. 
-void Pop (Stack *S, Foods *F) {
+void PopStackList (Stack *S, Foods *F) {
 	/* Kamus Lokal */
 	address P;
 	

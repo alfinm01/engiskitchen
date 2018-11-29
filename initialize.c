@@ -6,6 +6,8 @@ void New(States *State, Maps *MapMain, Maps *MapKitchen, TableArray *T, FoodArra
 	int i;
 
 	/* Algoritma */
+	system("cls");
+	uiHeader();
 	printf("Nama Anda (max 20 karakter): ");							/* State */
 	scanf("%s", &userName);
 	(*State).Name = (char *) malloc (strlen(userName) * sizeof(char));
@@ -27,6 +29,11 @@ void New(States *State, Maps *MapMain, Maps *MapKitchen, TableArray *T, FoodArra
 		InitFood(&((*F).Food[i]), i);
 		InitKitchen(&((*K).Kitchen[i]), i, (F)->Food[i]);
 	}
+
+	system("cls");
+	uiHeader();
+	printf("Hai, %s!\n", (*State).Name);
+	printf("\nSelamat bermain :D\n");
 }
 
 void InitMap(Maps *Map, char MapType) {

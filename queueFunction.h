@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include "boolean.h"
 /* Modul lain yang digunakan : */
-#include "./ADT/queue.h"
+//#include "./ADT/queue.h"
 #include "kamus.h"
 
 

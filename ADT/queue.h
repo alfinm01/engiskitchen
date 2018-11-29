@@ -35,16 +35,16 @@ typedef struct {
 #define MaxEl(Q) (Q).MaxEl
 
 /* *** Predikat Pemeriksaan Kondisi Queue *** */
-boolean IsEmpty(Queue Q);
+boolean IsEmptyQueue(Queue Q);
 /* Mengirim true jika Q kosong */
-boolean IsFull(Queue Q);
+boolean IsFullQueue(Queue Q);
 /* Mengirim true jika tabel penampung elemen Q sudah penuh yaitu mengandung
 MaxEl elemen */
-int NBElmt(Queue Q);
+int NBElmtQueue(Queue Q);
 /* Mengirimkan banyaknya elemen queue. Mengirimkan 0 jika Q kosong. */
 
 /* *** Konstruktor *** */
-void CreateEmpty(Queue *Q,int Max);
+void CreateEmptyQueue(Queue *Q,int Max);
 /* I.S. Max terdefinisi }
    F.S. Sebuah Q kosong terbentuk dan salah satu kondisi sbb :
    Jika alokasi berhasil, tabel memori dialokasi berukuran Max
@@ -52,17 +52,17 @@ void CreateEmpty(Queue *Q,int Max);
    Proses : Melakukan alokasi memori dan membuat sebuah Q kosong */
 
 /* *** Destruktor *** */
-void DeAlokasi(Queue *Q);
+void DeAlokasiQueue(Queue *Q);
 /* Proses : Mengembalikan memori Q
    I.S. Q pernah dialokasi
    F.S. Q menjadi tidak terdefinisi lagi, MaxEl(Q) diset 0 */
 
 /* *** Operator-Operator Dasar Queue *** */
-void Add(Queue *Q,infotype X);
+void AddQueue(Queue *Q,infotype X);
 /* Proses : Menambahkan X pada Q dengan aturan FIFO
    I.S. Q mungkin kosong, tabel penampung elemen Q TIDAK penuh
    F.S. X menjadi TAIL yang baru, TAIL "maju" */
-void Del(Queue *Q,infotype *X);
+void DelQueue(Queue *Q,infotype *X);
 /* Proses: Menghapus elemen pertama pada Q dengan aturan FIFO
    I.S. Q tidak kosong
    F.S. X = nilai elemen HEAD pada I.S.,

@@ -20,10 +20,10 @@ typedef struct {
 #define Price(F) (F).Price
 
 /*  Definisi Type Stack  */
-typedef char infotype;
+typedef Foods infotype;
 typedef struct tElmtStack * address;
 typedef struct tElmtStack {
-	Foods Food;
+	infotype Food;
 	address Next;
 } ElmtStack;
 typedef struct {
@@ -47,31 +47,33 @@ Definisi stack dengan representasi berkait :
 /***************/
 
 //Konstruktor/Kreator 
-void CreateEmpty (Stack *S);
+void CreateEmptyStackList (Stack *S);
 // I.S. Sembarang 
 // F.S. Membuat sebuah stack S yang kosong 
 // Ciri stack kosong : TOP bernilai Nil 
 
 // Prototype manajemen memori
-void Alokasi (address *P, Foods F);
+void AlokasiStackList (address *P, Foods F);
 // I.S. P Sembarang, X terdefinisi 
 // F.S. Alamat P dialokasi, jika berhasil maka Info(P) = X dan Next(P) = Nil 
 // P = Nil jika alokasi gagal 
-void Dealokasi (address *P);
+void DealokasiStackList (address *P);
 // I.S. P adalah hasil alokasi, P != Nil 
 // F.S. Alamat P didealokasi, dikembalikan ke sistem 
 
 // Predikat Untuk test keadaan KOLEKSI
-boolean IsEmpty (Stack S);
+boolean IsEmptyStackList (Stack S);
 // Mengirim true jika Stack kosong
+int NBElmtStackList (Stack S);
+/* Mengirimkan banyaknya elemen Stack. Mengirimkan 0 jika Q kosong */
 
 // Operator Dasar Stack
-void Push (Stack *S, Foods F);
+void PushStackList (Stack *S, Foods F);
 // Menambahkan X sebagai elemen Stack S. 
 // I.S. S mungkin kosong
 // F.S. X menjadi TOP yang baru, jika alokasi elemen baru berhasil. 
 // Jika alokasi gagal, S tetap. 
-void Pop (Stack *S, Foods *F);
+void PopStackList (Stack *S, Foods *F);
 // Menghapus X dari Stack S. 
 // I.S. S tidak kosong 
 // F.S. X adalah nilai elemen TOP yang lama, elemen top yang lama didealokasi, 
