@@ -109,11 +109,11 @@ void printNama(char *name){
 	printf("%s", name);
 		
 }
-void AssignMatriks(MATRIKS *M, char JenisRuang){
+void AssignMatriks(MATRIKS *M, boolean Main, POINT Player){
 	/* Kamus */
 	int i,j;
 	/* Algoritma */
-	if(JenisRuang == 'M') {
+	if(Main) {
 		Elmt(*M,1,2) = 'X';
 		Elmt(*M,2,1) = 'X';
 		Elmt(*M,2,3) = 'X';
@@ -131,9 +131,10 @@ void AssignMatriks(MATRIKS *M, char JenisRuang){
 		Elmt(*M,7,2) = '3';
 		Elmt(*M,7,7) = '4';
 		Elmt(*M,8,5) = 'D';
+		Elmt(*M, Player.X, Player.Y) = 'P';
 	}
 	
-	else if (JenisRuang == 'K') {
+	else {
 		Elmt(*M,1,1) = 'M';
 		Elmt(*M,2,1) = 'M';
 		Elmt(*M,3,1) = 'M';
@@ -150,6 +151,7 @@ void AssignMatriks(MATRIKS *M, char JenisRuang){
 		Elmt(*M,8,7) = 'M';
 		Elmt(*M,8,8) = 'M';
 		Elmt(*M,1,5) = 'D';
+		Elmt(*M, Player.X, Player.Y) = 'P';
 	}
 }
 
@@ -163,12 +165,12 @@ void printBatas() {
 	printf(" \n");
 }
 
-void Map(MATRIKS *M, boolean Main) {
+void Map(MATRIKS *M, boolean Main, POINT Player) {
 	/* Kamus */
 	int i, j;
 	/* Algoritma */
 	if (Main) {
-		AssignMatriks(M, 'M');
+		AssignMatriks(M, 'M', Player);
 		for(i = 1; i<=17; i++) {
 			printf(" ");
 		}
@@ -208,7 +210,7 @@ void Map(MATRIKS *M, boolean Main) {
 		printf("\n");
 	}
 	else {
-		AssignMatriks(M, 'K');
+		AssignMatriks(M, 'K', Player);
 		for(i = 1; i<=17; i++) {
 			printf(" ");
 		}
@@ -251,9 +253,10 @@ void Map(MATRIKS *M, boolean Main) {
 
 }
 
-void PrintUI(MATRIKS *M, char JenisRuang, char *name, int money, int life, int time) {
+void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time, POINT Player, Queue Q, Stack S) {
 	/* Kamus */
-	int i,j;
+	int i,j, infoQ, infoS, lengthFoodS, SpaceS, SpaceA;
+	char FoodS[25];
 	/* Algoritma */
 	printBatas();
 	printf("|");							// nama ruangan
@@ -286,11 +289,11 @@ void PrintUI(MATRIKS *M, char JenisRuang, char *name, int money, int life, int t
 	printf("  |\n");
 	printBatas();
 	
-	if (JenisRuang == 'M'){
-		Map(M, 'M');
+	if (Main){
+		Map(M, 'M', Player);
 	}
-	else if (JenisRuang == 'K') {
-		Map(M, 'K');
+	else {
+		Map(M, 'K', Player);
 	}
 	
 	printBatas();
@@ -307,17 +310,28 @@ void PrintUI(MATRIKS *M, char JenisRuang, char *name, int money, int life, int t
 	for (i=1; i <=5 ; i++) {
 	// status makanan
 		printf("| ");
-		for (i=1; i<=19; i++){
+		if (InfoHead(Q) == Nil) {
 			printf(" ");
 		}
-		printf(" | ");
+		else {
+			DelQueue(&Q, &infoQ);
+			printf("%d",infoQ);
+		}
+		for (i=1; i<=18; i++){
+			printf(" ");
+		}
+		printf(" | ");					// array
 		for (i=1 ; i<=26; i++) {
 			printf(" ");
 		}
-		printf(" | ");
-		for (i=1; i<=25 ; i++) {
+		printf(" | ");					// stack
+		PopStack(&S, &FoodS);
+		lengthFoodS = strlen(FoodS);
+		SpaceS = 25-lengthFoodS;
+		for (i=1; i<=SpaceS ; i++) {
 			printf(" ");
 		}
+		printf("%s", FoodS);
 		printf(" |\n");
 	}
 	printBatas();
