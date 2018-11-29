@@ -10,7 +10,7 @@
 void AssignMatriks(MATRIKS *M, char JenisRuang);
 void printBatas();
 void Map(MATRIKS *M, char JenisRuang);
-void PrintUI(MATRIKS *M, char JenisRuang);
+void PrintUI(MATRIKS *M, char JenisRuang, char *name, int money, int life, int time);
 
 
 #endif

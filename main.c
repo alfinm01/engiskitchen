@@ -6,23 +6,6 @@
 #include "UIFunction.h"
 #include "initialize.h"
 
-// void NewGame(char *userName) {
-// 	/* Kamus Lokal */
-
-// 	/* Algoritma */
-// 	system("cls");
-// 	uiHeader();
-//     printf("Nama Anda (max 20 karakter): ");
-//     userName = (char *) malloc (20 * sizeof (char));
-//     scanf("%s", &userName);
-//     system("cls");
-//     uiMenu();
-//     printf("\n");
-//     printf("Nama Anda: %s\n", &userName);
-//     printf("Masukkan opsi antara 1-4 sesuai pada main menu\n");
-// }
-// /* Prosedur New Game */
-
 int main() {
 	/* KAMUS */
 	int i;
@@ -50,8 +33,10 @@ int main() {
 		printf("\n");
 		switch (command) {
 		    case '1': {
+		    	system("cls");
+		    	uiHeader();
 		        New(&State, &MapMain, &MapKitchen, &T, &F, &K);
-		        printf("%s\n", State.Name);
+		       /* printf("%s\n", State.Name);
 		        for (i = 1; i <= 4; i++) {
 		        	printf("Number%d Chair%d \n", T.Table[i].Number, T.Table[i].Chair);
 		        	TulisPOINT(T.Table[i].Position);
@@ -64,7 +49,7 @@ int main() {
 		        	printf("Number%d Food%d Price%d\n", K.Kitchen[i].Number, K.Kitchen[i].Food.Name, K.Kitchen[i].Food.Price);
 		        	TulisPOINT(K.Kitchen[i].Position);
 		        	printf("\n");
-		        }
+		        }*/
 		        break;
 		    }
 		    case '2': {
@@ -84,7 +69,7 @@ int main() {
 		        printf("\n");
 		        TulisJAM(State.Time);
 		        printf("\n");
-		        printf("%s\n", State.Object);
+		        //printf("%s\n", State.Object);
 		        printf("%d %d\n", MapMain.N, MapKitchen.M);
 		        TulisPOINT(MapMain.D);
 		        printf("\n");

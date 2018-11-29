@@ -40,7 +40,7 @@ boolean IsEmpty(Queue Q);
 boolean IsFull(Queue Q);
 /* Mengirim true jika tabel penampung elemen Q sudah penuh yaitu mengandung
 MaxEl elemen */
-int NBElmtQ(Queue Q);
+int NBElmt(Queue Q);
 /* Mengirimkan banyaknya elemen queue. Mengirimkan 0 jika Q kosong. */
 
 /* *** Konstruktor *** */

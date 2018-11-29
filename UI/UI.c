@@ -4,7 +4,7 @@
 
 void printMoney(int money){
 	/* Kamus */
-	int i, idx, spaceLength, moneyLength, money, digit;
+	int i, idx, spaceLength, moneyLength, digit;
 	Stack s;
 	/* Algoritma */
 	if (money == 0) {
@@ -35,7 +35,7 @@ void printMoney(int money){
 
 void printLife(int life){
 	/* Kamus */
-	int i, idx, spaceLength, lifeLength, life, digit;
+	int i, idx, spaceLength, lifeLength, digit;
 	Stack s;
 	/* Algoritma */
 	if (life == 0) {
@@ -66,7 +66,7 @@ void printLife(int life){
 
 void printTime(int time){
 	/* Kamus */
-	int i, idx, spaceLength, timeLength, time, digit;
+	int i, idx, spaceLength, timeLength, digit;
 	Stack s;
 	/* Algoritma */
 	if (time == 0) {
@@ -95,13 +95,13 @@ void printTime(int time){
 	}
 }
 
-void printNama(char name){
+void printNama(char *name){
 	/* Kamus */
 	int lengthname;
-	int space;
+	int space, i;
 	/* Algoritma */
 	space = 29;
-	lengthnama = strlen(name);
+	lengthname = strlen(name);
 	space = space - lengthname;
 	for (i=1;i<=space;i++) {
 		printf(" ");
@@ -252,7 +252,7 @@ void Map(MATRIKS *M, char JenisRuang) {
 
 }
 
-void PrintUI(MATRIKS *M, char JenisRuang, char name, int money, int life, int time) {
+void PrintUI(MATRIKS *M, char JenisRuang, char *name, int money, int life, int time) {
 	/* Kamus */
 	int i,j;
 	/* Algoritma */
@@ -270,7 +270,7 @@ void PrintUI(MATRIKS *M, char JenisRuang, char name, int money, int life, int ti
 
 	printBatas();
 	printf("| ");						
-	printnama(name);
+	printNama(name);
 	
 	printf(" | ");
 	printf(" MONEY : ");

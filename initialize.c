@@ -34,33 +34,43 @@ void InitMap(Maps *Map, char MapType) {
 	char filename[] = "GameMap.txt";
 
 	/* Algoritma */
+	printf("fhfhgf\n");
 	STARTKATA(filename);
+	printf("%c\n", CKata.TabKata[1]);
 	ADVKATA();
+	printf("%c\n", CKata.TabKata[1]);
 
 	while (!EndKata) {
-		ADVKATA();
 		if (CKata.TabKata[1] == 'N') {
 			ADVKATA();
 			(*Map).N = CKata.TabKata[1] - '0';
+			printf("hah\n");
 		}
 		else if (CKata.TabKata[1] == 'M') {
 			ADVKATA();
 			(*Map).M = CKata.TabKata[1] - '0';
+			printf("huh\n");
 		}
-		else if ((CKata.TabKata[1] == 'D') && (CKata.TabKata[2] == 'M') && (MapType == 'M')) {
-			ADVKATA();
-			(*Map).D.X = CKata.TabKata[1] - '0';
-			ADVKATA();
-			(*Map).D.Y = CKata.TabKata[1] - '0';
+		else if ((CKata.TabKata[1] == 'D') && (CKata.TabKata[2] == 'M')) {
+			if (MapType == 'M') {
+				ADVKATA();
+				(*Map).D.X = CKata.TabKata[1] - '0';
+				printf("Oioi %d\n", (*Map).D.X);
+				ADVKATA();
+				(*Map).D.Y = CKata.TabKata[1] - '0';
+			}
 		}
-		else if ((CKata.TabKata[1] == 'D') && (CKata.TabKata[2] == 'K') && (MapType == 'K')) {
-			ADVKATA();
-			(*Map).D.X = CKata.TabKata[1] - '0';
-			ADVKATA();
-			(*Map).D.Y = CKata.TabKata[1] - '0';
+		else if ((CKata.TabKata[1] == 'D') && (CKata.TabKata[2] == 'K')) {
+			if (MapType == 'K') {
+				ADVKATA();
+				(*Map).D.X = CKata.TabKata[1] - '0';
+				ADVKATA();
+				(*Map).D.Y = CKata.TabKata[1] - '0';
+			}
 		}
 		ADVKATA();
 	}
+	printf("%c\n", CKata.TabKata[1]);
 }
 
 void InitTable(Tables *Table, int TableCounter) {
@@ -188,8 +198,9 @@ void Load(States *State, Maps *MapMain, Maps *MapKitchen) {
 
 	/* Algoritma */
 	ReadState(State);
-	//ReadMap(MapMain);
-	//ReadMap(MapKitchen);
+	InitMap(MapMain, 'M');												/* Map */
+	InitMap(MapKitchen, 'K');
+
 }
 
 void ReadState(States *State) {
@@ -267,7 +278,7 @@ void ReadState(States *State) {
 			(*State).Time = MakeJAM(HH, MM, SS);
 		}
 		/* Read Object */
-		else if ((CKata.TabKata[1] == 'O') && (CKata.TabKata[2] == 'b') &&
+		/*else if ((CKata.TabKata[1] == 'O') && (CKata.TabKata[2] == 'b') &&
 			(CKata.TabKata[3] == 'j') && (CKata.TabKata[4] == 'e') &&
 			(CKata.TabKata[5] == 'c') && (CKata.TabKata[6] == 't')) {
 			ADVKATA();
@@ -275,7 +286,7 @@ void ReadState(States *State) {
 			for (i = 1; i <= CKata.Length; i++) {
 				(*State).Object[i - 1] = CKata.TabKata[i];
 			}
-		}
+		}*/
 		/* SaveTime ga perlu dibaca (?) */
 		ADVKATA();
 	}
