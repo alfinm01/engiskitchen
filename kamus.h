@@ -30,9 +30,9 @@ typedef struct {
 	Stack FoodStack;			/* Makanan yang berada di nampan */	/* !Stack berisi infotype Foods! */
 	// Queue WaitingCustomer;	/* Antrean pelanggan (berisi "jumlah pelanggan", 2 atau 4) */
 	// char *Object;				/* Object yang berada di dekat player */
-	int TableAround;
-	int KitchenAround;
-	boolean IsInMain;			//
+	int TableAround;			/* Nomor meja yang berada di dekat player */
+	int KitchenAround;			/* Nomor meja dapur yang berada di dekat player */
+	boolean IsInMain;			/* True jika player berada di map Main */
 } States;
 
 #define NameP(S) (S).Name

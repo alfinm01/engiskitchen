@@ -221,6 +221,9 @@ int DetectAroundMain(POINT PositionP) {
 	else if (Panjang(PositionP, MakePOINT(7, 7)) <= 2) {
 		return 4;
 	}
+	else {
+		return 0;
+	}
 }
 
 int DetectAroundKitchen(POINT PositionP) {
@@ -268,5 +271,8 @@ int DetectAroundKitchen(POINT PositionP) {
 	}
 	else if (Panjang(PositionP, MakePOINT(8, 8)) <= 1) {
 		return 15;
+	}
+	else {
+		return 0;
 	}
 }
