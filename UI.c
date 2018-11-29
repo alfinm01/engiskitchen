@@ -169,88 +169,44 @@ void Map(MATRIKS *M, boolean Main, POINT Player) {
 	/* Kamus */
 	int i, j;
 	/* Algoritma */
-	if (Main) {
-		AssignMatriks(M, 'M', Player);
-		for(i = 1; i<=17; i++) {
-			printf(" ");
-		}
-		for(i=1;i<=47;i++) {
-			printf("-");
-		}
-		for(i=1;i<=16;i++) {
-			printf(" ");
-		}
-		printf("\n");
-	
-		for(i=1; i<=8;i++){
-			for(j=1;j<=15;j++){
-				printf(" ");
-			}
-			printf(" |");
-			for(j=1; j<=8; j++){
-				printf("  ");
-				printf("%c",Elmt(*M,i,j));
-				printf("  |");
-			}
-			for(j=1;j<=15;j++){
-				printf(" ");
-			}
-			printf("\n");
-			for(j=1;j<=17;j++){
-				printf(" ");
-			}
-			for(j=1;j<=8;j++){
-				printf("----- ");
-			}
-			for(j=1;j<=15;j++){
-				printf(" ");
-			}
-			printf("\n");
-		}
-		printf("\n");
+	AssignMatriks(M, Main, Player);
+	for(i = 1; i<=17; i++) {
+		printf(" ");
 	}
-	else {
-		AssignMatriks(M, 'K', Player);
-		for(i = 1; i<=17; i++) {
-			printf(" ");
-		}
-		for(i=1;i<=47;i++) {
-			printf("-");
-		}
-		for(i=1;i<=16;i++) {
-			printf(" ");
-		}
-		printf("\n");
-	
-		for(i=1; i<=8;i++){
-			for(j=1;j<=15;j++){
-				printf(" ");
-			}
-			printf(" |");
-			for(j=1; j<=8; j++){
-				printf("  ");
-				printf("%c",Elmt(*M,i,j));
-				printf("  |");
-			}
-			for(j=1;j<=15;j++){
-				printf(" ");
-			}
-			printf("\n");
-			for(j=1;j<=17;j++){
-				printf(" ");
-			}
-			for(j=1;j<=8;j++){
-				printf("----- ");
-			}
-			for(j=1;j<=15;j++){
-				printf(" ");
-			}
-			printf("\n");
-		}
-		printf("\n");
-	
+	for(i=1;i<=47;i++) {
+		printf("-");
 	}
+	for(i=1;i<=16;i++) {
+		printf(" ");
+	}
+	printf("\n");
 
+	for(i=1; i<=8;i++){
+		for(j=1;j<=15;j++){
+			printf(" ");
+		}
+		printf(" |");
+		for(j=1; j<=8; j++){
+			printf("  ");
+			printf("%c",Elmt(*M,i,j));
+			printf("  |");
+		}
+		for(j=1;j<=15;j++){
+			printf(" ");
+		}
+		printf("\n");
+		for(j=1;j<=17;j++){
+			printf(" ");
+		}
+		for(j=1;j<=8;j++){
+			printf("----- ");
+		}
+		for(j=1;j<=15;j++){
+			printf(" ");
+		}
+		printf("\n");
+	}
+	printf("\n");
 }
 
 void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time, POINT Player, Queue Q, Stack S, TabOrder A) {
