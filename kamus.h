@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "./ADT/boolean.h"
 #include "./ADT/jam.h"
 //#include "./ADT/array.h"
 //#include "./ADT/garis.h"
@@ -96,8 +97,46 @@ typedef struct {
 #define Food(K) (K).Food
 #define PositionK(K) (K).Position
 
+/***** MOVEMENT FUNCTION *****/
 
+boolean BisaJalan(char *arah, MATRIKS M, POINT P);
+void move(char *command, POINT *P, JAM *J, MATRIKS M, boolean B);
 
+/***** QUEUE FUNCTION *****/
 
+void Place(POINT P, Queue *QC, Tables *T, JAM *J);
+void Order(States S);
+
+/***** STACK FUNCTION *****/
+
+void Give();
+void Take();
+
+/***** UI FUNCTION *****/
+
+void printMoney(int money);
+void printLife(int life);
+void printTime(int time);
+void printNama(char *name);
+void AssignMatriks(MATRIKS *M, boolean Main, POINT Player);
+void printBatas();
+void Map(MATRIKS *M, boolean Main, POINT Player);
+void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time, POINT Player, Queue Q, Stack S);
+void uiHeader();
+void uiMenu();
+
+/***** INITIALIZATION FUNCTION *****/
+
+void New(States *State, Maps *MapMain, Maps *MapKitchen, TableArray *T, FoodArray *F, KitchenArray *K);
+void InitMap(Maps *Map, char MapType);
+void InitTable(Tables *Table, int TableCounter);
+void InitFood(Foods *Food, int FoodCounter);
+void InitKitchen(Kitchens *Kitchen, int KitchenCounter, Foods Food);
+void Load(States *State, Maps *MapMain, Maps *MapKitchen);
+void ReadState(States *State);
+
+/***** OTHER FUNCTION *****/
+void TickCounter(States *State);
+void GenerateCustomer(States State, Queue *QCust);
 
 #endif

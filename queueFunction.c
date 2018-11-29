@@ -1,7 +1,7 @@
 /*  */
 /*  */
-#include "queueFunction.h"
-#include "./ADT/queuelist.h"
+
+#include "kamus.h"
 
 void Place(POINT P, Queue *QC, TableArray *T, JAM *J) {
 	/* Kamus Lokal */

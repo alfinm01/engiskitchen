@@ -2,9 +2,6 @@
 /* Deskripsi : Engi's Kitchen versi Dinner Dash */
 
 #include "kamus.h"
-#include "./UI/UI.h"
-#include "UIFunction.h"
-#include "initialize.h"
 
 int main() {
 	/* KAMUS */

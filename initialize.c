@@ -1,4 +1,4 @@
-#include "initialize.h"
+#include "kamus.h"
 
 void New(States *State, Maps *MapMain, Maps *MapKitchen, TableArray *T, FoodArray *F, KitchenArray *K) {
 	/* Kamus */
