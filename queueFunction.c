@@ -35,12 +35,12 @@ void Place(POINT P, Queue *QC, TableArray *T, JAM *J) {
 	Q = Head(*QC);
 	NoMeja = DetectAroundMain(P);
 	if (NoMeja != 0) {
-		if (!IsFull(T[NoMeja])) {
+		if (!((*T).Table[NoMeja].IsTableFull)) {
 			while (Info(Q) != Nil) {
-				if ((T[NoMeja]).Chair >= Amount(Q)) {
+				if ((*T).Table[NoMeja].IsTableFull >= InfoHead(*QC)->Amount) {
 					DelQueueList(&Q, &C);
-					T[NoMeja].IsFull = true;
-					T[NoMeja].Customer = C;
+					(*T).Table[NoMeja].IsTableFull = true;
+					(*T).Table[NoMeja].Customer = C;
 					PrevDetik(*J);
 					printf("Penempatan Berhasil!\n");
 				} else {
@@ -59,16 +59,16 @@ void Place(POINT P, Queue *QC, TableArray *T, JAM *J) {
 /* Command ini digunakan untuk menaruh pelanggan di meja yang kosong.
 Pelanggan yang ditaruh adalah pelanggan pada top of queue */
 
-void Order(States *State, Table T, TabOrder *TO) {
+void Order(POINT Position, TableArray T, TabOrder *TO) {
 	/* Kamus Lokal */	
 	TabOrder OrderTemp;
 
 	/* Algoritma */
-	OrderTemp.Name = T[DetectAroundMain((*State).Position)].Customer.Order;
-	OrderTemp.TableNo = T[DetectAroundMain((*State).Position)].Customer.Amount;
+	OrderTemp.Order[1].Name = T.Table[DetectAroundMain(Position)].Customer.Order;
+	OrderTemp.Order[1].TableNo = T.Table[DetectAroundMain(Position)].Customer.Amount;
 
 	// Memasukkan order ke ArrayOrder
-	SetEl(TO, (GetLastIdx(TO) + 1), OrderTemp);
+	SetEl(TO, (GetLastIdx(*TO) + 1), OrderTemp);
 }
 /* I.S. --- */
 /* F.S. --- */

@@ -3,11 +3,11 @@
 #include "queuelist.h"
 
 /* Prototype manajemen memori */
-void AlokasiQueueList (address *P, infotype X) {
+void AlokasiQueueList (addressQueueList *P, infotypeQ X) {
 	/* Kamus Lokal */
 
 	/* Algoritma */
-	*P = (address) malloc (sizeof (ElmtQueue));
+	*P = (addressQueueList) malloc (sizeof (ElmtQueue));
 	if (*P != Nil) {
     	Info(*P) = X;
     	Next(*P) = Nil;
@@ -20,7 +20,7 @@ void AlokasiQueueList (address *P, infotype X) {
 /* F.S. Alamat P dialokasi, jika berhasil maka Info(P)=X dan
  Next(P)=Nil */
 /* P=Nil jika alokasi gagal */
-void DealokasiQueueList (address *P) {
+void DealokasiQueueList (addressQueueList *P) {
 	/* Kamus Lokal */
 
 	/* Algoritma */
@@ -39,7 +39,7 @@ boolean IsEmptyQueueList (Queue Q) {
 int NBElmtQueueList (Queue Q) {
 	/* Kamus Lokal */
 	int count = 0;
-	address P;
+	addressQueueList P;
 
 	/* Algoritma */
 	if (!IsEmptyQueueList(Q)) {
@@ -63,14 +63,14 @@ void CreateEmptyQueueList (Queue * Q) {
 /* I.S. sembarang */
 /* F.S. Sebuah Q kosong terbentuk */
 /*** Primitif Add/Delete ***/
-void AddQueueList (Queue * Q, infotype X) {
+void AddQueueList (Queue * Q, infotypeQ X) {
 /* Proses: Mengalokasi X dan menambahkan X pada bagian TAIL dari Q
  jika alokasi berhasil; jika alokasi gagal Q tetap */
 /* Pada dasarnya adalah proses insert last */
 /* I.S. Q mungkin kosong */
 /* F.S. X menjadi TAIL, TAIL "maju" */
 	/* Kamus Lokal */
-	address P;
+	addressQueueList P;
 
 	/* Algoritma */
 	AlokasiQueueList(&P,X);
@@ -84,14 +84,14 @@ void AddQueueList (Queue * Q, infotype X) {
 		Tail(*Q) = P;
 	} /* else: alokasi gagal, Q tetap */
 }
-void DelQueueList (Queue * Q, infotype * X) {
+void DelQueueList (Queue * Q, infotypeQ * X) {
 /* Proses: Menghapus X pada bagian HEAD dari Q dan mendealokasi
  elemen HEAD */
 /* Pada dasarnya operasi delete first */
 /* I.S. Q tidak mungkin kosong */
 /* F.S. X = nilai elemen HEAD pd I.S., HEAD "mundur" */
 	/* Kamus Lokal */
-	address P;
+	addressQueueList P;
 
 	/* Algoritma */
 	*X = InfoHead(*Q);
@@ -101,5 +101,5 @@ void DelQueueList (Queue * Q, infotype * X) {
  		Tail(*Q) = Nil;
 	}
 	Next(P) = Nil;
-	DealokasiQueueList(P);
+	DealokasiQueueList(&P);
 }

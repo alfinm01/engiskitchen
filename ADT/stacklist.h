@@ -20,14 +20,13 @@ typedef struct {
 #define Price(F) (F).Price
 
 /*  Definisi Type Stack  */
-typedef Foods infotype;
-typedef struct tElmtStack * address;
+typedef struct tElmtStack * addressStackList;
 typedef struct tElmtStack {
-	infotype Food;
-	address Next;
+	Foods Food;
+	addressStackList Next;
 } ElmtStack;
 typedef struct {
-	address TOP;
+	addressStackList TOP;
 } Stack;
 
 /***************************************************** 
@@ -40,7 +39,7 @@ Definisi stack dengan representasi berkait :
 ******************************************************/
 #define Top(S) (S).TOP
 #define Next(P) (P)->Next
-#define Info(P) (P)->Food
+#define InfoS(P) (P)->Food
 
 /***************/
 /*  Prototype  */
@@ -53,11 +52,11 @@ void CreateEmptyStackList (Stack *S);
 // Ciri stack kosong : TOP bernilai Nil 
 
 // Prototype manajemen memori
-void AlokasiStackList (address *P, Foods F);
+void AlokasiStackList (addressStackList *P, Foods F);
 // I.S. P Sembarang, X terdefinisi 
 // F.S. Alamat P dialokasi, jika berhasil maka Info(P) = X dan Next(P) = Nil 
 // P = Nil jika alokasi gagal 
-void DealokasiStackList (address *P);
+void DealokasiStackList (addressStackList *P);
 // I.S. P adalah hasil alokasi, P != Nil 
 // F.S. Alamat P didealokasi, dikembalikan ke sistem 
 

@@ -12,9 +12,9 @@
 #define KolMax 8
 
 typedef int indeks; /* indeks baris, kolom */
-typedef int ElType; 
+typedef int ElTypeM; 
 typedef struct { 
-	ElType Mem[BrsMax+1][KolMax+1];
+	ElTypeM Mem[BrsMax+1][KolMax+1];
     int NBrsEff; /* banyaknya/ukuran baris yg terdefinisi */
 	int NKolEff; /* banyaknya/ukuran kolom yg terdefinisi */
 } MATRIKS;
@@ -48,7 +48,7 @@ indeks GetLastIdxKol (MATRIKS M);
 /* Mengirimkan indeks kolom terbesar M */
 boolean IsIdxEff (MATRIKS M, indeks i, indeks j);
 /* Mengirimkan true jika i, j adalah indeks efektif bagi M */
-ElType GetElmtDiagonal (MATRIKS M, indeks i);
+ElTypeM GetElmtDiagonal (MATRIKS M, indeks i);
 /* Mengirimkan elemen M(i,i) */
 
 /* ********** Assignment  MATRIKS ********** */
@@ -87,9 +87,9 @@ MATRIKS KurangMATRIKS (MATRIKS M1, MATRIKS M2);
 MATRIKS KaliMATRIKS (MATRIKS M1, MATRIKS M2);
 /* Prekondisi : Ukuran kolom efektif M1 = ukuran baris efektif M2 */
 /* Mengirim hasil perkalian matriks: salinan M1 * M2 */
-MATRIKS KaliKons (MATRIKS M, ElType X);
+MATRIKS KaliKons (MATRIKS M, ElTypeM X);
 /* Mengirim hasil perkalian setiap elemen M dengan X */
-void PKaliKons (MATRIKS * M, ElType K);
+void PKaliKons (MATRIKS * M, ElTypeM K);
 /* I.S. M terdefinisi, K terdefinisi */
 /* F.S. Mengalikan setiap elemen M dengan K */
 

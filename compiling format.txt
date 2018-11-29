@@ -1,4 +1,4 @@
-gcc main.c ./ADT/matriks.c ./ADT/jam.c ./ADT/point.c ./ADT/mesin_kata.c ./ADT/mesin_kar.c ./ADT/stacklist.c ./ADT/queuelist.c ./ADT/array.c UI.c initialize.c MovementFunction.c StackFunction.c QueueFunction.c -o test
+gcc main.c ./ADT/matriks.c ./ADT/jam.c ./ADT/point.c ./ADT/mesin_kata.c ./ADT/mesin_kar.c ./ADT/stack.c ./ADT/stacklist.c ./ADT/queuelist.c ./ADT/array.c UI.c initialize.c MovementFunction.c StackFunction.c QueueFunction.c -o test
 
 compile:
 	gcc main.c ADT/Impl/*.c Functions/*.c -o main

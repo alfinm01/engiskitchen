@@ -10,12 +10,12 @@
 
 #include "./ADT/boolean.h"
 #include "./ADT/jam.h"
-//#include "./ADT/array.h"
+#include "./ADT/array.h"
 //#include "./ADT/garis.h"
 #include "./ADT/point.h"
+#include "./ADT/stack.h"
 #include "./ADT/stacklist.h"
 #include "./ADT/queuelist.h"
-#include "./ADT/boolean.h"
 #include "./ADT/matriks.h"
 #include "./ADT/mesin_kata.h"
 
@@ -46,16 +46,8 @@ typedef struct {
 #define Object(S) (S).Object
 
 typedef struct {
-	char Name[20];			/* Nama makanan */
-	int Price;				/* Harga */
-} Foods;
-
-typedef struct {
 	Foods Food[15];
 } FoodArray;
-
-#define NameF(F) (F).Name
-#define Price(F) (F).Price
 
 typedef struct {
 	int N, M;				/* Ukuran N x M (8 x 8) */
@@ -69,7 +61,7 @@ typedef struct {
 typedef struct {
 	int Number;				/* Meja nomor keberapa */
 	int Chair;				/* Jumlah kursi tersedia (2 atau 4) */
-	boolean IsFull;			/* Meja sudah terisi atau belum */
+	boolean IsTableFull;			/* Meja sudah terisi atau belum */
 	Customers Customer;		/* Customer mana yang mengisi meja tersebut */
 	POINT Position;
 } Tables;
@@ -80,7 +72,7 @@ typedef struct {
 
 #define Number(T) (T).Number
 #define Chair(T) (T).Chair
-#define IsFull(T) (T).IsFull
+#define IsTableFull(T) (T).IsTableFull
 #define Customer(T) (T).Customer
 #define PositionT(T) (T).Position
 
@@ -108,8 +100,8 @@ void GoRight(POINT *P, JAM *J, MATRIKS M);
 void GoLeft(POINT *P, JAM *J, MATRIKS M);
 /***** QUEUE FUNCTION *****/
 
-void Place(POINT P, Queue *QC, Tables *T, JAM *J);
-void Order(States S);
+void Place(POINT P, Queue *QC, TableArray *T, JAM *J);
+void Order(POINT Position, TableArray T, TabOrder *TO);
 
 /***** STACK FUNCTION *****/
 
@@ -125,7 +117,7 @@ void printNama(char *name);
 void AssignMatriks(MATRIKS *M, boolean Main, POINT Player);
 void printBatas();
 void Map(MATRIKS *M, boolean Main, POINT Player);
-void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time, POINT Player, Queue Q, Stack S);
+void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time, POINT Player, Queue Q, Stack S, TabOrder A);
 void uiHeader();
 void uiMenu();
 void uiCommand ();
@@ -142,6 +134,6 @@ void ReadState(States *State);
 
 /***** OTHER FUNCTION *****/
 void TickCounter(States *State);
-void GenerateCustomer(States State, Queue *QCust);
+void GenerateCustomer(States State, Queue *QCust, FoodArray F);
 
 #endif

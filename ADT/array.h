@@ -10,7 +10,7 @@
 #define IdxUndef -999 /* indeks tak terdefinisi*/
 
 typedef struct {
-	char Name[20];		// Nama makanan
+	char *Name;		// Nama makanan
 	int TableNo;		// Meja yang melakukan order
 } OrderArr;
 
@@ -68,7 +68,7 @@ void SetTab (TabOrder Tin, TabOrder *Tout);
 /* I.S. Tin terdefinisi, sembarang */
 /* F.S. Tout berisi salinan Tin */
 /* Assignment THsl -> Tin */
-void SetEl (TabOrder *T, IdxType i, ElType v);
+void SetEl (TabOrder *T, IdxType i, TabOrder v);
 /* I.S. T terdefinisi, sembarang */
 /* F.S. Elemen T yang ke-i bernilai v */
 /* Mengeset nilai elemen tabel yang ke-i sehingga bernilai v */
@@ -78,11 +78,11 @@ void SetNeff (TabOrder *T, IdxType N);
 /* Mengeset nilai indeks elemen efektif sehingga bernilai N */
 
 /* ********** Test Indeks yang valid ********** */
-boolean IsIdxValid (TabOrder T, IdxType i);
+boolean IsIdxValidArray (TabOrder T, IdxType i);
 /* Prekondisi : i sembarang */
 /* Mengirimkan true jika i adalah indeks yang valid utk ukuran tabel */
 /* yaitu antara indeks yang terdefinisi utk container*/
-boolean IsIdxEff (TabOrder T, IdxType i);
+boolean IsIdxEffArray (TabOrder T, IdxType i);
 /* Prekondisi : i sembarang*/
 /* Mengirimkan true jika i adalah indeks yang terdefinisi utk tabel */
 /* yaitu antara FirstIdx(T)..LastIdx(T) */
@@ -106,33 +106,5 @@ void TulisIsi (TabOrder T);
 3:6
 */
 /* Jika T kosong : Hanya menulis "Tabel kosong" */	
-
-/* ********** OPERATOR ARITMATIKA ********** */
-/* *** Aritmatika tabel : Penjumlahan, pengurangan, perkalian, ... *** */
-TabOrder PlusTab (TabOrder T1, TabOrder T2);
-/* Prekondisi : T1 dan T2 berukuran sama dan tidak kosong */
-/* Mengirimkan T1 + T2 */
-TabOrder MinusTab (TabOrder T1, TabOrder T2);
-/* Prekondisi : T1 dan T2 berukuran sama dan tidak kosong */
-/* Mengirimkan T1 - T2 */
-
-/* ********** NILAI EKSTREM ********** */
-ElType ValMax (TabOrder T);
-/* Prekondisi : Tabel T tidak kosong */
-/* Mengirimkan nilai maksimum tabel */
-
-ElType ValMin (TabOrder T);
-/* Prekondisi : Tabel T tidak kosong */
-/* Mengirimkan nilai minimum tabel */
-
-/* *** Mengirimkan indeks elemen bernilai ekstrem *** */
-IdxType IdxMaxTab (TabOrder T);
-/* Prekondisi : Tabel T tidak kosong */
-/* Mengirimkan indeks i dengan elemen ke-i adalah nilai maksimum pada tabel */
-
-IdxType IdxMinTab (TabOrder T);
-/* Prekondisi : Tabel tidak kosong */
-/* Mengirimkan indeks i */
-/* dengan elemen ke-i nilai minimum pada tabel */
 
 #endif

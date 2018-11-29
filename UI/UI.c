@@ -1,11 +1,11 @@
-/* Implementasi UI */
+/* Implementasi UI.h */
 
 #include "kamus.h"
 
 void printMoney(int money){
 	/* Kamus */
 	int i, idx, spaceLength, moneyLength, digit;
-	StackS s;
+	Stack s;
 	/* Algoritma */
 	if (money == 0) {
 		printf("    0");
@@ -36,7 +36,7 @@ void printMoney(int money){
 void printLife(int life){
 	/* Kamus */
 	int i, idx, spaceLength, lifeLength, digit;
-	StackS s;
+	Stack s;
 	/* Algoritma */
 	if (life == 0) {
 		printf(" 0");
@@ -67,7 +67,7 @@ void printLife(int life){
 void printTime(int time){
 	/* Kamus */
 	int i, idx, spaceLength, timeLength, digit;
-	StackS s;
+	Stack s;
 	/* Algoritma */
 	if (time == 0) {
 		printf("  0");
@@ -255,9 +255,8 @@ void Map(MATRIKS *M, boolean Main, POINT Player) {
 
 void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time, POINT Player, Queue Q, Stack S, TabOrder A) {
 	/* Kamus */
-	int i,j, infoS, lengthFoodS, SpaceS, SpaceA, lengthArrayA;
-	Customers infoQ;
-	Foods FoodS;
+	int i,j, infoQ, infoS, lengthFoodS, SpaceS, SpaceA, lengthArrayA;
+	char FoodS[25];
 	/* Algoritma */
 	printBatas();
 	printf("|");							// nama ruangan
@@ -311,77 +310,34 @@ void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time
 	for (i=1; i <=5 ; i++) {
 	// status makanan
 		printf("| ");
-		if (IsEmptyQueueList(Q)) {
+		if (InfoHead(Q) == Nil) {
 			printf(" ");
 		}
 		else {
-			DelQueueList(&Q, &infoQ);
+			DelQueue(&Q, &infoQ);
 			printf("%d",infoQ);
 		}
 		for (i=1; i<=18; i++){
 			printf(" ");
 		}
 		printf(" | ");					// array
-		lengthArrayA = strlen(A.Order[i].Name);
+		lengthArrayA = strlen(A.order[i].name);
 		SpaceA = 23 - lengthArrayA;
-		printf("%s, " , A.Order[i].Name);
-		printf("%d", A.Order[i].TableNo);
+		printf("%s, " , A.order[i].name);
+		printf("%d", A.order[i].TableNo);
 		for (i=1 ; i<=SpaceA; i++) {
 			printf(" ");
 		}
 		printf(" | ");					// stack
-		PopStackList(&S, &FoodS);
-		lengthFoodS = strlen(FoodS.Name);
+		PopStack(&S, &FoodS);
+		lengthFoodS = strlen(FoodS);
 		SpaceS = 25-lengthFoodS;
-		printf("%s", FoodS.Name);
+		printf("%s", FoodS);
 		for (i=1; i<=SpaceS ; i++) {
 			printf(" ");
 		}
 		printf(" |\n");
 	}
 	printBatas();
-
-}
-
-void uiHeader() {
-	/* Kamus Lokal */
-
-	/* Algoritma */
-	printf("***** ENGI'S KITCHEN EXPANSION *****\n");
-	printf("\n");
-}
-/* I.S. Sembarang */
-/* F.S. Menampilkan header UI di main menu */
-
-void uiMenu() {
-	/* Kamus Lokal */
-
-	/* Algoritma */
-	uiHeader();
-	printf("           1. New Game\n");
-	printf("           2. Start Game\n");
-	printf("           3. Load Game\n");
-	printf("           4. Exit\n");
-}
-/* I.S. Sembarang */
-/* F.S. Menampilkan opsi menu */
-
-void uiCommand () {
-	/* Kamus */
-
-	/* Algoritma */
-	uiHeader();
-	printf("           GD (Go Down)\n");
-	printf("           GU (Go Up)\n");
-	printf("           GL (Go Left)\n");
-	printf("           GR (Go Right)\n");
-	printf("           ORDER\n");
-	printf("           TAKE\n");
-	printf("           CT (Clear Tray)\n");
-	printf("           PLACE\n");
-	printf("           GIVE\n");
-	printf("           SAVE\n");
-	printf("           LOAD\n");
-	printf("           EXIT\n");
 
 }
