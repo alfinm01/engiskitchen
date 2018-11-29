@@ -98,18 +98,17 @@ void GoUp(POINT *P, MATRIKS M, MATRIKS K, boolean Main);
 void GoDown(POINT *P, MATRIKS M, MATRIKS K, boolean Main);
 void GoRight(POINT *P, MATRIKS M, MATRIKS K, boolean Main);
 void GoLeft(POINT *P, MATRIKS M, MATRIKS K, boolean Main);
+
 /***** QUEUE FUNCTION *****/
 
-void Place(POINT P, Queue *QC, TableArray *T, JAM *J);
+void Place(POINT P, Queue *QC, TableArray *T);
 void Order(POINT Position, TableArray T, TabOrder *TO);
 
 /***** STACK FUNCTION *****/
 
-
 void Give(POINT Position, TableArray *T, TabOrder *TO, Stack *S);
 void DeleteOrder(TabOrder *TO, int IdxOrder);
 void Take(POINT Position, KitchenArray K, Stack *S);
-
 void CT(Stack *S);
 
 /***** UI FUNCTION *****/
@@ -124,7 +123,7 @@ void Map(MATRIKS *M, boolean Main, POINT Player, TableArray T);
 void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time, POINT Player, Queue Q, Stack S, TabOrder A, TableArray T);
 void uiHeader();
 void uiMenu();
-void uiCommand ();
+void uiCommand();
 
 /***** INITIALIZATION FUNCTION *****/
 

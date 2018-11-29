@@ -18,8 +18,9 @@ void Game(States *State, MATRIKS *MainRoom, MATRIKS *KitchenRoom, TableArray *T,
 	if ((*State).IsInMain) {
 		PrintUI(MainRoom, (*State).IsInMain, (*State).Name, (*State).Money, (*State).Life, (*State).Time, (*State).Position, *QCust, *FoodStack, *TOrder, *T);
 	}
-		uiCommand();
 	do {
+		printf("\n");
+		uiCommand();
 		printf("\n");
 		printf("Command : ");
 		gets(command);													// Untuk mengambil hanya nilai char dari variabel
@@ -43,19 +44,20 @@ void Game(States *State, MATRIKS *MainRoom, MATRIKS *KitchenRoom, TableArray *T,
 			Take((*State).Position, *K, FoodStack);
 		}
 		else if (strcmp(command, "CT") == 0){
-			//CT();
+			CT(FoodStack);
 		}
 		else if (strcmp(command, "PLACE") == 0){
-
+			Place((*State).Position, QCust, T);
 		}
 		else if (strcmp(command, "GIVE") == 0){
-
+			Give((*State).Position, T, TOrder, FoodStack);
 		}
 		else if (strcmp(command, "SAVE") == 0){
-
+			printf("Zonk hehe\n");
 		}				
 		else if (strcmp(command, "QUIT") == 0){
-
+			finish = true;
+			break;
 		}
 		else {
 		        system("cls");
@@ -68,6 +70,17 @@ void Game(States *State, MATRIKS *MainRoom, MATRIKS *KitchenRoom, TableArray *T,
 		TickCounter(&((*State).Time), QCust, *F);
 		PrintUI(MainRoom, (*State).IsInMain, (*State).Name, (*State).Money, (*State).Life, (*State).Time, (*State).Position, *QCust, *FoodStack, *TOrder, *T);
 	} while ((!finish) /*&& ((*State).Time < 999)*/);
+
+	printf("\n\n\n");
+	printf("CREDIT\n\n");
+	printf("Name: %s\n", (*State).Name);
+	printf("Life: %d\n", (*State).Life);
+	printf("Time: ");
+	TulisJAM(DetikToJAM((*State).Time));
+	printf("\n");
+	printf("Money: %d\n", (*State).Money);
+	printf("Terima kasih telah bermain!\n");
+	printf("Have a nice day :D");
 }
 
 int main() {

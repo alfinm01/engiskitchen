@@ -3,7 +3,7 @@
 
 #include "kamus.h"
 
-void Place(POINT P, Queue *QC, TableArray *T, JAM *J) {
+void Place(POINT P, Queue *QC, TableArray *T) {
 	/* Kamus Lokal */
 	int JumlahOrang, Kursi, NoMeja;
 	boolean full, dekat;
@@ -41,7 +41,6 @@ void Place(POINT P, Queue *QC, TableArray *T, JAM *J) {
 					DelQueueList(&Q, &C);
 					(*T).Table[NoMeja].IsTableFull = true;
 					(*T).Table[NoMeja].Customer = C;
-					PrevDetik(*J);
 					printf("Penempatan Berhasil!\n");
 				} else {
 					Q = Next(Q);
