@@ -8,7 +8,7 @@
 
 /* ********** KONSTRUKTOR ********** */
 /* Konstruktor : create tabel kosong */
-void MakeEmpty (TabInt *T) {
+void MakeEmpty (TabOrder *T) {
 	SetNeff(T, 0);
 }
 /* I.S. sembarang */
@@ -16,29 +16,29 @@ void MakeEmpty (TabInt *T) {
 
 /* ********** SELEKTOR ********** */
 /* *** Banyaknya elemen *** */
-int NbElmt (TabInt T) {
+int NbElmt (TabOrder T) {
 	return T.Neff;
 }
 /* Mengirimkan banyaknya elemen efektif tabel */
 /* Mengirimkan nol jika tabel kosong */
 /* *** Daya tampung container *** */
-int MaxNbEl (TabInt T) {
+int MaxNbEl (TabOrder T) {
 	return (IdxMax - IdxMin + 1);
 }
 /* Mengirimkan maksimum elemen yang dapat ditampung oleh tabel */
 /* *** Selektor INDEKS *** */
-IdxType GetFirstIdx (TabInt T) {
+IdxType GetFirstIdx (TabOrder T) {
 	return IdxMin;
 }
 /* Prekondisi : Tabel T tidak kosong */
 /* Mengirimkan indeks elemen pertama */
-IdxType GetLastIdx (TabInt T) {
+IdxType GetLastIdx (TabOrder T) {
 	return (IdxMin + NbElmt(T) - 1);
 }
 /* Prekondisi : Tabel T tidak kosong */
 /* Mengirimkan indeks elemen terakhir */
 /* *** Menghasilkan sebuah elemen *** */
-ElType GetElmt (TabInt T, IdxType i) {
+ElType GetElmt (TabOrder T, IdxType i) {
 	return T.TI[i];
 }
 /* Prekondisi : Tabel tidak kosong, i antara FirstIdx(T)..LastIdx(T) */
@@ -46,14 +46,15 @@ ElType GetElmt (TabInt T, IdxType i) {
 
 /* *** Selektor SET : Mengubah nilai TABEL dan elemen tabel *** */
 /* Untuk type private/limited private pada bahasa tertentu */
-void SetTab (TabInt Tin, TabInt *Tout) {
+void SetTab (TabOrder Tin, TabOrder *Tout) {
 	*Tout = Tin;
 }
 /* I.S. Tin terdefinisi, sembarang */
 /* F.S. Tout berisi salinan Tin */
 /* Assignment THsl -> Tin */
-void SetEl (TabInt *T, IdxType i, ElType v) {
-	(*T).TI[i] = v;
+void SetEl (TabOrder *T, IdxType i, ElType v) {
+	(*T).TI[i].Name = v.Name;
+	(*T).TI[i].TableNo = v.TableNo;							// Haruskah
 	if (i > NbElmt(*T)) {
 		SetNeff(T, (NbElmt(*T) + 1));
 	}
@@ -61,7 +62,7 @@ void SetEl (TabInt *T, IdxType i, ElType v) {
 /* I.S. T terdefinisi, sembarang */
 /* F.S. Elemen T yang ke-i bernilai v */
 /* Mengeset nilai elemen tabel yang ke-i sehingga bernilai v */
-void SetNeff (TabInt *T, IdxType N) {
+void SetNeff (TabOrder *T, IdxType N) {
 	(*T).Neff = N;
 }
 /* I.S. T terdefinisi, sembarang */
@@ -69,13 +70,13 @@ void SetNeff (TabInt *T, IdxType N) {
 /* Mengeset nilai indeks elemen efektif sehingga bernilai N */
 
 /* ********** Test Indeks yang valid ********** */
-boolean IsIdxValid (TabInt T, IdxType i) {
+boolean IsIdxValid (TabOrder T, IdxType i) {
 	return ((i >= IdxMin) && (i <= IdxMax));
 }
 /* Prekondisi : i sembarang */
 /* Mengirimkan true jika i adalah indeks yang valid utk ukuran tabel */
 /* yaitu antara indeks yang terdefinisi utk container*/
-boolean IsIdxEff (TabInt T, IdxType i) {
+boolean IsIdxEff (TabOrder T, IdxType i) {
 	if ((i >= GetFirstIdx(T)) && (i <= GetLastIdx(T))) {
 		return true;
 	}
@@ -87,7 +88,7 @@ boolean IsIdxEff (TabInt T, IdxType i) {
 
 /* ********** TEST KOSONG/PENUH ********** */
 /* *** Test tabel kosong *** */
-boolean IsEmpty (TabInt T) {
+boolean IsEmpty (TabOrder T) {
 	if (NbElmt(T) == 0) {
 		return true;
 	}
@@ -95,7 +96,7 @@ boolean IsEmpty (TabInt T) {
 }
 /* Mengirimkan true jika tabel T kosong, mengirimkan false jika tidak */
 /* *** Test tabel penuh *** */
-boolean IsFull (TabInt T) {
+boolean IsFull (TabOrder T) {
 	if (NbElmt(T) == IdxMax) {
 		return true;
 	}
@@ -104,7 +105,7 @@ boolean IsFull (TabInt T) {
 /* Mengirimkan true jika tabel T penuh, mengirimkan false jika tidak */
 
 /* ********** BACA dan TULIS dengan INPUT/OUTPUT device ********** */
-void TulisIsi (TabInt T) {
+void TulisIsi (TabOrder T) {
 	int i;
 	
 	if (NbElmt(T) == 0) {
@@ -128,8 +129,8 @@ void TulisIsi (TabInt T) {
 
 /* ********** OPERATOR ARITMATIKA ********** */
 /* *** Aritmatika tabel : Penjumlahan, pengurangan, perkalian, ... *** */
-TabInt PlusTab (TabInt T1, TabInt T2) {
-	TabInt T;
+TabOrder PlusTab (TabOrder T1, TabOrder T2) {
+	TabOrder T;
 	int i;
 	
 	MakeEmpty(&T);
@@ -141,8 +142,8 @@ TabInt PlusTab (TabInt T1, TabInt T2) {
 }
 /* Prekondisi : T1 dan T2 berukuran sama dan tidak kosong */
 /* Mengirimkan T1 + T2 */
-TabInt MinusTab (TabInt T1, TabInt T2) {
-	TabInt T;
+TabOrder MinusTab (TabOrder T1, TabOrder T2) {
+	TabOrder T;
 	int i;
 	
 	MakeEmpty(&T);
@@ -156,7 +157,7 @@ TabInt MinusTab (TabInt T1, TabInt T2) {
 /* Mengirimkan T1 - T2 */
 
 /* ********** NILAI EKSTREM ********** */
-ElType ValMax (TabInt T) {
+ElType ValMax (TabOrder T) {
 	int max;
 	int i;
 	
@@ -172,7 +173,7 @@ ElType ValMax (TabInt T) {
 /* Prekondisi : Tabel T tidak kosong */
 /* Mengirimkan nilai maksimum tabel */
 
-ElType ValMin (TabInt T) {
+ElType ValMin (TabOrder T) {
 	int min;
 	int i;
 	
@@ -189,7 +190,7 @@ ElType ValMin (TabInt T) {
 /* Mengirimkan nilai minimum tabel */
 
 /* *** Mengirimkan indeks elemen bernilai ekstrem *** */
-IdxType IdxMaxTab (TabInt T) {
+IdxType IdxMaxTab (TabOrder T) {
 	int max, index, i;
 	
 	index = IdxMin;
@@ -206,7 +207,7 @@ IdxType IdxMaxTab (TabInt T) {
 /* Prekondisi : Tabel T tidak kosong */
 /* Mengirimkan indeks i dengan elemen ke-i adalah nilai maksimum pada tabel */
 
-IdxType IdxMinTab (TabInt T) {
+IdxType IdxMinTab (TabOrder T) {
 	int min, index, i;
 	
 	index = IdxMin;

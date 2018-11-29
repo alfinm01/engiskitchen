@@ -23,16 +23,17 @@ typedef struct {
 	POINT Position;				/* Posisi pemain P */
 	int Life;					/* Nyawa tersisa */
 	int Money;					/* Jumlah uang yang didapat */
-	JAM Time;					/* Waktu lama bermain */
+	int Time;					/* Waktu lama bermain */
 	JAM SaveTime;				/* Waktu saat melakukan Save */
 	// TabInt Order;			/* Order yang diterima dari pelanggan (berisi "nama makanan, nomor meja") */
 		/* Perlu ada perubahan di tipe data Array */
-	Stack FoodStack;			/* Makanan yang berada di nampan */	/* !Stack berisi infotype Foods! */
+	// Stack FoodStack;			/* Makanan yang berada di nampan */	/* !Stack berisi infotype Foods! */
 	// Queue WaitingCustomer;	/* Antrean pelanggan (berisi "jumlah pelanggan", 2 atau 4) */
 	// char *Object;				/* Object yang berada di dekat player */
 	int TableAround;			/* Nomor meja yang berada di dekat player */
 	int KitchenAround;			/* Nomor meja dapur yang berada di dekat player */
 	boolean IsInMain;			/* True jika player berada di map Main */
+	int GenerateNextCust;		/* Menyimpan waktu untuk meng-generate next customer */
 } States;
 
 #define NameP(S) (S).Name

@@ -6,7 +6,7 @@ void Place(POINT P, Queue *QC, Tables *T, JAM *J) {
 	/* Kamus Lokal */
 	int JumlahOrang, Kursi, NoMeja;
 	boolean full, dekat;
-	
+
 	/* Algoritma */
 	DekatMeja(P, &NoMeja, &Kursi, &full, &dekat);
 	if(dekat) {
@@ -25,7 +25,7 @@ void Place(POINT P, Queue *QC, Tables *T, JAM *J) {
 			printf("Meja Penuh!");
 		}
 	} else {
-		printf("Tidak ada meja disekitarmu!");
+		printf("Tidak ada meja di sekitarmu!");
 	}
 	/*Timer();													// Bikin fungsi timer (kurangi tick, tambah time)
 	ReprintUI();*/
@@ -35,11 +35,16 @@ void Place(POINT P, Queue *QC, Tables *T, JAM *J) {
 /* Command ini digunakan untuk menaruh pelanggan di meja yang kosong.
 Pelanggan yang ditaruh adalah pelanggan pada top of queue */
 
-void Order(States State) {
+void Order(States *State, Table T, TabOrder *TO) {
 	/* Kamus Lokal */	
+	TabOrder OrderTemp;
 
 	/* Algoritma */
-	Around(State.Position /* Returning Nomor Meja */);
+	OrderTemp.Name = T[DetectAroundMain((*State).Position)].Customer.Order;
+	OrderTemp.TableNo = T[DetectAroundMain((*State).Position)].Customer.Amount;
+
+	// Memasukkan order ke ArrayOrder
+	SetEl(TO, (GetLastIdx(TO) + 1), OrderTemp);
 }
 /* I.S. --- */
 /* F.S. --- */

@@ -9,7 +9,7 @@
 #define Nil NULL
 
 typedef struct {
-	int Number;				/* Customer keberapa */
+	// int Number;				/* Customer keberapa */
 	int Amount;				/* Jumlah orang (2 atau 4) */
 	char Order[20];			/* Makanan yang ingin dipesan */
 	int QueueingTime;		/* Waktu kesabaran ketika mengantre (30 tick) */
