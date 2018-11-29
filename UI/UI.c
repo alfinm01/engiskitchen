@@ -163,12 +163,11 @@ void printBatas() {
 	printf(" \n");
 }
 
-void Map(MATRIKS *M, char JenisRuang) {
+void Map(MATRIKS *M, boolean Main) {
 	/* Kamus */
 	int i, j;
-	
 	/* Algoritma */
-	if (JenisRuang == 'M') {
+	if (Main) {
 		AssignMatriks(M, 'M');
 		for(i = 1; i<=17; i++) {
 			printf(" ");
@@ -208,7 +207,7 @@ void Map(MATRIKS *M, char JenisRuang) {
 		}
 		printf("\n");
 	}
-	else if (JenisRuang == 'K') {
+	else {
 		AssignMatriks(M, 'K');
 		for(i = 1; i<=17; i++) {
 			printf(" ");

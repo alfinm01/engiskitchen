@@ -7,9 +7,9 @@
 
 /* Ukuran minimum dan maksimum baris dan kolom */
 #define BrsMin 1
-#define BrsMax 100
+#define BrsMax 8
 #define KolMin 1
-#define KolMax 100
+#define KolMax 8
 
 typedef int indeks; /* indeks baris, kolom */
 typedef int ElType; 
@@ -83,7 +83,7 @@ MATRIKS TambahMATRIKS (MATRIKS M1, MATRIKS M2);
 /* Mengirim hasil penjumlahan matriks: M1 + M2 */ 
 MATRIKS KurangMATRIKS (MATRIKS M1, MATRIKS M2);
 /* Prekondisi : M berukuran sama dengan M */
-/* Mengirim hasil pengurangan matriks: salinan M1 – M2 */ 
+/* Mengirim hasil pengurangan matriks: salinan M1 ï¿½ M2 */ 
 MATRIKS KaliMATRIKS (MATRIKS M1, MATRIKS M2);
 /* Prekondisi : Ukuran kolom efektif M1 = ukuran baris efektif M2 */
 /* Mengirim hasil perkalian matriks: salinan M1 * M2 */
@@ -119,7 +119,7 @@ boolean IsSatuan (MATRIKS M);
 /* Mengirimkan true jika M adalah matriks satuan: IsBujurSangkar(M) dan 
    setiap elemen diagonal M bernilai 1 dan elemen yang bukan diagonal bernilai 0 */ 
 boolean IsSparse (MATRIKS M);
-/* Mengirimkan true jika M adalah matriks sparse: mariks “jarang” dengan definisi: 
+/* Mengirimkan true jika M adalah matriks sparse: mariks ï¿½jarangï¿½ dengan definisi: 
    hanya maksimal 5% dari memori matriks yang efektif bukan bernilai 0 */ 
 MATRIKS Inverse1 (MATRIKS M);
 /* Menghasilkan salinan M dengan setiap elemen "di-invers", yaitu dinegasikan (dikalikan -1) */

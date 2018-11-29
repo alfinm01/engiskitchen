@@ -21,6 +21,6 @@
 
 boolean BisaJalan(char *arah, MATRIKS M, POINT P);
 
-void move(char *command, POINT *P, JAM *J, MATRIKS M);
+void move(char *command, POINT *P, JAM *J, MATRIKS M, boolean B);
 
 #endif

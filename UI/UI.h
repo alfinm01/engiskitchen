@@ -9,7 +9,7 @@
 
 void AssignMatriks(MATRIKS *M, char JenisRuang);
 void printBatas();
-void Map(MATRIKS *M, char JenisRuang);
+void Map(MATRIKS *M, boolean Main);
 void PrintUI(MATRIKS *M, char JenisRuang);
 
 
