@@ -323,8 +323,8 @@ void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time
 		printf(" | ");					// array
 		lengthArrayA = strlen(A.order[i].name);
 		SpaceA = 23 - lengthArrayA;
-		printf("%s, " , A.order[i].name);
-		printf("%d", A.order[i].TableNo);
+		printf("%s, " , A.Order[i].Name);
+		printf("%d", A.Order[i].TableNo);
 		for (i=1 ; i<=SpaceA; i++) {
 			printf(" ");
 		}

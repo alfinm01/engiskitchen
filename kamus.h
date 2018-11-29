@@ -105,8 +105,9 @@ void Order(POINT Position, TableArray T, TabOrder *TO);
 
 /***** STACK FUNCTION *****/
 
-void Give();
-void Take();
+void Give(POINT Position, TableArray *T, TabOrder *TO, Stack *S, boolean *RightCommand);
+void DeleteOrder(TabOrder *TO, int IdxOrder);
+void Take(POINT Position, KitchenArray K, Stack *S, boolean *RightCommand);
 
 /***** UI FUNCTION *****/
 
