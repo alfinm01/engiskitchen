@@ -7,9 +7,13 @@
 #include "string.h"
 #include "stdio.h"
 
-void AssignMatriks(MATRIKS *M, char JenisRuang);
+void printMoney(int money);
+void printLife(int life);
+void printTime(int time);
+void printNama(char *name);
+void AssignMatriks(MATRIKS *M, boolean Main, POINT Player);
 void printBatas();
-void Map(MATRIKS *M, char JenisRuang);
-void PrintUI(MATRIKS *M, char JenisRuang, char *name, int money, int life, int time);
+void Map(MATRIKS *M, boolean Main, POINT Player);
+void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time, POINT Player);
 
 #endif
