@@ -151,7 +151,7 @@ void InitFood(Foods *Food, int FoodCounter) {
 	}
 }
 
-void InitKitchen(Kitchens *Kitchen, int KitchenCounter, Foods Food) {
+void InitKitchen(Kitchens *Kitchen, int KitchenCounter, Foods Food) {		// Point Kitchen masukin Food ga?
 	/* Kamus */
 	char filename[] = "GameKitchen.txt";
 	int i = 0;

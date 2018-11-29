@@ -201,5 +201,68 @@ void Putar (POINT *P, float Sudut){
 		*full = IsFull(T);
 	} else {
 		dekat = false;
-	}	
+	}
 }*/
+
+int DetectAroundMain(POINT PositionP) {
+	if (Panjang(PositionP, MakePOINT(2, 2)) <= 2) {
+		return 1;
+	}
+	else if (Panjang(PositionP, MakePOINT(2, 7)) <= 2) {
+		return 2;
+	}
+	else if (Panjang(PositionP, MakePOINT(7, 2)) <= 2) {
+		return 3;
+	}
+	else if (Panjang(PositionP, MakePOINT(7, 7)) <= 2) {
+		return 4;
+	}
+}
+
+int DetectAroundKitchen(POINT PositionP) {
+	if (Panjang(PositionP, MakePOINT(1, 1)) <= 1) {
+		return 1;
+	}
+	else if (Panjang(PositionP, MakePOINT(2, 1)) <= 1) {
+		return 2;
+	}
+	else if (Panjang(PositionP, MakePOINT(3, 1)) <= 1) {
+		return 3;
+	}
+	else if (Panjang(PositionP, MakePOINT(4, 1)) <= 1) {
+		return 4;
+	}
+	else if (Panjang(PositionP, MakePOINT(5, 1)) <= 1) {
+		return 5;
+	}
+	else if (Panjang(PositionP, MakePOINT(6, 1)) <= 1) {
+		return 6;
+	}
+	else if (Panjang(PositionP, MakePOINT(7, 1)) <= 1) {
+		return 7;
+	}
+	else if (Panjang(PositionP, MakePOINT(8, 1)) <= 1) {
+		return 8;
+	}
+	else if (Panjang(PositionP, MakePOINT(5, 4)) <= 1) {
+		return 9;
+	}
+	else if (Panjang(PositionP, MakePOINT(5, 5)) <= 1) {
+		return 10;
+	}
+	else if (Panjang(PositionP, MakePOINT(8, 4)) <= 1) {
+		return 11;
+	}
+	else if (Panjang(PositionP, MakePOINT(8, 5)) <= 1) {
+		return 12;
+	}
+	else if (Panjang(PositionP, MakePOINT(8, 6)) <= 1) {
+		return 13;
+	}
+	else if (Panjang(PositionP, MakePOINT(8, 7)) <= 1) {
+		return 14;
+	}
+	else if (Panjang(PositionP, MakePOINT(8, 8)) <= 1) {
+		return 15;
+	}
+}

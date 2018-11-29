@@ -29,7 +29,10 @@ typedef struct {
 		/* Perlu ada perubahan di tipe data Array */
 	Stack FoodStack;			/* Makanan yang berada di nampan */	/* !Stack berisi infotype Foods! */
 	// Queue WaitingCustomer;	/* Antrean pelanggan (berisi "jumlah pelanggan", 2 atau 4) */
-	char *Object;				/* Object yang berada di dekat player */
+	// char *Object;				/* Object yang berada di dekat player */
+	int TableAround;
+	int KitchenAround;
+	boolean IsInMain;			//
 } States;
 
 #define NameP(S) (S).Name
