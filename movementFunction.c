@@ -12,78 +12,68 @@ boolean BisaJalan(char arah[5], MATRIKS M, POINT P) {
     }
 }
 
-void GoUp(POINT *P, int *J, MATRIKS M, MATRIKS K, boolean Main) {
+void GoUp(POINT *P, MATRIKS M, MATRIKS K, boolean Main) {
     if (Main) {
         if (BisaJalan("UP", M, *P)) {
         *P = NextY(*P);
-        *J--;
         } else {
             printf("Gabisa gerak");
         }
     } else {
         if (BisaJalan("UP", K, *P)) {
             *P = NextY(*P);
-            *J--;
         } else if (IsPointPintu(*P)) {
             Main = false;
-            *J--;
         } else {
             printf("Gabisa gerak");
         }
     }
 }
 
-void GoDown(POINT *P, int *J, MATRIKS M, MATRIKS K, boolean Main) {
+void GoDown(POINT *P, MATRIKS M, MATRIKS K, boolean Main) {
     if (Main) {
         if (BisaJalan("DOWN", M, *P)) {
         *P = PrevY(*P);
-        *J--;
         } else {
             printf("Gabisa gerak");
         }
     } else {
         if (BisaJalan("DOWN", K, *P)) {
             *P = PrevY(*P);
-            *J--;
         } else if (IsPointPintu(*P)) {
             Main = true;
-            *J--;
         } else {
             printf("Gabisa gerak");
         }
     }
 }
 
-void GoRight(POINT *P, int *J, MATRIKS M, MATRIKS K, boolean Main) {
+void GoRight(POINT *P, MATRIKS M, MATRIKS K, boolean Main) {
     if (Main) {
         if (BisaJalan("RIGHT", M, *P)) {
             *P = NextX(*P);
-            *J--;
         } else {
             printf("Gabisa gerak");
         }
     } else {
         if (BisaJalan("RIGHT", K, *P)) {
             *P = NextX(*P);
-            *J--;
         } else {
             printf("Gabisa gerak");
         }
     }
 }
 
-void GoLeft(POINT *P, int *J, MATRIKS M, MATRIKS K, boolean Main) {
+void GoLeft(POINT *P, MATRIKS M, MATRIKS K, boolean Main) {
     if (Main) {
         if (BisaJalan("LEFT", M, *P)) {
             *P = NextY(*P);
-            *J--;
         } else {
             printf("Gabisa gerak");
         }
     } else {
         if (BisaJalan("LEFT", K, *P)) {
             *P = NextY(*P);
-            *J--;
         } else {
             printf("Gabisa gerak");
         }

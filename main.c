@@ -7,32 +7,34 @@
 
 void Game(States *State, MATRIKS *MainRoom, MATRIKS *KitchenRoom, TableArray *T, FoodArray *F, KitchenArray *K, TabOrder *TOrder, Queue *QCust, Stack *FoodStack) {
 	/* KAMUS */
-	char *command;
+	char command[20];
+	int i;
+	boolean finish = false;
 
 	/* ALGORITMA */
 	system("cls");
-	PrintUI(MainRoom, (*State).IsInMain, (*State).Name, (*State).Money, (*State).Life, (*State).Time, (*State).Position, *QCust, *FoodStack, *TOrder);
+
+	PrintUI(MainRoom, (*State).IsInMain, (*State).Name, (*State).Money, (*State).Life, (*State).Time, (*State).Position, *QCust, *FoodStack, *TOrder, *T);
 	if ((*State).IsInMain) {
-		PrintUI(MainRoom, (*State).IsInMain, (*State).Name, (*State).Money, (*State).Life, (*State).Time, (*State).Position, *QCust, *FoodStack, *TOrder);
+		PrintUI(MainRoom, (*State).IsInMain, (*State).Name, (*State).Money, (*State).Life, (*State).Time, (*State).Position, *QCust, *FoodStack, *TOrder, *T);
 	}
 		uiCommand();
 	do {
 		printf("\n");
 		printf("Command : ");
-		scanf("%s", command);
-		getchar();													// Untuk mengambil hanya nilai char dari variabel
+		gets(command);													// Untuk mengambil hanya nilai char dari variabel
 		printf("\n");
 		if (strcmp(command, "GU") == 0){
-			GoUp(&(*State).Position, &(*State).Time, *MainRoom, *KitchenRoom, (*State).IsInMain);
+			GoUp(&(*State).Position, *MainRoom, *KitchenRoom, (*State).IsInMain);
 		}
 		else if (strcmp(command, "GD") == 0){
-			GoDown(&(*State).Position, &(*State).Time, *MainRoom, *KitchenRoom, (*State).IsInMain);
+			GoDown(&(*State).Position, *MainRoom, *KitchenRoom, (*State).IsInMain);
 		}
 		else if (strcmp(command, "GR") == 0){
-			GoRight(&(*State).Position, &(*State).Time, *MainRoom, *KitchenRoom, (*State).IsInMain);
+			GoRight(&(*State).Position, *MainRoom, *KitchenRoom, (*State).IsInMain);
 		}
 		else if (strcmp(command, "GL") == 0){
-			GoLeft(&(*State).Position, &(*State).Time, *MainRoom, *KitchenRoom, (*State).IsInMain);
+			GoLeft(&(*State).Position, *MainRoom, *KitchenRoom, (*State).IsInMain);
 		}
 		else if (strcmp(command, "ORDER") == 0){
 			Order((*State).Position, *T, TOrder);
@@ -62,9 +64,9 @@ void Game(States *State, MATRIKS *MainRoom, MATRIKS *KitchenRoom, TableArray *T,
 		        printf("Command salah!\n");
 		        printf("Command : ");
 		}
-	printUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time, POINT Player, Queue Q, Stack S);
-	TickCounter(&State.Time);
-	} while (!exit) && (State.Time <999);;
+		TickCounter(&((*State).Time), QCust, *F);
+		PrintUI(MainRoom, (*State).IsInMain, (*State).Name, (*State).Money, (*State).Life, (*State).Time, (*State).Position, *QCust, *FoodStack, *TOrder, *T);
+	} while ((!finish) /*&& ((*State).Time < 999)*/);
 }
 
 int main() {

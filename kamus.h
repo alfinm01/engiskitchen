@@ -94,10 +94,10 @@ typedef struct {
 boolean BisaJalan(char arah[5], MATRIKS M, POINT P);
 /*void move(char *command, POINT *P, JAM *J, MATRIKS M, boolean B);
 */
-void GoUp(POINT *P, int *J, MATRIKS M, MATRIKS K, boolean Main);
-void GoDown(POINT *P, int *J, MATRIKS M, MATRIKS K, boolean Main);
-void GoRight(POINT *P, int *J, MATRIKS M, MATRIKS K, boolean Main);
-void GoLeft(POINT *P, int *J, MATRIKS M, MATRIKS K, boolean Main);
+void GoUp(POINT *P, MATRIKS M, MATRIKS K, boolean Main);
+void GoDown(POINT *P, MATRIKS M, MATRIKS K, boolean Main);
+void GoRight(POINT *P, MATRIKS M, MATRIKS K, boolean Main);
+void GoLeft(POINT *P, MATRIKS M, MATRIKS K, boolean Main);
 /***** QUEUE FUNCTION *****/
 
 void Place(POINT P, Queue *QC, TableArray *T, JAM *J);
@@ -120,8 +120,8 @@ void printTime(int time);
 void printNama(char *name);
 void AssignMatriks(MATRIKS *M, boolean Main, POINT Player, TableArray T);
 void printBatas();
-void Map(MATRIKS *M, boolean Main, POINT Player);
-void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time, POINT Player, Queue Q, Stack S, TabOrder A);
+void Map(MATRIKS *M, boolean Main, POINT Player, TableArray T);
+void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time, POINT Player, Queue Q, Stack S, TabOrder A, TableArray T);
 void uiHeader();
 void uiMenu();
 void uiCommand ();
@@ -138,8 +138,8 @@ void Load(States *State, Maps *MapMain, Maps *MapKitchen);
 void ReadState(States *State);
 
 /***** OTHER FUNCTION *****/
-void TickCounter(States *State);
-void GenerateCustomer(States State, Queue *QCust, FoodArray F);
-void Game(States State, MATRIKS MainRoom, MATRIKS KitchenRoom, TableArray T, FoodArray F, KitchenArray K, TabOrder TOrder);
+void TickCounter(int *Time, Queue *QCust, FoodArray F);
+void GenerateCustomer(Queue *QCust, FoodArray F);
+void Game(States *State, MATRIKS *MainRoom, MATRIKS *KitchenRoom, TableArray *T, FoodArray *F, KitchenArray *K, TabOrder *TOrder, Queue *QCust, Stack *FoodStack);
 void minLife (States *State);
 #endif

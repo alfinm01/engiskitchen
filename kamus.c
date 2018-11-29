@@ -1,13 +1,14 @@
 #include "kamus.h"
 
-void TickCounter(States *State) {
+void TickCounter(int *Time, Queue *QCust, FoodArray F) {
 	/* Kamus */
 
     /* Algoritma */
-    (*State).Time++;					// Time dalam int
+    *Time++;					// Time dalam int
+	GenerateCustomer(QCust, F);
 }
 
-void GenerateCustomer(States State, Queue *QCust, FoodArray F) {
+void GenerateCustomer(Queue *QCust, FoodArray F) {
     /* Kamus */
     Customers C;
 

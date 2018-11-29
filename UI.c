@@ -110,6 +110,8 @@ void printNama(char *name){
 		
 }
 void AssignMatriks(MATRIKS *M, boolean Main, POINT Player, TableArray T){
+	int i, j;
+
 	/* Algoritma */
 	for (i=1; i<= 8; i++){
 		for (j=1; j<=8;j++) {
@@ -199,11 +201,11 @@ void printBatas() {
 	printf(" \n");
 }
 
-void Map(MATRIKS *M, boolean Main, POINT Player) {
+void Map(MATRIKS *M, boolean Main, POINT Player, TableArray T) {
 	/* Kamus */
 	int i, j;
 	/* Algoritma */
-	AssignMatriks(M, Main, Player);
+	AssignMatriks(M, Main, Player, T);
 	for(i = 1; i<=17; i++) {
 		printf(" ");
 	}
@@ -243,7 +245,7 @@ void Map(MATRIKS *M, boolean Main, POINT Player) {
 	printf("\n");
 }
 
-void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time, POINT Player, Queue Q, Stack S, TabOrder A) {
+void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time, POINT Player, Queue Q, Stack S, TabOrder A, TableArray T) {
 	/* Kamus */
 	int i,j, infoS, lengthFoodS, SpaceS, SpaceA, lengthArrayA;
 	Customers infoQ;
@@ -280,12 +282,7 @@ void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time
 	printf("  |\n");
 	printBatas();
 	
-	if (Main){
-		Map(M, 'M', Player);
-	}
-	else {
-		Map(M, 'K', Player);
-	}
+	Map(M, Main, Player, T);
 	
 	printBatas();
 	printf("|");							// judul status makanan
@@ -298,7 +295,7 @@ void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time
 	printf("|\n");
 	
 	printBatas();
-	for (i=1; i <=5 ; i++) {
+	for (j=1; j <=5 ; j++) {
 	// status makanan
 		printf("| ");
 		if (IsEmptyQueueList(Q)) {
@@ -312,20 +309,34 @@ void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time
 			printf(" ");
 		}
 		printf(" | ");					// array
-		lengthArrayA = strlen(A.Order[i].Name);
-		SpaceA = 23 - lengthArrayA;
-		printf("%s, " , A.Order[i].Name);
-		printf("%d", A.Order[i].TableNo);
-		for (i=1 ; i<=SpaceA; i++) {
-			printf(" ");
+		if (NbElmt(A) == 0) {
+			for (i=1 ; i<=26; i++) {
+				printf(" ");
+			}
+		}
+		else {
+			lengthArrayA = strlen(A.Order[j].Name);
+			SpaceA = 23 - lengthArrayA;
+			printf("%s, " , A.Order[j].Name);
+			printf("%d", A.Order[j].TableNo);
+			for (i=1 ; i<=SpaceA; i++) {
+				printf(" ");
+			}
 		}
 		printf(" | ");					// stack
-		PopStackList(&S, &FoodS);
-		lengthFoodS = strlen(FoodS.Name);
-		SpaceS = 25-lengthFoodS;
-		printf("%s", FoodS.Name);
-		for (i=1; i<=SpaceS ; i++) {
-			printf(" ");
+		if (IsEmptyStackList(S)) {
+			for (i=1; i<=25 ; i++) {
+				printf(" ");
+			}
+		}
+		else {
+			PopStackList(&S, &FoodS);
+			lengthFoodS = strlen(FoodS.Name);
+			SpaceS = 25-lengthFoodS;
+			printf("%s", FoodS.Name);
+			for (i=1; i<=SpaceS ; i++) {
+				printf(" ");
+			}
 		}
 		printf(" |\n");
 	}
