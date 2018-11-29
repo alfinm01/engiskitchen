@@ -253,9 +253,10 @@ void Map(MATRIKS *M, boolean Main, POINT Player) {
 
 }
 
-void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time, POINT Player) {
+void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time, POINT Player, Queue Q, Stack S) {
 	/* Kamus */
-	int i,j;
+	int i,j, infoQ, infoS, lengthFoodS, SpaceS, SpaceA;
+	char FoodS[25];
 	/* Algoritma */
 	printBatas();
 	printf("|");							// nama ruangan
@@ -309,17 +310,28 @@ void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time
 	for (i=1; i <=5 ; i++) {
 	// status makanan
 		printf("| ");
-		for (i=1; i<=19; i++){
+		if (InfoHead(Q) == Nil) {
 			printf(" ");
 		}
-		printf(" | ");
+		else {
+			DelQueue(&Q, &infoQ);
+			printf("%d",infoQ);
+		}
+		for (i=1; i<=18; i++){
+			printf(" ");
+		}
+		printf(" | ");					// array
 		for (i=1 ; i<=26; i++) {
 			printf(" ");
 		}
-		printf(" | ");
-		for (i=1; i<=25 ; i++) {
+		printf(" | ");					// stack
+		PopStack(&S, &FoodS);
+		lengthFoodS = strlen(FoodS);
+		SpaceS = 25-lengthFoodS;
+		for (i=1; i<=SpaceS ; i++) {
 			printf(" ");
 		}
+		printf("%s", FoodS);
 		printf(" |\n");
 	}
 	printBatas();
