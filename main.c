@@ -12,10 +12,13 @@ int main() {
 	boolean exit;
 	States State;
 	Maps MapMain, MapKitchen;
+	MATRIKS MatriksMain, MatriksKitchen;
 	TableArray T;
 	FoodArray F;
 	KitchenArray K;
 	TabOrder TOrder;
+	Stack FoodStack;
+	Queue QCust;
 
 	/* ALGORITMA */
 
@@ -33,7 +36,7 @@ int main() {
 		printf("\n");
 		switch (command) {
 		    case '1': {
-		        New(&State, &MapMain, &MapKitchen, &T, &F, &K, &TOrder);
+		        New(&State, &MapMain, &MapKitchen, &MatriksMain, &MatriksKitchen, &T, &F, &K, &TOrder, &FoodStack, &QCust);
 		       /* printf("%s\n", State.Name);
 		        for (i = 1; i <= 4; i++) {
 		        	printf("Number%d Chair%d \n", T.Table[i].Number, T.Table[i].Chair);

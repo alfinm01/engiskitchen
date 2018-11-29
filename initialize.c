@@ -1,6 +1,7 @@
 #include "kamus.h"
 
-void New(States *State, Maps *MapMain, Maps *MapKitchen, TableArray *T, FoodArray *F, KitchenArray *K, TabOrder *TOrder) {
+void New(States *State, Maps *MapMain, Maps *MapKitchen, MATRIKS *MatriksMain, MATRIKS *MatriksKitchen,
+		TableArray *T, FoodArray *F, KitchenArray *K, TabOrder *TOrder, Stack *FoodStack, Queue *QCust) {
 	/* Kamus */
 	char userName[20];
 	int i;
@@ -8,6 +9,7 @@ void New(States *State, Maps *MapMain, Maps *MapKitchen, TableArray *T, FoodArra
 	/* Algoritma */
 	system("cls");
 	uiHeader();
+
 	printf("Nama Anda (max 20 karakter): ");							/* State */
 	scanf("%s", &userName);
 	(*State).Name = (char *) malloc (strlen(userName) * sizeof(char));
@@ -21,6 +23,9 @@ void New(States *State, Maps *MapMain, Maps *MapKitchen, TableArray *T, FoodArra
 	InitMap(MapMain, 'M');												/* Map */
 	InitMap(MapKitchen, 'K');
 
+	MakeMATRIKS(MapMain.N, MapMain.M, MatriksMain);						/* Matriks */
+	MakeMATRIKS(MapKitchen.N, MapKitchen.M, MatriksKitchen);
+
 	for (i = 1; i <= 4; i++) {											/* Table */
 		InitTable(&((*T).Table[i]), i);
 	}
@@ -31,6 +36,10 @@ void New(States *State, Maps *MapMain, Maps *MapKitchen, TableArray *T, FoodArra
 	}
 
 	MakeEmpty(TOrder);													/* TOrder */
+
+	CreateEmptyStackList(FoodStack);									/* Stack */
+
+	CreateEmptyQueueList(QCust);										/* Queue */
 
 	system("cls");
 	uiHeader();
@@ -116,8 +125,7 @@ void InitTable(Tables *Table, int TableCounter) {
 void InitFood(Foods *Food, int FoodCounter) {
 	/* Kamus */
 	char filename[] = "GameFood.txt";
-	int i = 0;	// , prevLength = 0, space = 0;
-	// boolean readingName = false;
+	int i = 0;
 
 	/* Algoritma */
 	STARTKATA(filename);
@@ -138,26 +146,6 @@ void InitFood(Foods *Food, int FoodCounter) {
 				printf("%c\n", (*Food).Name[i - 1]);
 			}
 		}
-		/*if (((CKata.TabKata[1] - '0') >= 10) && !readingName) {
-			for (i = 1; i <= CKata.Length; i++) {
-				(*Food).Name[i - 1] = CKata.TabKata[i];
-				printf("%c\n", (*Food).Name[i - 1]);
-			}
-			printf("\n");
-			prevLength = CKata.Length;
-			readingName = true;
-		}
-		else if (((CKata.TabKata[1] - '0') >= 10) && readingName) {
-			(*Food).Name[prevLength] = ' ';
-			space++;
-			printf("%c\n", (*Food).Name[prevLength]);
-			for (i = prevLength + 1; i <= prevLength + CKata.Length; i++) {
-				(*Food).Name[i] = CKata.TabKata[i - prevLength];
-				printf("%c\n", (*Food).Name[i - 1]);
-			}
-			printf("\n");
-			prevLength = prevLength + CKata.Length + space;
-		}*/
 		else if ((CKata.TabKata[1] - '0') < 10) {
 			(*Food).Price = 0;
 			for (i = 1; i <= CKata.Length; i++) {
@@ -217,12 +205,9 @@ void ReadState(States *State) {
 	char filename[] = "GameState.txt", *myrealloced_array;
 	int i, HH, MM, SS, prevLength;
 	boolean readingName = false;
-	// pos = 0;
 
 	/* Algoritma */
 	STARTKATA(filename);
-	/*pos = ftell(file);				// Memberi tahu posisi cursor file
-	fseek(filename, pos, SEEK_CUR);		// Memindah posisi cursor file*/
 	ADVKATA();
 
 	while (!EndKata) {
@@ -285,16 +270,6 @@ void ReadState(States *State) {
 			ADVKATA();
 			SS = ((CKata.TabKata[1] - '0') * 10) + (CKata.TabKata[2] - '0');
 			(*State).Time = MakeJAM(HH, MM, SS);
-		}*/
-		/* Read Object */
-		/*else if ((CKata.TabKata[1] == 'O') && (CKata.TabKata[2] == 'b') &&
-			(CKata.TabKata[3] == 'j') && (CKata.TabKata[4] == 'e') &&
-			(CKata.TabKata[5] == 'c') && (CKata.TabKata[6] == 't')) {
-			ADVKATA();
-			(*State).Object = (char *) malloc (CKata.Length * sizeof(char));		// Tambah free?
-			for (i = 1; i <= CKata.Length; i++) {
-				(*State).Object[i - 1] = CKata.TabKata[i];
-			}
 		}*/
 		/* SaveTime ga perlu dibaca (?) */
 		ADVKATA();
