@@ -310,7 +310,7 @@ void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time
 	for (i=1; i <=5 ; i++) {
 	// status makanan
 		printf("| ");
-		if (InfoHead(Q) == Nil) {
+		if (IsEmptyQueueList(Q)) {
 			printf(" ");
 		}
 		else {

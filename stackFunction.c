@@ -9,7 +9,7 @@ void Give(POINT Position, TableArray *T, TabOrder *TO, Stack *S, boolean *RightC
 	/* Algoritma */
 	NoMeja = DetectAround(Position, true);
 	if (NoMeja != 0) {
-		if (strcmp((*S).TOP.Food.Name, (*T).Table[NoMeja].Customer.Order) == 0) {
+		if (strcmp((*S).TOP->Food.Name, (*T).Table[NoMeja].Customer.Order) == 0) {
 			while (!found) {
 				i++;
 				if (((*TO).Order[i].TableNo) == NoMeja) {
@@ -20,7 +20,10 @@ void Give(POINT Position, TableArray *T, TabOrder *TO, Stack *S, boolean *RightC
 				PopStackList(S, &GivenFood);
 				DeleteOrder(TO, i);
 				(*T).Table[NoMeja].IsTableFull = false;
-				(*T).Table[NoMeja].Customer = NULL;			// NULL biasanya diassign ke pointer
+				(*T).Table[NoMeja].Customer.Amount = 0;
+				(*T).Table[NoMeja].Customer.Order = '0';
+				(*T).Table[NoMeja].Customer.QueueingTime = 999;
+				(*T).Table[NoMeja].Customer.Patience = 999;			// NULL biasanya diassign ke pointer
 			}
 		}
 	}
