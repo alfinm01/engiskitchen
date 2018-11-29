@@ -43,11 +43,11 @@ void DeleteOrder(TabOrder *TO, int IdxOrder) {
 void Take(POINT Position, KitchenArray K, Stack *S, boolean *RightCommand) {
 	/* Kamus */
 	int i;
-
+	int NoMejaKitchen;
 	/* Algoritma */
 	NoMejaKitchen = DetectAround(Position, false);
 	if (NoMejaKitchen != 0) {
-		PushStackList(S, K[NoMejaKitchen].Food);
+		PushStackList(S, K.Kitchen[NoMejaKitchen].Food);
 	}
 	else {
 		(*RightCommand) = false;
