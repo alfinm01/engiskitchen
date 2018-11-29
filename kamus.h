@@ -107,6 +107,7 @@ void Order(POINT Position, TableArray T, TabOrder *TO);
 
 void Give();
 void Take();
+void CT(Stack S);
 
 /***** UI FUNCTION *****/
 
