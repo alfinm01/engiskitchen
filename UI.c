@@ -5,7 +5,7 @@
 void printMoney(int money){
 	/* Kamus */
 	int i, idx, spaceLength, moneyLength, digit;
-	Stack s;
+	StackS s;
 	/* Algoritma */
 	if (money == 0) {
 		printf("    0");
@@ -36,7 +36,7 @@ void printMoney(int money){
 void printLife(int life){
 	/* Kamus */
 	int i, idx, spaceLength, lifeLength, digit;
-	Stack s;
+	StackS s;
 	/* Algoritma */
 	if (life == 0) {
 		printf(" 0");
@@ -67,7 +67,7 @@ void printLife(int life){
 void printTime(int time){
 	/* Kamus */
 	int i, idx, spaceLength, timeLength, digit;
-	Stack s;
+	StackS s;
 	/* Algoritma */
 	if (time == 0) {
 		printf("  0");
@@ -255,8 +255,9 @@ void Map(MATRIKS *M, boolean Main, POINT Player) {
 
 void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time, POINT Player, Queue Q, Stack S, TabOrder A) {
 	/* Kamus */
-	int i,j, infoQ, infoS, lengthFoodS, SpaceS, SpaceA, lengthArrayA;
-	char FoodS[25];
+	int i,j, infoS, lengthFoodS, SpaceS, SpaceA, lengthArrayA;
+	Customers infoQ;
+	Foods FoodS;
 	/* Algoritma */
 	printBatas();
 	printf("|");							// nama ruangan
@@ -310,29 +311,29 @@ void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time
 	for (i=1; i <=5 ; i++) {
 	// status makanan
 		printf("| ");
-		if (InfoHead(Q) == Nil) {
+		if (IsEmptyQueueList(Q)) {
 			printf(" ");
 		}
 		else {
-			DelQueue(&Q, &infoQ);
+			DelQueueList(&Q, &infoQ);
 			printf("%d",infoQ);
 		}
 		for (i=1; i<=18; i++){
 			printf(" ");
 		}
 		printf(" | ");					// array
-		lengthArrayA = strlen(A.order[i].name);
+		lengthArrayA = strlen(A.Order[i].Name);
 		SpaceA = 23 - lengthArrayA;
-		printf("%s, " , A.order[i].name);
-		printf("%d", A.order[i], TableNo);
+		printf("%s, " , A.Order[i].Name);
+		printf("%d", A.Order[i].TableNo);
 		for (i=1 ; i<=SpaceA; i++) {
 			printf(" ");
 		}
 		printf(" | ");					// stack
-		PopStack(&S, &FoodS);
-		lengthFoodS = strlen(FoodS);
+		PopStackList(&S, &FoodS);
+		lengthFoodS = strlen(FoodS.Name);
 		SpaceS = 25-lengthFoodS;
-		printf("%s", FoodS);
+		printf("%s", FoodS.Name);
 		for (i=1; i<=SpaceS ; i++) {
 			printf(" ");
 		}

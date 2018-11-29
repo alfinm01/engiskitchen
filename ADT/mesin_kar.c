@@ -1,9 +1,3 @@
-/* File : mesin_kar.c */
-/* Nama : Alfian Maulana Ibrahim */
-/* NIM : 18217038 */
-/* Tanggal : 19 September 2018 */
-/* Deskripsi : Berisi implementasi dari file header mesin_kar.h */
-
 #include "boolean.h"
 #include "mesin_kar.h"
 #include <stdio.h>

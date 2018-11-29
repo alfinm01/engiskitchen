@@ -16,7 +16,7 @@ void New(States *State, Maps *MapMain, Maps *MapKitchen, TableArray *T, FoodArra
 	(*State).Position.X = 4;
 	(*State).Position.Y = 4;
 	(*State).Money = 0;
-	(*State).Time = MakeJAM(0, 0, 0);
+	(*State).Time = 0;
 
 	InitMap(MapMain, 'M');												/* Map */
 	InitMap(MapKitchen, 'K');
@@ -91,7 +91,7 @@ void InitTable(Tables *Table, int TableCounter) {
 	else if ((*Table).Number % 2 == 0) {
 		(*Table).Chair = 2;
 	}
-	(*Table).IsFull = false;
+	(*Table).IsTableFull = false;
 	// (*Table).Customer.Number = NULL;
 	if ((*Table).Number == 1) {
 		(*Table).Position.X = 2;
@@ -274,7 +274,7 @@ void ReadState(States *State) {
 			}
 		}
 		/* Read Time */																// Time dalam bentuk JAM
-		else if ((CKata.TabKata[1] == 'T') && (CKata.TabKata[2] == 'i') &&
+		/*else if ((CKata.TabKata[1] == 'T') && (CKata.TabKata[2] == 'i') &&
 			(CKata.TabKata[3] == 'm') && (CKata.TabKata[4] == 'e')) {
 			ADVKATA();
 			HH = ((CKata.TabKata[1] - '0') * 10) + (CKata.TabKata[2] - '0');
@@ -283,7 +283,7 @@ void ReadState(States *State) {
 			ADVKATA();
 			SS = ((CKata.TabKata[1] - '0') * 10) + (CKata.TabKata[2] - '0');
 			(*State).Time = MakeJAM(HH, MM, SS);
-		}
+		}*/
 		/* Read Object */
 		/*else if ((CKata.TabKata[1] == 'O') && (CKata.TabKata[2] == 'b') &&
 			(CKata.TabKata[3] == 'j') && (CKata.TabKata[4] == 'e') &&

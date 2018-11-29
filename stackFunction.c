@@ -5,9 +5,9 @@ void Give() {
 
 }
 
-void Take(Stack *S) {
-    if (SekitarMejaDapur()) {
-        Pop(&S, Food(K))
-    }
+// void Take(Stack *S) {
+//     if (SekitarMejaDapur()) {
+//         Pop(&S, Food(K))
+//     }
 
-}
+// }

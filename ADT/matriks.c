@@ -63,7 +63,7 @@ boolean IsIdxEff (MATRIKS M, indeks i, indeks j)
 }
 
 
-ElType GetElmtDiagonal (MATRIKS M, indeks i)
+ElTypeM GetElmtDiagonal (MATRIKS M, indeks i)
 /* Mengirimkan elemen M(i,i) */
 {
   return Elmt(M,i,i);
@@ -196,7 +196,7 @@ MATRIKS KaliMATRIKS (MATRIKS M1, MATRIKS M2)
 }
 
 
-MATRIKS KaliKons (MATRIKS M, ElType X)
+MATRIKS KaliKons (MATRIKS M, ElTypeM X)
 /* Mengirim hasil perkalian setiap elemen M dengan X */
 {
   MATRIKS A;
@@ -212,7 +212,7 @@ MATRIKS KaliKons (MATRIKS M, ElType X)
 }
 
 
-void PKaliKons (MATRIKS * M, ElType K)
+void PKaliKons (MATRIKS * M, ElTypeM K)
 /* I.S. M terdefinisi, K terdefinisi */
 /* F.S. Mengalikan setiap elemen M dengan K */
 {

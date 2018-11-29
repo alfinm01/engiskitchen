@@ -1,6 +1,8 @@
 /* File : engiskitchenexpansion.c */
 /* Deskripsi : Engi's Kitchen versi Dinner Dash */
 
+
+
 #include "kamus.h"
 
 int main() {
@@ -62,7 +64,7 @@ int main() {
 		        printf("%d\n", State.Money);
 		        TulisPOINT(State.Position);
 		        printf("\n");
-		        TulisJAM(State.Time);
+		        //TulisJAM(State.Time);
 		        printf("\n");
 		        //printf("%s\n", State.Object);
 		        printf("%d %d\n", MapMain.N, MapKitchen.M);

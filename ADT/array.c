@@ -1,6 +1,7 @@
 /* File : array.c */
 /* Deskripsi : Berisi implementasi dari file header array.h, penempatan elemen selalu rapat kiri */
 
+#include <stdio.h>
 #include "boolean.h"
 #include "array.h"
 
@@ -39,7 +40,7 @@ IdxType GetLastIdx (TabOrder T) {
 /* Mengirimkan indeks elemen terakhir */
 /* *** Menghasilkan sebuah elemen *** */
 ElType GetElmt (TabOrder T, IdxType i) {
-	return T.TI[i];
+	return T.Order[i];
 }
 /* Prekondisi : Tabel tidak kosong, i antara FirstIdx(T)..LastIdx(T) */
 /* Mengirimkan elemen tabel yang ke-i */
@@ -52,9 +53,9 @@ void SetTab (TabOrder Tin, TabOrder *Tout) {
 /* I.S. Tin terdefinisi, sembarang */
 /* F.S. Tout berisi salinan Tin */
 /* Assignment THsl -> Tin */
-void SetEl (TabOrder *T, IdxType i, ElType v) {
-	(*T).TI[i].Name = v.Name;
-	(*T).TI[i].TableNo = v.TableNo;							// Haruskah
+void SetEl (TabOrder *T, IdxType i, TabOrder v) {
+	(*T).Order[i].Name = v.Order[1].Name;
+	(*T).Order[i].TableNo = v.Order[1].TableNo;							// Haruskah
 	if (i > NbElmt(*T)) {
 		SetNeff(T, (NbElmt(*T) + 1));
 	}
@@ -70,13 +71,13 @@ void SetNeff (TabOrder *T, IdxType N) {
 /* Mengeset nilai indeks elemen efektif sehingga bernilai N */
 
 /* ********** Test Indeks yang valid ********** */
-boolean IsIdxValid (TabOrder T, IdxType i) {
+boolean IsIdxValidArray (TabOrder T, IdxType i) {
 	return ((i >= IdxMin) && (i <= IdxMax));
 }
 /* Prekondisi : i sembarang */
 /* Mengirimkan true jika i adalah indeks yang valid utk ukuran tabel */
 /* yaitu antara indeks yang terdefinisi utk container*/
-boolean IsIdxEff (TabOrder T, IdxType i) {
+boolean IsIdxEffArray (TabOrder T, IdxType i) {
 	if ((i >= GetFirstIdx(T)) && (i <= GetLastIdx(T))) {
 		return true;
 	}
@@ -113,7 +114,7 @@ void TulisIsi (TabOrder T) {
 	}
 	else {
 		for (i = IdxMin; i <= NbElmt(T); i++) {
-			printf("%d:%d\n", i, T.TI[i]);
+			printf("%d:%d\n", i, T.Order[i]);
 		}
 	}
 }
@@ -126,101 +127,3 @@ void TulisIsi (TabOrder T) {
 3:6
 */
 /* Jika T kosong : Hanya menulis "Tabel kosong" */	
-
-/* ********** OPERATOR ARITMATIKA ********** */
-/* *** Aritmatika tabel : Penjumlahan, pengurangan, perkalian, ... *** */
-TabOrder PlusTab (TabOrder T1, TabOrder T2) {
-	TabOrder T;
-	int i;
-	
-	MakeEmpty(&T);
-	for (i = IdxMin; i <= NbElmt(T1); i++) {
-		SetEl(&T, i, (GetElmt(T1, i) + GetElmt(T2, i)));
-	}
-	SetNeff(&T, NbElmt(T1));
-	return T;
-}
-/* Prekondisi : T1 dan T2 berukuran sama dan tidak kosong */
-/* Mengirimkan T1 + T2 */
-TabOrder MinusTab (TabOrder T1, TabOrder T2) {
-	TabOrder T;
-	int i;
-	
-	MakeEmpty(&T);
-	for (i = IdxMin; i <= NbElmt(T1); i++) {
-		SetEl(&T, i, (GetElmt(T1, i) - GetElmt(T2, i)));
-	}
-	SetNeff(&T, NbElmt(T1));
-	return T;
-}
-/* Prekondisi : T1 dan T2 berukuran sama dan tidak kosong */
-/* Mengirimkan T1 - T2 */
-
-/* ********** NILAI EKSTREM ********** */
-ElType ValMax (TabOrder T) {
-	int max;
-	int i;
-	
-	max = GetElmt(T, IdxMin);
-	for (i = IdxMin; i <= NbElmt(T); i++) {
-		if (GetElmt(T, i) > max) {
-			max = GetElmt(T, i);
-		};
-	}
-	
-	return max;
-}
-/* Prekondisi : Tabel T tidak kosong */
-/* Mengirimkan nilai maksimum tabel */
-
-ElType ValMin (TabOrder T) {
-	int min;
-	int i;
-	
-	min = GetElmt(T, IdxMin);
-	for (i = IdxMin; i <= NbElmt(T); i++) {
-		if (GetElmt(T, i) < min) {
-			min = GetElmt(T, i);
-		};
-	}
-	
-	return min;
-}
-/* Prekondisi : Tabel T tidak kosong */
-/* Mengirimkan nilai minimum tabel */
-
-/* *** Mengirimkan indeks elemen bernilai ekstrem *** */
-IdxType IdxMaxTab (TabOrder T) {
-	int max, index, i;
-	
-	index = IdxMin;
-	max = GetElmt(T, IdxMin);
-	for (i = IdxMin; i <= NbElmt(T); i++) {
-		if (GetElmt(T, i) > max) {
-			max = GetElmt(T, i);
-			index = i;
-		};
-	}
-	
-	return index;
-}
-/* Prekondisi : Tabel T tidak kosong */
-/* Mengirimkan indeks i dengan elemen ke-i adalah nilai maksimum pada tabel */
-
-IdxType IdxMinTab (TabOrder T) {
-	int min, index, i;
-	
-	index = IdxMin;
-	min = GetElmt(T, IdxMin);
-	for (i = IdxMin; i <= NbElmt(T); i++) {
-		if (GetElmt(T, i) < min) {
-			min = GetElmt(T, i);
-			index = i;
-		};
-	}
-	
-	return index;
-}
-/* Prekondisi : Tabel tidak kosong */
-/* Mengirimkan indeks i */
-/* dengan elemen ke-i nilai minimum pada tabel */

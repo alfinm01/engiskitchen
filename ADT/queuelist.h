@@ -8,31 +8,31 @@
 
 #define Nil NULL
 
+// typedef struct tCust * infotypeQ;
 typedef struct {
 	// int Number;				/* Customer keberapa */
 	int Amount;				/* Jumlah orang (2 atau 4) */
-	char Order[20];			/* Makanan yang ingin dipesan */
+	char *Order;			/* Makanan yang ingin dipesan */
 	int QueueingTime;		/* Waktu kesabaran ketika mengantre (30 tick) */
 	int Patience;			/* Waktu kesabaran ketika menunggu di meja */
 } Customers;					/* Customer di-generate secara random */
 
 #define Amount(C) (C).Amount
-#define Order(C) (C).Order
 #define QueueingTime(C) (C).QueueingTime
 #define Patience(C) (C).Patience
 
-/* Deklarasi infotype */
-typedef Customers infotype;
+/* Deklarasi infotypeQ */
+typedef Customers infotypeQ;
 /* Queue dengan representasi berkait dengan pointer */
-typedef struct tElmtQueue * address;
+typedef struct tElmtQueue * addressQueueList;
 typedef struct tElmtQueue {
-	infotype Customer;
-	address Next;
+	infotypeQ Info;
+	addressQueueList Next;
 } ElmtQueue;
 /* Type queue dengan ciri HEAD dan TAIL : */
 typedef struct {
-	address HEAD; /* alamat penghapusan */
-	address TAIL; /* alamat penambahan */
+	addressQueueList HEAD; /* alamat penghapusan */
+	addressQueueList TAIL; /* alamat penambahan */
 } Queue;
 
 /* Selektor */
@@ -43,12 +43,12 @@ typedef struct {
 #define Next(P) (P)->Next
 #define Info(P) (P)->Info
 /* Prototype manajemen memori */
-void AlokasiQueueList (address *P, infotype X);
+void AlokasiQueueList (addressQueueList *P, infotypeQ X);
 /* I.S. Sembarang */
 /* F.S. Alamat P dialokasi, jika berhasil maka Info(P)=X dan
  Next(P)=Nil */
 /* P=Nil jika alokasi gagal */
-void DealokasiQueueList (address *P);
+void DealokasiQueueList (addressQueueList *P);
 /* I.S. P adalah hasil alokasi, P != Nil */
 /* F.S. Alamat P didealokasi, dikembalikan ke sistem */
 
@@ -61,13 +61,13 @@ void CreateEmptyQueueList(Queue * Q);
 /* I.S. sembarang */
 /* F.S. Sebuah Q kosong terbentuk */
 /*** Primitif Add/Delete ***/
-void AddQueueList (Queue * Q, infotype X);
+void AddQueueList (Queue * Q, infotypeQ X);
 /* Proses: Mengalokasi X dan menambahkan X pada bagian TAIL dari Q
  jika alokasi berhasil; jika alokasi gagal Q tetap */
 /* Pada dasarnya adalah proses insert last */
 /* I.S. Q mungkin kosong */
 /* F.S. X menjadi TAIL, TAIL "maju" */
-void DelQueueList (Queue * Q, infotype * X);
+void DelQueueList (Queue * Q, infotypeQ * X);
 /* Proses: Menghapus X pada bagian HEAD dari Q dan mendealokasi
  elemen HEAD */
 /* Pada dasarnya operasi delete first */
