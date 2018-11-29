@@ -62,8 +62,9 @@ void Game(States *State, MATRIKS *MainRoom, MATRIKS *KitchenRoom, TableArray *T,
 		        printf("Command salah!\n");
 		        printf("Command : ");
 		}
-	PrintUI(MainRoom, (*State).IsInMain, (*State).Name, (*State).Money, (*State).Life, (*State).Time, (*State).Position, *QCust, *FoodStack, *TOrder);
-	} while (!exit);
+	printUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time, POINT Player, Queue Q, Stack S);
+	TickCounter(&State.Time);
+	} while (!exit) && (State.Time <999);;
 }
 
 int main() {

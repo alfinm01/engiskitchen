@@ -118,7 +118,7 @@ void printMoney(int money);
 void printLife(int life);
 void printTime(int time);
 void printNama(char *name);
-void AssignMatriks(MATRIKS *M, boolean Main, POINT Player);
+void AssignMatriks(MATRIKS *M, boolean Main, POINT Player, TableArray T);
 void printBatas();
 void Map(MATRIKS *M, boolean Main, POINT Player);
 void PrintUI(MATRIKS *M, boolean Main, char *name, int money, int life, int time, POINT Player, Queue Q, Stack S, TabOrder A);
@@ -140,6 +140,6 @@ void ReadState(States *State);
 /***** OTHER FUNCTION *****/
 void TickCounter(States *State);
 void GenerateCustomer(States State, Queue *QCust, FoodArray F);
-void Game(States *State, MATRIKS *MainRoom, MATRIKS *KitchenRoom, TableArray *T, FoodArray *F, KitchenArray *K, TabOrder *TOrder, Queue *QCust, Stack *FoodStack);
-
+void Game(States State, MATRIKS MainRoom, MATRIKS KitchenRoom, TableArray T, FoodArray F, KitchenArray K, TabOrder TOrder);
+void minLife (States *State);
 #endif

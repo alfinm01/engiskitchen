@@ -28,3 +28,10 @@ void GenerateCustomer(States State, Queue *QCust, FoodArray F) {
     }
 }
 
+void minLife (States *State) {
+	/* Kamus */
+	
+	/* Algoritma */
+	(*State).Life--;
+}
+
