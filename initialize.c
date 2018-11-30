@@ -19,26 +19,27 @@ void New(States *State, Maps *MapMain, Maps *MapKitchen, MATRIKS *MatriksMain, M
 	(*State).Position.Y = 4;
 	(*State).Money = 0;
 	(*State).Time = 0;
+	(*State).IsInMain = true;
 
 	InitMap(MapMain, 'M');												/* Map */
 	InitMap(MapKitchen, 'K');
-	printf("MakeMatriks\n");
+
 	MakeMATRIKS(8, 8, MatriksMain);						/* Matriks */
 	MakeMATRIKS(8, 8, MatriksKitchen);
-	printf("selesai bikin matriks\n");
+
 	for (i = 1; i <= 4; i++) {											/* Table */
 		InitTable(&((*T).Table[i]), i);
 	}
-	printf("forinit\n");
+
 	for (i = 1; i <= 15; i++) {											/* Food & Kitchen */
 		InitFood(&((*F).Food[i]), i);
 		InitKitchen(&((*K).Kitchen[i]), i, (F)->Food[i]);
 	}
-	printf("MakeEmpty\n");
+
 	MakeEmpty(TOrder);													/* TOrder */
-	printf("Createstacklist\n");
+
 	CreateEmptyStackList(FoodStack);									/* Stack */
-	printf("Createquueueulist\n");
+
 	CreateEmptyQueueList(QCust);										/* Queue */
 
 	system("cls");
@@ -52,28 +53,22 @@ void InitMap(Maps *Map, char MapType) {
 	char filename[] = "GameMap.txt";
 
 	/* Algoritma */
-	printf("fhfhgf\n");
 	STARTKATA(filename);
-	printf("%c\n", CKata.TabKata[1]);
 	ADVKATA();
-	printf("%c\n", CKata.TabKata[1]);
 
 	while (!EndKata) {
 		if (CKata.TabKata[1] == 'N') {
 			ADVKATA();
 			(*Map).N = CKata.TabKata[1] - '0';
-			printf("hah\n");
 		}
 		else if (CKata.TabKata[1] == 'M') {
 			ADVKATA();
 			(*Map).M = CKata.TabKata[1] - '0';
-			printf("huh\n");
 		}
 		else if ((CKata.TabKata[1] == 'D') && (CKata.TabKata[2] == 'M')) {
 			if (MapType == 'M') {
 				ADVKATA();
 				(*Map).D.X = CKata.TabKata[1] - '0';
-				printf("Oioi %d\n", (*Map).D.X);
 				ADVKATA();
 				(*Map).D.Y = CKata.TabKata[1] - '0';
 			}
@@ -88,7 +83,6 @@ void InitMap(Maps *Map, char MapType) {
 		}
 		ADVKATA();
 	}
-	printf("%c\n", CKata.TabKata[1]);
 }
 
 void InitTable(Tables *Table, int TableCounter) {
@@ -137,26 +131,18 @@ void InitFood(Foods *Food, int FoodCounter) {
 		ADVKATA();
 	}
 
-	printf("%c\n", CKata.TabKata[1]);
-
 	while ((!EndKata) && (CKata.TabKata[1] != '|')) {
-		printf("masuk\n");
 		if (((CKata.TabKata[1] - '0') >= 10)) {
-			printf("masuk pembacaan kata\n");
 			(*Food).Name = (char *) malloc (CKata.Length * sizeof(char));
 			for (i = 1; i <= CKata.Length; i++) {
 				(*Food).Name[i - 1] = CKata.TabKata[i];
-				printf("%c\n", (*Food).Name[i - 1]);
 			}
 		}
 		else if ((CKata.TabKata[1] - '0') < 10) {
-			printf("masuk pembacaan harga\n");
 			(*Food).Price = 0;
 			for (i = 1; i <= CKata.Length; i++) {
 				(*Food).Price = ((*Food).Price * 10) + (CKata.TabKata[i] - '0');
-				printf("%d\n", (*Food).Price);
 			}
-			printf("\n");
 		}
 		ADVKATA();
 	}
@@ -177,8 +163,6 @@ void InitKitchen(Kitchens *Kitchen, int KitchenCounter, Foods Food) {		// Point 
 		ADVKATA();
 	}
 
-	printf("%c\n", CKata.TabKata[1]);
-
 	while ((!EndKata) && (CKata.TabKata[1] != '|')) {
 		if ((CKata.TabKata[1] - '0') < 10) {
 			(*Kitchen).Position.X = (CKata.TabKata[1] - '0');
@@ -189,19 +173,41 @@ void InitKitchen(Kitchens *Kitchen, int KitchenCounter, Foods Food) {		// Point 
 	}
 
 	(*Kitchen).Food = Food;
-	printf("%c\n", Food.Name[i]);
-	printf("%c\n", (*Kitchen).Food.Name[i]);
 	(*Kitchen).Number = KitchenCounter;
 }
 
-void Load(States *State, Maps *MapMain, Maps *MapKitchen) {
+void Load(States *State, Maps *MapMain, Maps *MapKitchen, MATRIKS *MatriksMain, MATRIKS *MatriksKitchen,
+		TableArray *T, FoodArray *F, KitchenArray *K, TabOrder *TOrder, Stack *FoodStack, Queue *QCust) {
 	/* Kamus */
+	int i;
 
 	/* Algoritma */
 	ReadState(State);
 	InitMap(MapMain, 'M');												/* Map */
 	InitMap(MapKitchen, 'K');
 
+	MakeMATRIKS(8, 8, MatriksMain);						/* Matriks */
+	MakeMATRIKS(8, 8, MatriksKitchen);
+
+	for (i = 1; i <= 4; i++) {											/* Table */
+		InitTable(&((*T).Table[i]), i);
+	}
+
+	for (i = 1; i <= 15; i++) {											/* Food & Kitchen */
+		InitFood(&((*F).Food[i]), i);
+		InitKitchen(&((*K).Kitchen[i]), i, (F)->Food[i]);
+	}
+
+	MakeEmpty(TOrder);													/* TOrder */
+
+	CreateEmptyStackList(FoodStack);									/* Stack */
+
+	CreateEmptyQueueList(QCust);										/* Queue */
+
+	system("cls");
+	uiHeader();
+	printf("Hai, %s!\n", (*State).Name);
+	printf("\nSelamat bermain :D\n");
 }
 
 void ReadState(States *State) {

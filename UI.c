@@ -371,18 +371,17 @@ void uiCommand () {
 	/* Kamus */
 
 	/* Algoritma */
-	uiHeader();
-	printf("           GD (Go Down)\n");
-	printf("           GU (Go Up)\n");
-	printf("           GL (Go Left)\n");
-	printf("           GR (Go Right)\n");
-	printf("           ORDER\n");
-	printf("           TAKE\n");
-	printf("           CT (Clear Tray)\n");
-	printf("           PLACE\n");
-	printf("           GIVE\n");
-	printf("           SAVE\n");
-	printf("           LOAD\n");
-	printf("           EXIT\n");
+	//uiHeader();
+	printf("                             GD (Go Down)\n");
+	printf("                              GU (Go Up)\n");
+	printf("                             GL (Go Left)\n");
+	printf("                             GR (Go Right)\n");
+	printf("                                ORDER\n");
+	printf("                                TAKE\n");
+	printf("                            CT (Clear Tray)\n");
+	printf("                                PLACE\n");
+	printf("                                GIVE\n");
+	printf("                                SAVE\n");
+	printf("                                QUIT\n");
 
 }

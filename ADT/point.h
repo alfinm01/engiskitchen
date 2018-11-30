@@ -49,7 +49,7 @@ boolean IsOnSbX (POINT P);
 /* Menghasilkan true jika P terletak Pada sumbu X */
 boolean IsOnSbY (POINT P);
 /* Menghasilkan true jika P terletak pada sumbu Y */
-/*boolean IsPointPintu (POINT P, Maps MapMain, Maps MapKitchen);*/
+boolean IsPointPintu (POINT P, boolean Main);
 
 boolean BatasAtas(POINT P);
 

@@ -133,7 +133,8 @@ void InitMap(Maps *Map, char MapType);
 void InitTable(Tables *Table, int TableCounter);
 void InitFood(Foods *Food, int FoodCounter);
 void InitKitchen(Kitchens *Kitchen, int KitchenCounter, Foods Food);
-void Load(States *State, Maps *MapMain, Maps *MapKitchen);
+void Load(States *State, Maps *MapMain, Maps *MapKitchen, MATRIKS *MatriksMain, MATRIKS *MatriksKitchen,
+		TableArray *T, FoodArray *F, KitchenArray *K, TabOrder *TOrder, Stack *FoodStack, Queue *QCust);
 void ReadState(States *State);
 
 /***** OTHER FUNCTION *****/

@@ -1,1 +1,1 @@
-State Name Alfin Dwi Ariq Nathiq Life 6 Position 4 4 Money 500 Time 00 00 24 SaveTime 23 59 59 .
+State Name Alfin Dwi Ariq Nathiq Life 6 Position 4 4 Money 500 Time 00 00 24 SaveTime 00 00 59 .

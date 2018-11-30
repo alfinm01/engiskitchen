@@ -21,7 +21,7 @@ void Give(POINT Position, TableArray *T, TabOrder *TO, Stack *S) {
 				DeleteOrder(TO, i);
 				(*T).Table[NoMeja].IsTableFull = false;
 				(*T).Table[NoMeja].Customer.Amount = 0;
-				(*T).Table[NoMeja].Customer.Order = '0';
+				(*T).Table[NoMeja].Customer.Order = "0";
 				(*T).Table[NoMeja].Customer.QueueingTime = 999;
 				(*T).Table[NoMeja].Customer.Patience = 999;			// NULL biasanya diassign ke pointer
 			}
@@ -56,5 +56,5 @@ void CT(Stack *S) {
 
     P = Top(*S);
     DealokasiStackList(&P);
-    CreateEmptyStackList(&S);
+    CreateEmptyStackList(S);
 }

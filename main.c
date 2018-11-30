@@ -15,9 +15,6 @@ void Game(States *State, MATRIKS *MainRoom, MATRIKS *KitchenRoom, TableArray *T,
 	system("cls");
 
 	PrintUI(MainRoom, (*State).IsInMain, (*State).Name, (*State).Money, (*State).Life, (*State).Time, (*State).Position, *QCust, *FoodStack, *TOrder, *T);
-	if ((*State).IsInMain) {
-		PrintUI(MainRoom, (*State).IsInMain, (*State).Name, (*State).Money, (*State).Life, (*State).Time, (*State).Position, *QCust, *FoodStack, *TOrder, *T);
-	}
 	do {
 		printf("\n");
 		uiCommand();
@@ -66,21 +63,27 @@ void Game(States *State, MATRIKS *MainRoom, MATRIKS *KitchenRoom, TableArray *T,
 		        printf("Command salah!\n");
 		        printf("Command : ");
 		}
-		TulisPOINT((*State).Position);
 		TickCounter(&((*State).Time), QCust, *F);
 		PrintUI(MainRoom, (*State).IsInMain, (*State).Name, (*State).Money, (*State).Life, (*State).Time, (*State).Position, *QCust, *FoodStack, *TOrder, *T);
 	} while ((!finish) /*&& ((*State).Time < 999)*/);
 
+	system("cls");
 	printf("\n\n\n");
-	printf("CREDIT\n\n");
+	printf("              CREDIT\n\n");
 	printf("Name: %s\n", (*State).Name);
 	printf("Life: %d\n", (*State).Life);
 	printf("Time: ");
 	TulisJAM(DetikToJAM((*State).Time));
 	printf("\n");
-	printf("Money: %d\n", (*State).Money);
-	printf("Terima kasih telah bermain!\n");
-	printf("Have a nice day :D");
+	printf("Money: %d\n\n", (*State).Money);
+	printf("    Terima kasih telah bermain!\n");
+	printf("         Have a nice day :D\n\n");
+	printf("           HELL'S KITCHEN\n");
+	printf("                By\n");
+	printf("Ariq Radhitama Ariasatya - 18217017\n");
+	printf(" Mohammad Nathiq Ulman - 18217023\n");
+	printf("          Dcp - 18217029\n");
+	printf("          Silf - 1821703\n");
 }
 
 int main() {
@@ -146,17 +149,18 @@ int main() {
 		    }
 		    case '3': {
 		        printf("Load Game\n");
-		        Load(&State, &MapMain, &MapKitchen);
-		        printf("%s\n", State.Name);
-		        printf("%d\n", State.Life);
-		        printf("%d\n", State.Money);
-		        TulisPOINT(State.Position);
-		        printf("\n");
-		        //TulisJAM(State.Time);
-		        printf("\n");
-		        printf("%d %d\n", MapMain.N, MapKitchen.M);
-		        TulisPOINT(MapMain.D);
-		        printf("\n");
+		        Load(&State, &MapMain, &MapKitchen, &MatriksMain, &MatriksKitchen, &T, 
+					&F, &K, &TOrder, &FoodStack, &QCust);
+		        // printf("%s\n", State.Name);
+		        // printf("%d\n", State.Life);
+		        // printf("%d\n", State.Money);
+		        // TulisPOINT(State.Position);
+		        // printf("\n");
+		        // //TulisJAM(State.Time);
+		        // printf("\n");
+		        // printf("%d %d\n", MapMain.N, MapKitchen.M);
+		        // TulisPOINT(MapMain.D);
+		        // printf("\n");
 		        break;
 		    }
 		    case '4': {

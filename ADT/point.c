@@ -68,9 +68,9 @@ boolean IsOnSbY (POINT P){
 }
 boolean IsPointPintu (POINT P, boolean Main) {
 	if (Main) {
-		return EQPoint(P, MakePOINT(8, 5));
+		return EQPoint(P, MakePOINT(5, 8));
 	} else {
-		return EQPoint(P, MakePOINT(1, 5));
+		return EQPoint(P, MakePOINT(5, 1));
 	}
 }
 boolean BatasAtas(POINT P) {

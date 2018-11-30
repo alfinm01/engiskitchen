@@ -36,9 +36,9 @@ void Place(POINT P, Queue *QC, TableArray *T) {
 	NoMeja = DetectAround(P, true);
 	if (NoMeja != 0) {
 		if (!((*T).Table[NoMeja].IsTableFull)) {
-			while (Info(Q).Amount != Nil) {
+			while (Info(Q).Amount != 0) {
 				if ((*T).Table[NoMeja].IsTableFull >= InfoHead(*QC).Amount) {
-					DelQueueList(&Q, &C);
+					DelQueueList(QC, &C);
 					(*T).Table[NoMeja].IsTableFull = true;
 					(*T).Table[NoMeja].Customer = C;
 					printf("Penempatan Berhasil!\n");
